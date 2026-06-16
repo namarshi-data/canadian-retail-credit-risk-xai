@@ -1,2 +1,5 @@
-# canadian-retail-credit-risk-xai
-End-to-end Canadian retail credit risk analytics project using XGBoost, Random Forest, SHAP, Deepchecks, and governance documentation to predict loan defaults, monitor portfolio risk, explain borrower-level decisions, evaluate model performance, and support transparent, fair, auditable lending in Canadian banking and risk analytics.
+# Canadian Retail Credit Risk Analytics: Explainable Default Prediction, Portfolio Monitoring & Model Governance
+
+An end-to-end credit risk analytics and explainable machine learning solution for retail loan default prediction. The project includes data quality assessment, feature engineering, class imbalance handling, XGBoost and 
+Random Forest modelling, hyperparameter tuning, SHAP-based explainability, individual prediction interpretation, counterfactual analysis, model diagnostics, and governance documentation aligned with Canadian financial 
+risk management expectations.
