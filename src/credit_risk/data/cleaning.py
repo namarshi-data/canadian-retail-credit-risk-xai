@@ -83,7 +83,13 @@ def add_missing_indicators(df: pd.DataFrame, columns: Iterable[str]) -> pd.DataF
 
 
 def build_model_feature_policy() -> pd.DataFrame:
-    """Document how potentially problematic columns should be handled later."""
+    """Document how potentially problematic columns should be handled later.
+
+    The policy is intentionally conservative. It separates variables that are
+    appropriate for portfolio monitoring from variables that should be excluded
+    from the baseline early-warning model because of leakage, fairness, proxy,
+    or governance concerns.
+    """
     rows = [
         {
             "column": "user_id",
@@ -114,6 +120,21 @@ def build_model_feature_policy() -> pd.DataFrame:
             "column": "interest_received",
             "recommended_use": "exclude_from_baseline_model",
             "reason": "May be post-outcome repayment information.",
+        },
+        {
+            "column": "payment_to_amount_ratio",
+            "recommended_use": "exclude_from_baseline_model",
+            "reason": "Derived from post-origination repayment information; useful for monitoring but leakage-prone for default prediction.",
+        },
+        {
+            "column": "principal_to_amount_ratio",
+            "recommended_use": "exclude_from_baseline_model",
+            "reason": "Derived from received principal; may reveal repayment outcome information.",
+        },
+        {
+            "column": "interest_to_amount_ratio",
+            "recommended_use": "exclude_from_baseline_model",
+            "reason": "Derived from interest received; may reveal repayment/outcome timing.",
         },
         {
             "column": "gender",
@@ -147,7 +168,6 @@ def build_model_feature_policy() -> pd.DataFrame:
         },
     ]
     return pd.DataFrame(rows)
-
 
 def clean_credit_risk_dataset(df: pd.DataFrame) -> CleaningResult:
     """Clean the merged credit risk dataset while preserving auditability.

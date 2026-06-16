@@ -1,0 +1,15 @@
+metric,value
+row_count,134417.0
+default_count,12153.0
+non_default_count,122264.0
+default_rate_pct,9.04126710163149
+amount_missing_rate_pct,20.561387324519963
+total_exposure,14698519888.0
+defaulted_exposure,876761833.0
+defaulted_exposure_share_pct,5.964966810813353
+median_loan_amount,76549.0
+median_income,62000.0
+average_interest_rate,12.024809957073881
+median_loan_to_income_ratio,1.2359375
+core_data_quality_issue_rate_pct,22.642225313762395
+broad_data_quality_issue_rate_pct,86.6906715668405

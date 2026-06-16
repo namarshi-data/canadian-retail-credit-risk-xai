@@ -1,0 +1,65 @@
+feature,dtype,decision,rationale
+defaulter,int64,target,Outcome variable; never used as predictor.
+record_sequence,int64,exclude_from_model,Identifier or record key; useful for audit but not predictive modelling.
+user_id,int64,exclude_from_model,Identifier or record key; useful for audit but not predictive modelling.
+gender,object,exclude_from_baseline_model,Sensitive or proxy-sensitive field; retain for fairness audit and governance review.
+industry,object,exclude_from_baseline_model,High-cardinality or encrypted field; low interpretability for baseline model.
+interest_received,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+interest_to_amount_ratio,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+married,object,exclude_from_baseline_model,Sensitive or proxy-sensitive field; retain for fairness audit and governance review.
+payment_to_amount_ratio,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+pincode,object,exclude_from_baseline_model,Sensitive or proxy-sensitive field; retain for fairness audit and governance review.
+principal_exceeds_amount_flag,int64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+principal_to_amount_ratio,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+received_principal,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+role,object,exclude_from_baseline_model,High-cardinality or encrypted field; low interpretability for baseline model.
+social_profile,object,exclude_from_baseline_model,Sensitive or proxy-sensitive field; retain for fairness audit and governance review.
+total_payment,float64,exclude_from_baseline_model,"Repayment/outcome-period information; useful for monitoring, not baseline prediction."
+amount,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+amount_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+amount_log1p,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+amount_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+amount_missing_raw_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+amount_non_positive_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+broad_data_quality_issue_count,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+core_data_quality_issue_count,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+delinq_2yrs,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+dependents,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+dependents_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+employment_type,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+employment_type_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+has_broad_data_quality_issue,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+has_core_data_quality_issue,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+has_existing_loans_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+has_prior_delinquency_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+high_amount_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+high_interest_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+high_loan_to_income_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+home,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+income_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+industry_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+industry_placeholder_zero_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+interest_rate,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+interest_rate_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+interest_rate_x_lti,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+is_verified,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+is_verified_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+loan_category,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+loan_to_income_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+loan_to_income_ratio,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+loan_to_income_ratio_log1p,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+low_income_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+married_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+multiple_loans_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+number_of_loans,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+social_profile_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+tenure_band,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+tenure_years,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+tier_of_employment,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+tier_of_employment_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+total_income_pa,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+total_income_pa_log1p,float64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+very_high_loan_to_income_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+work_experience,object,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+work_experience_missing_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.
+work_experience_placeholder_zero_flag,int64,candidate_baseline_feature,Potentially available pre-outcome feature after leakage and proxy review.

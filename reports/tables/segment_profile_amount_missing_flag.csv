@@ -1,0 +1,3 @@
+amount_missing_flag,row_count,default_count,median_income,median_interest_rate,default_rate_pct,portfolio_share_pct,exposure,amount_missing_rate_pct,median_amount,exposure_share_pct,median_loan_to_income_ratio
+1,27638,4457,60000.0,11.84,16.126347782039222,20.561387324519963,,100.0,,,
+0,106779,7696,63000.0,11.84,7.207409696663201,79.43861267548003,14698519888.0,0.0,76549.0,100.0,1.2359375
