@@ -1,0 +1,4 @@
+assumption,value,description
+false_negative_cost,5000.0,Illustrative cost of missing a borrower who later defaults.
+false_positive_cost,500.0,Illustrative operational/customer-friction cost of reviewing a non-default account.
+calibrated_probability_cost_ratio_threshold,0.09090909090909091,Theoretical cutoff if model probabilities were perfectly calibrated.

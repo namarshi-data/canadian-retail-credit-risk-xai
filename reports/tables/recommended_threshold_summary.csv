@@ -1,0 +1,2 @@
+objective,model_name,dataset,threshold,roc_auc,pr_auc,brier_score,accuracy,balanced_accuracy,precision,recall,f1,mcc,review_rate,business_cost,true_negative,false_positive,false_negative,true_positive,default_count,non_default_count
+minimum_cost_review_rate_le_30pct,xgboost_weighted,validation,0.565,0.7511010108925632,0.22939320733623356,0.20409188102458142,0.7262808113871944,0.6781113405527697,0.1896204232448774,0.6193088315962699,0.2903433200462904,0.22393830966964304,0.29529335912314636,5882500.0,13515,4825,694,1129,1823,18340
