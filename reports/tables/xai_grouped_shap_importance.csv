@@ -1,0 +1,48 @@
+raw_feature,feature_label,mean_abs_shap,mean_shap,transformed_feature_count
+interest_rate,Interest Rate,0.6188817807818026,-0.05480244772231284,1
+amount_missing_flag,Amount Missing Flag,0.35838293977826835,0.0803675895507137,1
+broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1705647260174155,-0.050188424689074355,1
+total_income_pa,Total Income Pa,0.13808067207853308,-0.01925551921175793,1
+core_data_quality_issue_count,Core Data Quality Issue Count,0.08564015401078116,-0.0659113198031652,1
+loan_to_income_band,Loan To Income Band,0.07313003220728327,0.023619367996395642,1
+high_interest_flag,High Interest Flag,0.07207349945340927,0.014623957467731088,1
+tenure_years,Tenure Years,0.05998330920209022,-0.01138994226422316,1
+loan_category,Loan Category,0.0533628796699486,0.00012896220588299912,1
+amount,Amount,0.043531298705788986,-0.016451819634390026,1
+loan_to_income_ratio,Loan To Income Ratio,0.04135549907956738,0.01854444636796446,1
+home,Home,0.03866016562832859,-0.0003258597677073946,1
+interest_rate_x_lti,Interest Rate X Lti,0.0345511456313155,-0.019405574217710334,1
+has_core_data_quality_issue,Has Core Data Quality Issue,0.030685925711411984,-0.024945617890140662,1
+interest_rate_band,Interest Rate Band,0.023945776415172683,-0.007785427909420832,1
+tier_of_employment,Tier Of Employment,0.02143011405166908,0.0010098955712819588,1
+work_experience,Work Experience,0.019114827400500266,-0.004395371091358053,1
+tenure_band,Tenure Band,0.018470308677312763,-0.002727273891165775,1
+amount_band,Amount Band,0.017631890261749505,0.007522550059123508,1
+is_verified,Is Verified,0.017239044783297384,-0.0008211887325063193,1
+employment_type,Employment Type,0.014457946989161427,-0.0026670226766533837,1
+delinq_2yrs,Delinq 2Yrs,0.01421896420741056,-0.0021345727807662723,1
+low_income_flag,Low Income Flag,0.013401110314453641,0.0024927024176965157,1
+dependents,Dependents,0.013020704745370797,-0.0017873755969364236,1
+total_income_pa_log1p,Total Income Pa Log1P,0.012693457663723772,-0.005450044008495752,1
+married_missing_flag,Married Missing Flag,0.010300507060601377,0.00010420164073972652,1
+loan_to_income_ratio_log1p,Loan To Income Ratio Log1P,0.010174019975641083,-0.0014498148074538525,1
+industry_missing_flag,Industry Missing Flag,0.009826903317800315,3.4663974663999394e-05,1
+amount_log1p,Amount Log1P,0.008131404161996519,-0.003066678844819156,1
+is_verified_missing_flag,Is Verified Missing Flag,0.004113925983222241,-0.00029229587847657965,1
+employment_type_missing_flag,Employment Type Missing Flag,0.0038716630431008523,0.00020198503441254918,1
+social_profile_missing_flag,Social Profile Missing Flag,0.0036109055006551594,-0.00043748716555758925,1
+income_band,Income Band,0.003482787568071217,0.0001164348854435957,1
+work_experience_missing_flag,Work Experience Missing Flag,0.0029082779720123048,-0.00014310062248569012,1
+has_prior_delinquency_flag,Has Prior Delinquency Flag,0.0024232782887799354,-0.00020786031939011687,1
+dependents_band,Dependents Band,0.002034542512551222,-0.00010464703347436929,1
+number_of_loans,Number Of Loans,0.001987644425719433,-0.0005656837307518193,1
+tier_of_employment_missing_flag,Tier Of Employment Missing Flag,0.0019296968773287518,0.0001538647150549271,1
+has_broad_data_quality_issue,Has Broad Data Quality Issue,0.0003192644976467515,-0.00012569132881859937,1
+has_existing_loans_flag,Has Existing Loans Flag,6.733895173056226e-05,-1.2123271024393035e-05,1
+very_high_loan_to_income_flag,Very High Loan To Income Flag,0.0,0.0,1
+industry_placeholder_zero_flag,Industry Placeholder Zero Flag,0.0,0.0,1
+amount_non_positive_flag,Amount Non Positive Flag,0.0,0.0,1
+multiple_loans_flag,Multiple Loans Flag,0.0,0.0,1
+high_amount_flag,High Amount Flag,0.0,0.0,1
+high_loan_to_income_flag,High Loan To Income Flag,0.0,0.0,1
+work_experience_placeholder_zero_flag,Work Experience Placeholder Zero Flag,0.0,0.0,1
