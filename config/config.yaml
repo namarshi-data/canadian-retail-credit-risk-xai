@@ -1,0 +1,34 @@
+project:
+  name: canadian-retail-credit-risk-xai
+  business_context: Canadian retail lending portfolio risk analytics
+  target_column: defaulter
+
+paths:
+  raw_data: data/raw/Credit_Risk_Dataset.xlsx
+  interim_data: data/interim/credit_risk_merged_interim.csv
+  processed_data: data/processed/credit_risk_model_ready.csv
+  reports_dir: reports
+  figures_dir: reports/figures
+  model_artifacts_dir: reports/model_artifacts
+
+sheets:
+  loan_information:
+    id_column: User_id
+  employment:
+    id_column: User id
+  personal_information:
+    id_column: User id
+  other_information:
+    id_column: User_id
+
+column_standardization:
+  lowercase: true
+  strip_spaces: true
+  replace_spaces_with: "_"
+  remove_special_characters: true
+
+risk_policy:
+  modelling_objective: Early warning default risk prediction for retail borrowers
+  positive_class: 1
+  leakage_review_required: true
+  protected_attribute_review_required: true

@@ -1,0 +1,13 @@
+column,missing_count,missing_pct,unique_values,top_value,top_value_share
+industry,4,0.0,12974,0,84.5
+pincode,0,0.0,844,XX112X,1.18
+role,0,0.0,46,KHMbckjadbckIFGCASEWdkcndwkcnCCM,15.53
+loan_category,0,0.0,7,Consolidation,60.16
+tier_of_employment,79686,59.28,7,B,30.86
+work_experience,4,0.0,7,0,84.5
+home,0,0.0,5,mortgage,48.72
+gender,0,0.0,3,Female,33.4
+is_verified,33507,24.93,3,Not Verified,33.42
+employment_type,79686,59.28,2,Salaried,81.89
+married,45084,33.54,2,Yes,50.19
+social_profile,44846,33.36,2,No,50.14

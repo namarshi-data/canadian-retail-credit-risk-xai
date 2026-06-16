@@ -1,0 +1,8 @@
+metric,value
+rows_before,134417.0
+rows_after,134417.0
+columns_before,25.0
+columns_after,46.0
+target_default_rate_after,0.0904126710163149
+full_duplicate_rows_after,0.0
+record_key_duplicate_count_after,0.0

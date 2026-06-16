@@ -1,0 +1,7 @@
+feature,risk_level,reason
+delinq_2yrs,medium,"Historical delinquency may be valid for existing-borrower early warning, but must match prediction timing."
+total_payment,high,Repayment amount may include post-origination performance and can leak target outcome.
+received_principal,high,Principal received may be observed after loan performance begins.
+interest_received,high,Interest received may be post-outcome repayment behaviour.
+number_of_loans,medium,"Could be valid exposure information, but timing must be confirmed."
+defaulter,target,Target variable; never used as predictor.

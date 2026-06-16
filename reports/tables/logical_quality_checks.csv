@@ -1,0 +1,12 @@
+check,failed_row_count,failed_row_pct
+amount_missing,27619,20.547252207682064
+received_principal_greater_than_amount_when_amount_present,2815,2.094229152562548
+amount_non_positive,19,0.01413511683789997
+interest_rate_outside_0_to_100,0,0.0
+tenure_years_non_positive,0,0.0
+income_non_positive,0,0.0
+dependents_negative,0,0.0
+payment_negative,0,0.0
+received_principal_negative,0,0.0
+interest_received_negative,0,0.0
+number_of_loans_negative,0,0.0

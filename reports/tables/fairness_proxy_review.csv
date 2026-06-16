@@ -1,0 +1,8 @@
+feature,risk_level,reason
+gender,high,Sensitive/protected characteristic; exclude from baseline model and use only for fairness diagnostics if appropriate.
+married,medium,Household/social status proxy; requires governance review.
+dependents,medium,Family status proxy; may need careful treatment.
+home,medium,Wealth and socioeconomic proxy; common in credit risk but should be monitored.
+pincode,high,Geographic proxy; can encode socioeconomic patterns and requires fairness review.
+social_profile,high,Unclear meaning and potential social/behavioural proxy; exclude unless business definition is documented.
+is_verified,medium,Potential operational/verification bias; may be valid but requires interpretation.

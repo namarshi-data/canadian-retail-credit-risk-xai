@@ -1,0 +1,13 @@
+column,recommended_use,reason
+user_id,exclude_from_model,Identifier; useful for joins and audit only.
+record_sequence,exclude_from_model,Technical merge key; no business meaning.
+defaulter,target_only,Target variable; never used as predictor.
+total_payment,exclude_from_baseline_model,May include post-origination repayment behaviour and can create target leakage.
+received_principal,exclude_from_baseline_model,May be observed after the lending decision or outcome window.
+interest_received,exclude_from_baseline_model,May be post-outcome repayment information.
+gender,fairness_audit_only,"Sensitive/proxy field; use for bias diagnostics, not model training."
+married,fairness_audit_or_exclude,Household status proxy; include only with clear governance justification.
+pincode,portfolio_monitoring_or_exclude,Masked geographic field; can encode socioeconomic proxy risk.
+social_profile,exclude_or_governance_review,Unclear business meaning and potential behavioural/social proxy.
+industry,governance_review_before_model,Mostly placeholder or high-cardinality masked values; needs grouping before modelling.
+role,governance_review_before_model,High-cardinality masked values; needs grouping or exclusion.

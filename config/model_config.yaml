@@ -1,0 +1,37 @@
+split:
+  test_size: 0.20
+  validation_size: 0.20
+  random_state: 42
+  stratify: true
+
+metrics:
+  primary_selection_metric: pr_auc
+  secondary_metrics:
+    - roc_auc
+    - recall
+    - precision
+    - f1
+    - balanced_accuracy
+    - matthews_corrcoef
+    - brier_score
+
+models:
+  baseline:
+    logistic_regression:
+      class_weight: balanced
+  tree_models:
+    random_forest:
+      n_estimators: 300
+      class_weight: balanced_subsample
+      random_state: 42
+    xgboost:
+      objective: binary:logistic
+      eval_metric: aucpr
+      random_state: 42
+      tree_method: hist
+
+thresholding:
+  optimize_for: expected_business_cost
+  default_thresholds_to_compare: [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50]
+  false_negative_cost_multiplier: 5
+  false_positive_cost_multiplier: 1

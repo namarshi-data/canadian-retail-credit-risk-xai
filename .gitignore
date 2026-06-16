@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local environment and secrets
+.env
+*.env
+
+# Data files - keep folders, not sensitive/raw data
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Excel / source data
+*.xlsx
+*.xls
+
+# Model artifacts
+*.pkl
+*.joblib
+*.h5
+*.onnx
+reports/model_artifacts/*
+!reports/model_artifacts/.gitkeep
+
+# Experiment tracking
+.neptune/
+mlruns/
+
+# System files
+.DS_Store
+Thumbs.db
