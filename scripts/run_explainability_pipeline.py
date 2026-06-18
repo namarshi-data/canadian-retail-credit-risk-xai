@@ -1,9 +1,4 @@
 from __future__ import annotations
-
-# ============================================================
-# QUIET MODE: suppress expected Notebook 08 warning noise
-# Must run before Deepchecks/joblib/loky workers are started.
-# ============================================================
 import os
 
 # Inherited by joblib/loky child processes, so resource_tracker cleanup
