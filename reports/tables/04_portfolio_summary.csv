@@ -1,0 +1,17 @@
+metric,value
+row_count,134417.0000
+unique_borrower_count,133752.0000
+target_default_rate_pct,9.0413
+default_count,12153.0000
+non_default_count,122264.0000
+total_exposure,14698519888.0000
+average_exposure,137653.6574
+median_exposure,76549.0000
+defaulted_exposure_proxy,876761833.0000
+defaulted_exposure_share_pct,5.9650
+exposure_gini,0.5430
+average_income,72597.9750
+median_income,62000.0000
+amount_missing_flag_rate_pct,20.5614
+has_core_data_quality_issue_rate_pct,22.6422
+has_broad_data_quality_issue_rate_pct,86.6907

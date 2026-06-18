@@ -1,0 +1,4 @@
+split,row_count,row_share_pct,default_count,default_rate_pct
+train,94091,69.9993,8507,9.0412
+validation,20163,15.0003,1823,9.0413
+test,20163,15.0003,1823,9.0413

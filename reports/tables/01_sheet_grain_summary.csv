@@ -1,0 +1,5 @@
+sheet_name,id_column_present,row_count,unique_id_count,duplicate_id_count,max_records_per_id,merge_grain_decision
+loan_information,True,134417,133752,665,2,use_user_id_plus_record_sequence
+employment,True,134417,133752,665,2,use_user_id_plus_record_sequence
+personal_information,True,134417,133752,665,2,use_user_id_plus_record_sequence
+other_information,True,134417,133752,665,2,use_user_id_plus_record_sequence

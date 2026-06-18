@@ -1,0 +1,4 @@
+check,columns_checked,issue_type,failed_row_count,failed_row_pct,status,recommended_action
+amount_missing,amount,missing_value,27619,20.55,Fail,Create amount_missing_flag; assess missingness as potential risk signal
+received_principal_greater_than_amount_when_amount_present,"received_principal, amount",business_rule_violation,2815,2.09,Fail,Review cases where principal repaid exceeds original loan amount
+amount_non_positive,amount,invalid_value,19,0.01,Fail,Review and correct/remove invalid loan amounts

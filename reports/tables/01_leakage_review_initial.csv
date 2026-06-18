@@ -1,0 +1,26 @@
+column,governance_decision,reason
+user_id,exclude_identifier,Identifier/key only.
+loan_category,candidate_after_quality_review,No automatic exclusion at validation stage.
+amount,candidate_after_quality_review,No automatic exclusion at validation stage.
+interest_rate,candidate_after_quality_review,No automatic exclusion at validation stage.
+tenure_years,candidate_after_quality_review,No automatic exclusion at validation stage.
+record_sequence,exclude_identifier,Identifier/key only.
+employment_type,candidate_after_quality_review,No automatic exclusion at validation stage.
+tier_of_employment,candidate_after_quality_review,No automatic exclusion at validation stage.
+industry,candidate_after_quality_review,No automatic exclusion at validation stage.
+role,candidate_after_quality_review,No automatic exclusion at validation stage.
+work_experience,candidate_after_quality_review,No automatic exclusion at validation stage.
+total_income_pa,candidate_after_quality_review,No automatic exclusion at validation stage.
+gender,audit_only_sensitive_or_proxy,Sensitive/proxy-sensitive or hard-to-defend feature.
+married,audit_only_sensitive_or_proxy,Sensitive/proxy-sensitive or hard-to-defend feature.
+dependents,candidate_after_quality_review,No automatic exclusion at validation stage.
+home,candidate_after_quality_review,No automatic exclusion at validation stage.
+pincode,audit_only_sensitive_or_proxy,Sensitive/proxy-sensitive or hard-to-defend feature.
+social_profile,audit_only_sensitive_or_proxy,Sensitive/proxy-sensitive or hard-to-defend feature.
+is_verified,candidate_after_quality_review,No automatic exclusion at validation stage.
+delinq_2yrs,candidate_after_quality_review,No automatic exclusion at validation stage.
+total_payment,monitoring_only_possible_leakage,Repayment-derived field may reveal post-origination behaviour.
+received_principal,monitoring_only_possible_leakage,Repayment-derived field may reveal post-origination behaviour.
+interest_received,monitoring_only_possible_leakage,Repayment-derived field may reveal post-origination behaviour.
+number_of_loans,candidate_after_quality_review,No automatic exclusion at validation stage.
+defaulter,target_only,Outcome variable; never use as predictor.

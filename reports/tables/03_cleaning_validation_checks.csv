@@ -1,0 +1,9 @@
+check,result
+row_count_preserved,True
+target_present,True
+record_sequence_present,True
+record_key_duplicate_count,0
+cleaned_column_count,46
+columns_added_count,21
+columns_removed_count,0
+remaining_missing_value_count,138190

@@ -1,14 +1,115 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "canadian-retail-credit-risk-xai"
 version = "0.1.0"
-description = "Canadian retail credit risk analytics with explainable default prediction, portfolio monitoring, and model governance."
+description = "Canadian retail credit risk analytics with explainable default prediction, portfolio monitoring, threshold strategy, and model governance."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.11"
+authors = [
+{ name = "Namarshi Palit" }
+]
+keywords = [
+"credit-risk",
+"risk-analytics",
+"portfolio-monitoring",
+"default-prediction",
+"explainable-ai",
+"xgboost",
+"shap",
+"model-governance",
+"model-risk-management",
+"banking-analytics",
+]
+classifiers = [
+"Development Status :: 3 - Alpha",
+"Intended Audience :: Financial and Insurance Industry",
+"Intended Audience :: Science/Research",
+"Programming Language :: Python :: 3.10",
+"Topic :: Scientific/Engineering :: Artificial Intelligence",
+"Topic :: Office/Business :: Financial",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["credit_risk*"]
 
 [tool.black]
 line-length = 100
+target-version = ["py310"]
+include = "\\.pyi?$"
+exclude = '''
+/(
+\.git
+| \.venv
+| build
+| dist
+| data
+| reports/model_artifacts
+)/
+'''
 
 [tool.ruff]
 line-length = 100
-src = ["src"]
-select = ["E", "F", "I", "UP", "B"]
+src = ["src", "scripts", "tests"]
+target-version = "py310"
+exclude = [
+".git",
+".venv",
+"**pycache**",
+".ipynb_checkpoints",
+"build",
+"dist",
+"data",
+"reports/model_artifacts",
+]
+
+[tool.ruff.lint]
+select = [
+"E",
+"F",
+"I",
+"UP",
+"B",
+"C4",
+"SIM",
+]
+ignore = [
+"E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/**/*.py" = ["E402"]
+"scripts/*.py" = ["E402"]
+"tests/*.py" = ["S101"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["credit_risk"]
+combine-as-imports = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = [
+"-q",
+"--disable-warnings",
+]
+filterwarnings = [
+"ignore::UserWarning",
+"ignore::FutureWarning",
+]
+
+[tool.coverage.run]
+source = ["src/credit_risk"]
+omit = [
+"*/**init**.py",
+"*/tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+precision = 2

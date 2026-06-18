@@ -1,0 +1,7 @@
+metric,value
+row_count,134417
+column_count,46
+target_present,True
+default_rate_pct,9.0413
+record_key_duplicate_count,0
+source_file,D:\Banking and Finance\Projects\canadian-retail-credit-risk-xai\data\processed\credit_risk_cleaned.csv

@@ -1,0 +1,11 @@
+check,status,evidence
+required_splits_present,pass,train/validation/test split from Notebook 05 was used
+train_only_preprocessing_documented,pass,imputers/encoders/scalers/winsorizer/skew transformer inside pipelines
+xgboost_required_and_fitted,pass,"XGBoost is a core model, not optional"
+random_forest_fitted,pass,Random Forest baseline and tuned challenger fitted
+hyperopt_completed,pass,XGBoost Hyperopt tuning completed
+rf_random_search_completed,pass,Random Forest randomized search completed
+all_model_threshold_comparison_completed,pass,All models compared under validation-selected threshold constraints
+test_used_only_for_confirmation,pass,Test metrics generated after model/threshold selection
+experiment_tracking_saved,pass,Local CSV experiment log saved; Neptune optional
+champion_model_saved,pass,Operational champion model artifact saved

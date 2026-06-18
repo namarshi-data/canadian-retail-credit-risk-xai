@@ -1,0 +1,28 @@
+dataset,column,dtype,column_role,missing_pct,unique_values,business_definition,governance_note
+loan_information,user_id,int64,identifier,0.0,133752,User Id,Join/audit key only; exclude from modelling.
+loan_information,loan_category,object,categorical_feature,0.0,7,Loan Category,Candidate categorical feature subject to cardinality and governance review.
+loan_information,amount,float64,numeric_feature,20.5473,86157,Amount,Candidate analytical feature subject to leakage and quality review.
+loan_information,interest_rate,float64,numeric_feature,0.0,137,Interest Rate,Candidate analytical feature subject to leakage and quality review.
+loan_information,tenure_years,int64,numeric_feature,0.0,2,Tenure Years,Candidate analytical feature subject to leakage and quality review.
+employment,user_id,int64,identifier,0.0,133752,User Id,Join/audit key only; exclude from modelling.
+employment,employment_type,object,categorical_feature,59.2827,2,Employment Type,Candidate categorical feature subject to cardinality and governance review.
+employment,tier_of_employment,object,categorical_feature,59.2827,7,Tier Of Employment,Candidate categorical feature subject to cardinality and governance review.
+employment,industry,object,categorical_feature,0.003,12974,Industry,Candidate categorical feature subject to cardinality and governance review.
+employment,role,object,categorical_feature,0.0,46,Role,Candidate categorical feature subject to cardinality and governance review.
+employment,work_experience,object,categorical_feature,0.003,7,Work Experience,Candidate categorical feature subject to cardinality and governance review.
+employment,total_income_pa,float64,numeric_feature,0.0,11380,Total Income Pa,Candidate analytical feature subject to leakage and quality review.
+personal_information,user_id,int64,identifier,0.0,133752,User Id,Join/audit key only; exclude from modelling.
+personal_information,gender,object,sensitive_or_proxy_review,0.0,3,Gender,Exclude from baseline model; retain for permitted fairness/governance review.
+personal_information,married,object,sensitive_or_proxy_review,33.5404,2,Married,Exclude from baseline model; retain for permitted fairness/governance review.
+personal_information,dependents,int64,numeric_feature,0.0,5,Dependents,Candidate analytical feature subject to leakage and quality review.
+personal_information,home,object,sensitive_or_proxy_review,0.0,5,Home,Exclude from baseline model; retain for permitted fairness/governance review.
+personal_information,pincode,object,sensitive_or_proxy_review,0.0,844,Pincode,Exclude from baseline model; retain for permitted fairness/governance review.
+personal_information,social_profile,object,sensitive_or_proxy_review,33.3633,2,Social Profile,Exclude from baseline model; retain for permitted fairness/governance review.
+personal_information,is_verified,object,categorical_feature,24.9277,3,Is Verified,Candidate categorical feature subject to cardinality and governance review.
+other_information,user_id,int64,identifier,0.0,133752,User Id,Join/audit key only; exclude from modelling.
+other_information,delinq_2yrs,int64,numeric_feature,0.0,22,Delinq 2Yrs,Candidate analytical feature subject to leakage and quality review.
+other_information,total_payment,float64,repayment_or_leakage_monitoring_only,0.0,104202,Total Payment,Monitoring only unless prediction timing proves no leakage.
+other_information,received_principal,float64,repayment_or_leakage_monitoring_only,0.0,42022,Received Principal,Monitoring only unless prediction timing proves no leakage.
+other_information,interest_received,float64,repayment_or_leakage_monitoring_only,0.0,93862,Interest Received,Monitoring only unless prediction timing proves no leakage.
+other_information,number_of_loans,int64,numeric_feature,0.0,5,Number Of Loans,Candidate analytical feature subject to leakage and quality review.
+other_information,defaulter,int64,target,0.0,2,Defaulter,Outcome variable; never use as predictor.

@@ -1,0 +1,14 @@
+engineered_feature,source_columns,transformation_type,business_rationale
+loan_to_income_ratio,"amount, total_income_pa",existing_cleaning_feature,Retained from cleaning because it is a core affordability measure.
+income_to_loan_buffer,"total_income_pa, amount",difference,Captures remaining annual-income buffer after loan amount.
+loan_to_income_missing_flag,"amount, total_income_pa",binary_flag,Identifies unavailable affordability ratio caused by missing or invalid inputs.
+loan_amount_band,amount,fixed_business_band,Supports exposure segmentation without learning cutpoints from the target.
+income_band,total_income_pa,fixed_business_band,Enables income-risk segmentation with stable business thresholds.
+interest_rate_band,interest_rate,fixed_business_band,Groups risk-based pricing levels for monitoring and modelling.
+high_interest_flag,interest_rate,binary_flag,Flags relatively expensive loans that may reflect higher risk pricing.
+tenure_band,tenure_years,fixed_business_band,Supports term-risk segmentation.
+long_tenure_flag,tenure_years,binary_flag,Identifies longer-term loans that may carry different exposure duration.
+loan_to_income_band,loan_to_income_ratio,fixed_business_band,Groups affordability burden using fixed thresholds.
+high_loan_to_income_flag,loan_to_income_ratio,binary_flag,Flags elevated loan burden relative to income.
+borrower_missingness_flag_count,"amount_missing_raw_flag, amount_missing_flag, employment_type_missing_flag, tier_of_employment_missing_flag, industry_missing_flag, work_experience_missing_flag, married_missing_flag, social_profile_missing_flag, is_verified_missing_flag, loan_to_income_missing_flag",row_level_sum,Summarizes source-data incompleteness at borrower-loan level.
+has_any_missingness_flag,borrower_missingness_flag_count,binary_flag,Flags any available missingness-related data-quality issue.

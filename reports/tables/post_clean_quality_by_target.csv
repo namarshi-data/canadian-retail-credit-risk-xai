@@ -1,0 +1,3 @@
+defaulter,row_count,portfolio_share_pct,amount_missing_rate_pct,amount_non_positive_rate_pct,core_quality_issue_rate_pct,broad_quality_issue_rate_pct,median_amount,median_income,median_loan_to_income_ratio
+0,122264,90.96,18.96,0.01,21.21,87.54,78520.0,62500.0,1.26
+1,12153,9.04,36.67,0.02,37.08,78.14,58169.5,55000.0,1.01

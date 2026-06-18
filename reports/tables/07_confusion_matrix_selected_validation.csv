@@ -1,0 +1,5 @@
+dataset,model_name,threshold,actual,predicted,count,cell
+validation,xgboost_weighted_baseline,0.56,non_default,non_default,13491,true_negative
+validation,xgboost_weighted_baseline,0.56,non_default,default_review,4849,false_positive
+validation,xgboost_weighted_baseline,0.56,default,non_default,682,false_negative
+validation,xgboost_weighted_baseline,0.56,default,default_review,1141,true_positive

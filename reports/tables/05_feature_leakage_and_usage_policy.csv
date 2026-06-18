@@ -1,0 +1,59 @@
+feature,feature_family,decision,baseline_model_policy,reason,dtype,missing_count,missing_pct,unique_values
+user_id,identifier,audit_key_only,exclude_from_model,Identifier/audit grain; useful for traceability but not predictive modelling.,int64,0,0.0,133752
+loan_category,loan_terms,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,7
+amount,loan_terms,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",float64,27638,20.5614,86156
+interest_rate,loan_terms,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",float64,0,0.0,137
+tenure_years,loan_terms,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+record_sequence,identifier,audit_key_only,exclude_from_model,Identifier/audit grain; useful for traceability but not predictive modelling.,int64,0,0.0,2
+employment_type,employment_profile,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,3
+tier_of_employment,employment_profile,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,8
+industry,high_cardinality_or_encrypted,audit_or_future_grouping_only,exclude_from_baseline,High-cardinality/encrypted field is not explainable enough for first baseline model.,object,0,0.0,12974
+role,high_cardinality_or_encrypted,audit_or_future_grouping_only,exclude_from_baseline,High-cardinality/encrypted field is not explainable enough for first baseline model.,object,0,0.0,46
+work_experience,employment_profile,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,7
+total_income_pa,affordability,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",float64,0,0.0,11380
+gender,sensitive_or_high_risk_proxy,audit_governance_only,exclude_from_baseline,Sensitive or high-risk proxy field retained for fairness/governance monitoring.,object,0,0.0,3
+married,sensitive_or_high_risk_proxy,audit_governance_only,exclude_from_baseline,Sensitive or high-risk proxy field retained for fairness/governance monitoring.,object,0,0.0,3
+dependents,proxy_governance_review,include_with_governance_monitoring,include_with_monitoring,Potential socioeconomic/operational proxy; can be used only with documented monitoring.,int64,0,0.0,5
+home,proxy_governance_review,include_with_governance_monitoring,include_with_monitoring,Potential socioeconomic/operational proxy; can be used only with documented monitoring.,object,0,0.0,4
+pincode,sensitive_or_high_risk_proxy,audit_governance_only,exclude_from_baseline,Sensitive or high-risk proxy field retained for fairness/governance monitoring.,object,0,0.0,844
+social_profile,sensitive_or_high_risk_proxy,audit_governance_only,exclude_from_baseline,Sensitive or high-risk proxy field retained for fairness/governance monitoring.,object,0,0.0,3
+is_verified,proxy_governance_review,include_with_governance_monitoring,include_with_monitoring,Potential socioeconomic/operational proxy; can be used only with documented monitoring.,object,0,0.0,4
+delinq_2yrs,timing_review,candidate_requires_timing_confirmation,review_before_modelling,May be valid only if known at prediction time; do not include in conservative baseline.,int64,0,0.0,22
+total_payment,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,0,0.0,104202
+received_principal,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,0,0.0,42022
+interest_received,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,0,0.0,93862
+number_of_loans,timing_review,candidate_requires_timing_confirmation,review_before_modelling,May be valid only if known at prediction time; do not include in conservative baseline.,int64,0,0.0,5
+defaulter,target,target_only,exclude_from_features,Target variable; never used as a predictor.,int64,0,0.0,2
+amount_missing_raw_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+amount_non_positive_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+industry_placeholder_zero_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+work_experience_placeholder_zero_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+amount_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+employment_type_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+tier_of_employment_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+industry_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+work_experience_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+married_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+social_profile_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+is_verified_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+loan_to_income_ratio,affordability,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",float64,27638,20.5614,104531
+payment_to_amount_ratio,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,27638,20.5614,106764
+principal_to_amount_ratio,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,27638,20.5614,106248
+interest_to_amount_ratio,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,float64,27638,20.5614,106695
+principal_exceeds_amount_flag,repayment_monitoring,monitoring_only_leakage_risk,exclude_from_baseline,Repayment-derived/post-origination information may leak outcome timing.,int64,0,0.0,2
+core_data_quality_issue_count,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+has_core_data_quality_issue,baseline_candidate,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+broad_data_quality_issue_count,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,4
+has_broad_data_quality_issue,baseline_candidate,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int64,0,0.0,2
+income_to_loan_buffer,affordability,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",float64,27638,20.5614,88823
+loan_to_income_missing_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,2
+loan_amount_band,business_band_feature,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,6
+income_band,business_band_feature,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,5
+interest_rate_band,business_band_feature,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,5
+high_interest_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,2
+tenure_band,business_band_feature,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,2
+long_tenure_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,2
+loan_to_income_band,business_band_feature,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",object,0,0.0,6
+high_loan_to_income_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,2
+borrower_missingness_flag_count,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,11
+has_any_missingness_flag,data_quality_or_binary_flag,include_conservative_baseline,include_in_baseline,"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",int32,0,0.0,2

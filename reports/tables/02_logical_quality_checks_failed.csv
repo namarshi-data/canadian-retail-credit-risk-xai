@@ -1,0 +1,4 @@
+check,columns_checked,issue_type,failed_row_count,failed_row_pct,status,recommended_action
+amount_missing,amount,missing_value,27619,20.5473,Fail,Create flag and retain rows.
+received_principal_greater_than_amount_when_amount_present,"received_principal, amount",business_rule_exception,2815,2.0942,Fail,Document and avoid repayment-derived fields in baseline modelling.
+amount_non_positive,amount,invalid_value,19,0.0141,Fail,Flag and convert to missing in cleaning.

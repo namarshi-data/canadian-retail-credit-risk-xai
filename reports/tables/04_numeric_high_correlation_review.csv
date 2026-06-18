@@ -1,0 +1,17 @@
+feature_1,feature_2,correlation,method,abs_correlation
+payment_to_amount_ratio,principal_to_amount_ratio,0.979629,spearman,0.979629
+payment_to_amount_ratio,interest_to_amount_ratio,0.967336,pearson,0.967336
+payment_to_amount_ratio,principal_to_amount_ratio,0.965298,pearson,0.965298
+total_payment,received_principal,0.963527,pearson,0.963527
+total_payment,received_principal,0.957642,spearman,0.957642
+amount,loan_to_income_ratio,0.902428,spearman,0.902428
+principal_to_amount_ratio,interest_to_amount_ratio,0.867567,pearson,0.867567
+payment_to_amount_ratio,interest_to_amount_ratio,0.857168,spearman,0.857168
+loan_to_income_ratio,payment_to_amount_ratio,-0.807211,spearman,0.807211
+amount,payment_to_amount_ratio,-0.806418,spearman,0.806418
+loan_to_income_ratio,principal_to_amount_ratio,-0.772024,spearman,0.772024
+amount,principal_to_amount_ratio,-0.769418,spearman,0.769418
+principal_to_amount_ratio,interest_to_amount_ratio,0.764560,spearman,0.764560
+amount,interest_to_amount_ratio,-0.760336,spearman,0.760336
+loan_to_income_ratio,interest_to_amount_ratio,-0.751598,spearman,0.751598
+amount,loan_to_income_ratio,0.739571,pearson,0.739571

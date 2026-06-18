@@ -1,0 +1,7 @@
+feature,risk_level,risk_type,baseline_model_policy,reason
+defaulter,target,target,exclude_target,Target variable; never used as predictor.
+total_payment,high,post_origination_repayment,exclude_from_baseline,Repayment amount may include post-origination performance and leak target outcome.
+received_principal,high,post_origination_repayment,exclude_from_baseline,Principal received may be observed after loan performance begins.
+interest_received,high,post_origination_repayment,exclude_from_baseline,Interest received may be post-outcome repayment behaviour.
+delinq_2yrs,medium,timing_dependent_credit_history,review_timing_before_use,Valid only if available at prediction point.
+number_of_loans,medium,timing_dependent_exposure,review_timing_before_use,"Could be valid exposure information, but timing must be confirmed."

@@ -1,0 +1,7 @@
+check,status,value
+row_count_preserved_after_feature_engineering,pass,"raw=134417, engineered=134417, modeling=134417"
+target_present,pass,True
+split_column_present,pass,True
+record_key_duplicate_count,pass,0
+no_high_risk_leakage_fields_in_modeling_dataset,pass,
+no_high_risk_sensitive_proxy_fields_in_modeling_dataset,pass,

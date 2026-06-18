@@ -1,0 +1,6 @@
+area,finding,recommendation,expected_effect
+False negatives,False negatives at threshold: 689,Review missed-default cohorts and consider segment-specific thresholds only if governance allows.,"Reduce missed defaults, possibly at higher review rate."
+False positives,False positives at threshold: 4807,Review high-score non-default cohorts; improve calibration and add affordability/behavioural features if available.,Improve precision and reduce reviewer workload.
+Calibration,Brier score: 0.2014,Consider calibration testing after champion selection; do not change ranking model solely for calibration.,More reliable risk probabilities and threshold interpretation.
+Data and features,"Performance ceiling appears feature-limited, not purely algorithm-limited.","Prioritize leakage-safe repayment trend, utilization, bureau, and affordability features where available.",Potentially higher PR-AUC and better separation between default/non-default accounts.
+Weak segment review,Highest FN-rate segment in fallback diagnostics: segment_weakness::interest_rate_band / 12%-16%,Inspect SHAP drivers and data quality for this segment before deploying segment-specific actions.,Improved governance understanding of model weaknesses.

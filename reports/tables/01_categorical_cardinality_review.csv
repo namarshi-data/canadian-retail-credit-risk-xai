@@ -1,0 +1,13 @@
+dataset,column,unique_values,missing_pct,cardinality_recommendation
+loan_information,loan_category,7,0.0,low_cardinality_one_hot_candidate
+employment,employment_type,2,59.2827,low_cardinality_one_hot_candidate
+employment,tier_of_employment,7,59.2827,low_cardinality_one_hot_candidate
+employment,industry,12974,0.003,high_cardinality_group_or_exclude
+employment,role,46,0.0,medium_cardinality_review_grouping
+employment,work_experience,7,0.003,low_cardinality_one_hot_candidate
+personal_information,gender,3,0.0,low_cardinality_one_hot_candidate
+personal_information,married,2,33.5404,low_cardinality_one_hot_candidate
+personal_information,home,5,0.0,low_cardinality_one_hot_candidate
+personal_information,pincode,844,0.0,high_cardinality_group_or_exclude
+personal_information,social_profile,2,33.3633,low_cardinality_one_hot_candidate
+personal_information,is_verified,3,24.9277,low_cardinality_one_hot_candidate

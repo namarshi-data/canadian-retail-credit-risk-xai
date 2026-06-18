@@ -1,0 +1,17 @@
+concentration_level,metric,value
+borrower,top_1pct_exposure_share_pct,7.8205
+borrower,top_5pct_exposure_share_pct,25.1012
+borrower,top_10pct_exposure_share_pct,40.7779
+borrower,top_20pct_exposure_share_pct,63.4656
+borrower,borrower_exposure_gini,0.6362
+borrower,borrower_exposure_hhi,0.0000
+loan_category,largest_segment_exposure_share_pct,61.2932
+loan_category,segment_exposure_hhi,0.4412
+employment_type,largest_segment_exposure_share_pct,62.0702
+employment_type,segment_exposure_hhi,0.4991
+home,largest_segment_exposure_share_pct,78.5538
+home,segment_exposure_hhi,0.6426
+tier_of_employment,largest_segment_exposure_share_pct,62.0702
+tier_of_employment,segment_exposure_hhi,0.4171
+work_experience,largest_segment_exposure_share_pct,82.4194
+work_experience,segment_exposure_hhi,0.6881

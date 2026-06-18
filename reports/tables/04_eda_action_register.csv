@@ -1,0 +1,6 @@
+area,finding,recommended_action,next_notebook
+Segment risk,Some borrower or loan segments show elevated default rates.,Carry high-risk segment findings into feature engineering and business interpretation.,05_feature_engineering
+Outliers,Some numeric columns have material IQR outlier rates.,Review skewness and use train-only transformations where needed. Do not cap in EDA.,05_feature_engineering
+Multicollinearity,Some numeric features are strongly correlated.,Review for redundant features and modelling stability.,05_feature_engineering
+Sensitive/proxy monitoring,Sensitive or proxy-sensitive fields exist in the data.,Exclude from baseline modelling; retain only for approved governance/fairness review.,05_feature_engineering
+Leakage prevention,Repayment-derived variables exist and may leak target information depending on timing.,Use repayment-derived variables for monitoring only unless prediction timing is formally justified.,05_feature_engineering

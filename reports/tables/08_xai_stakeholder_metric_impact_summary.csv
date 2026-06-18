@@ -1,0 +1,9 @@
+metric,value,interpretation,stakeholder_impact
+Accuracy,0.7274215146555572,Share of all accounts classified correctly at the operating threshold.,Can be misleading when defaults are rare; should not be the primary credit-risk metric.
+Recall,0.6220515633571037,Share of actual defaulters captured by the high-risk rule.,Higher recall reduces missed default risk but can increase manual review volume.
+Precision,0.19087695674128935,Share of reviewed/high-risk accounts that actually defaulted.,Higher precision improves reviewer efficiency and reduces customer friction.
+F1 Score,0.2921174652241113,Harmonic mean of precision and recall.,"Useful single-number trade-off metric, but business-cost and review capacity still matter."
+False Negatives,689.0,Defaults missed by the model threshold.,Usually more expensive in credit risk because missed defaults can become losses.
+False Positives,4807.0,Non-defaulters flagged for review.,Creates operational cost and can affect customer experience.
+Review Rate,0.29464861379755,Share of accounts routed to manual/high-risk review.,Connects model output to staffing capacity and operational feasibility.
+Business Cost,5848500.0,Illustrative cost using false-negative and false-positive assumptions.,Supports threshold choice and model governance discussion.

@@ -1,0 +1,9 @@
+area,decision,next_stage
+Observation grain,Preserve user_id + record_sequence.,Notebook 03 cleaning
+Missing amount,Do not drop rows; create amount_missing_flag and impute later in modelling pipeline.,Notebook 03 / 06
+Invalid amount,Flag non-positive amount and convert to missing in cleaning.,Notebook 03
+Employment missingness,Create flags and fill categorical missing values as Unknown.,Notebook 03
+Placeholder zero,Treat placeholder 0 in industry/work_experience as Unknown/unavailable.,Notebook 03
+Leakage fields,Exclude repayment-derived fields from baseline model; retain for monitoring.,Notebook 03 / 04 / 05
+Sensitive/proxy variables,Retain for governance; exclude high-risk fields from baseline model.,Notebook 03 / 05
+Preprocessing leakage,"Do not fit encoders, scalers, resamplers, or transformations before train/test split.",Notebook 06

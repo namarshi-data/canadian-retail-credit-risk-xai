@@ -1,0 +1,9 @@
+column,dtype,row_count,non_null_count,missing_count,missing_pct,unique_values,complete_pct,missingness_severity
+employment_type,object,134417,54731,79686,59.28,2,40.72,Severe missingness
+tier_of_employment,object,134417,54731,79686,59.28,7,40.72,Severe missingness
+married,object,134417,89333,45084,33.54,2,66.46,High missingness
+social_profile,object,134417,89571,44846,33.36,2,66.64,High missingness
+is_verified,object,134417,100910,33507,24.93,3,75.07,High missingness
+amount,float64,134417,106798,27619,20.55,86157,79.45,High missingness
+industry,object,134417,134413,4,0.0,12974,100.0,No missingness
+work_experience,object,134417,134413,4,0.0,7,100.0,No missingness

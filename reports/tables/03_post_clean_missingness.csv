@@ -1,0 +1,6 @@
+column,dtype,missing_count,missing_pct,unique_values
+amount,float64,27638,20.56,86156
+loan_to_income_ratio,float64,27638,20.56,104531
+payment_to_amount_ratio,float64,27638,20.56,106764
+principal_to_amount_ratio,float64,27638,20.56,106248
+interest_to_amount_ratio,float64,27638,20.56,106695

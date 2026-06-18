@@ -1,0 +1,8 @@
+check,status,detail
+mathematical_numeric_columns_available,True,14
+numeric_profile_created,True,14
+segment_risk_created,True,41
+numeric_vs_target_tests_created,True,14
+categorical_vs_target_tests_created,True,27
+eda_action_register_created,True,5
+ready_for_feature_engineering,True,Notebook 04 outputs generated for Notebook 05 handoff.

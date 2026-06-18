@@ -1,0 +1,5 @@
+sheet_name,row_count,column_count,columns
+loan_information,134417,5,"User_id, Loan Category, Amount, Interest Rate, Tenure(years)"
+Employment,134417,7,"User id, Employmet type, Tier of Employment, Industry, Role, Work Experience, Total Income(PA)"
+Personal_information,134417,8,"User id, Gender, Married, Dependents, Home, Pincode, Social Profile, Is_verified"
+Other_information,134417,7,"User_id, Delinq_2yrs, Total Payement , Received Principal, Interest Received, Number of loans, Defaulter"

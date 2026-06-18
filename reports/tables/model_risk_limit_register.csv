@@ -1,7 +1,7 @@
 metric,baseline,warning_limit,breach_limit,monitoring_frequency,action
 Population Stability Index - overall score,Training/test score distribution,> 0.10,> 0.25,Monthly,"Investigate portfolio shift, data pipeline changes, and score calibration."
 Key feature PSI - top SHAP drivers,Training/test feature distributions,> 0.10,> 0.25,Monthly,Review feature distribution shift and retraining need.
-Operating review rate,29.11%,> 34.11%,> 39.11%,Weekly/monthly,Review threshold capacity and manual-review staffing impact.
-Recall on matured labels,61.49%,< 56.49%,< 51.49%,Monthly after labels mature,Assess missed-default concentration and model refresh need.
-Precision on reviewed accounts,19.10%,< 16.10%,< 14.10%,Monthly after labels mature,Review false-positive burden and customer-impact risk.
+Operating review rate,29.23%,> 34.23%,> 39.23%,Weekly/monthly,Review threshold capacity and manual-review staffing impact.
+Recall on matured labels,61.66%,< 56.66%,< 51.66%,Monthly after labels mature,Assess missed-default concentration and model refresh need.
+Precision on reviewed accounts,19.07%,< 16.07%,< 14.07%,Monthly after labels mature,Review false-positive burden and customer-impact risk.
 Critical data-quality missingness,Notebook 02/03 data-quality profile,+25% relative increase,+50% relative increase,Each data load,Open data-quality incident and pause model refresh if severe.

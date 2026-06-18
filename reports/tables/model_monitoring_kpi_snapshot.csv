@@ -3,11 +3,11 @@ Champion model,xgboost_weighted,Selected using validation ranking metrics.
 Portfolio default rate,9.04%,Base rate for interpreting precision and review workload.
 Recommended objective,minimum_cost_review_rate_le_30pct,Threshold-selection business rule.
 Operating threshold,0.565,Probability cutoff for manual-review flag.
-Test ROC-AUC,0.7468,Out-of-sample ranking performance.
-Test PR-AUC,0.2168,Ranking performance under class imbalance.
-Validation recall at operating threshold,61.93%,Defaults captured during threshold selection.
-Test recall at operating threshold,61.49%,Out-of-sample defaults captured at selected threshold.
-Test precision at operating threshold,19.10%,Share of reviewed accounts that defaulted.
-Test review rate at operating threshold,29.11%,Operational workload from the score cutoff.
-Test illustrative business cost,"$5,884,500",Scenario cost using Notebook 07 assumptions.
-Top SHAP drivers,"interest_rate, amount_missing_flag, broad_data_quality_issue_count, total_income_pa, core_data_quality_issue_count",Primary explanation drivers to monitor for drift.
+Test ROC-AUC,0.7470,Out-of-sample ranking performance.
+Test PR-AUC,0.2166,Ranking performance under class imbalance.
+Validation recall at operating threshold,61.99%,Defaults captured during threshold selection.
+Test recall at operating threshold,61.66%,Out-of-sample defaults captured at selected threshold.
+Test precision at operating threshold,19.07%,Share of reviewed accounts that defaulted.
+Test review rate at operating threshold,29.23%,Operational workload from the score cutoff.
+Test illustrative business cost,"$5,880,000",Scenario cost using Notebook 07 assumptions.
+Top SHAP drivers,"interest_rate, amount_missing_flag, amount_missing_raw_flag, broad_data_quality_issue_count, total_income_pa",Primary explanation drivers to monitor for drift.

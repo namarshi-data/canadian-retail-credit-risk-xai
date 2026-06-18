@@ -1,0 +1,13 @@
+column,dtype,row_count,non_null_count,missing_count,missing_pct,unique_values,top_value,top_value_share_pct,cardinality_level
+industry,object,134417,134413,4,0.0,12974,0,84.5,very_high_cardinality
+pincode,object,134417,134417,0,0.0,844,XX112X,1.18,very_high_cardinality
+role,object,134417,134417,0,0.0,46,KHMbckjadbckIFGCASEWdkcndwkcnCCM,15.53,medium_cardinality
+tier_of_employment,object,134417,54731,79686,59.28,7,B,30.86,low_cardinality
+loan_category,object,134417,134417,0,0.0,7,Consolidation,60.16,low_cardinality
+work_experience,object,134417,134413,4,0.0,7,0,84.5,low_cardinality
+home,object,134417,134417,0,0.0,5,mortgage,48.72,low_cardinality
+is_verified,object,134417,100910,33507,24.93,3,Not Verified,33.42,low_cardinality
+gender,object,134417,134417,0,0.0,3,Female,33.4,low_cardinality
+employment_type,object,134417,54731,79686,59.28,2,Salaried,81.89,low_cardinality
+married,object,134417,89333,45084,33.54,2,Yes,50.19,low_cardinality
+social_profile,object,134417,89571,44846,33.36,2,No,50.14,low_cardinality

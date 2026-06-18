@@ -1,0 +1,8 @@
+feature_family,baseline_model_policy,feature_count,max_missing_pct
+data_quality_or_binary_flag,include_in_baseline,20,0.0
+business_band_feature,include_in_baseline,5,0.0
+loan_terms,include_in_baseline,4,20.5614
+affordability,include_in_baseline,3,20.5614
+employment_profile,include_in_baseline,3,0.0
+proxy_governance_review,include_with_monitoring,3,0.0
+baseline_candidate,include_in_baseline,2,0.0

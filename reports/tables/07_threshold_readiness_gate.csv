@@ -1,0 +1,8 @@
+check,passed,note
+validation_threshold_grid_created,True,Thresholds evaluated on validation predictions.
+test_threshold_grid_created,True,Test threshold grid created for confirmation only.
+operational_recommendation_created,True,Operational model-threshold selected from validation.
+test_confirmation_created,True,Selected threshold confirmed on test set.
+review_rate_documented,True,Manual review workload is documented.
+business_cost_documented,True,Cost trade-off is documented.
+ready_for_explainability,True,Notebook 08 can explain the selected operational model.

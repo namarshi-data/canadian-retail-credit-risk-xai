@@ -6,6 +6,6 @@ operating_threshold,0.565
 threshold_objective,minimum_cost_review_rate_le_30pct
 modeling_rows,134417
 portfolio_default_rate,0.0904126710163149
-model_feature_count,47
+model_feature_count,48
 sensitive_proxy_use,Excluded from baseline model; retained only for audit/governance review where permitted
 leakage_control,Repayment-derived variables excluded from model features

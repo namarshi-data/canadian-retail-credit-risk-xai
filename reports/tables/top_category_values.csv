@@ -1,0 +1,75 @@
+column,value,row_count,share_pct
+loan_category,Consolidation,80868,60.16
+loan_category,Credit Card,31668,23.56
+loan_category,Home,8503,6.33
+loan_category,Other ,8225,6.12
+loan_category,Business,2236,1.66
+loan_category,Car ,1538,1.14
+loan_category,Medical ,1379,1.03
+employment_type,nan,79686,59.28
+employment_type,Salaried,44817,33.34
+employment_type,Self - Employeed,9914,7.38
+tier_of_employment,nan,79686,59.28
+tier_of_employment,B,16890,12.57
+tier_of_employment,C,13932,10.36
+tier_of_employment,A,10526,7.83
+tier_of_employment,D,8163,6.07
+tier_of_employment,E,3712,2.76
+tier_of_employment,F,1252,0.93
+tier_of_employment,G,256,0.19
+industry,0,113579,84.5
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIVf4E/iI7qK+Lfl5hxoWW2A=,67,0.05
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIaUIfpgwbYh438CvSsT5QB8=,51,0.04
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIbOy82w5K5LALfp4MHskDUE=,51,0.04
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIb4ADj/ykkhgM886TEQ8yrI=,40,0.03
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIUGp9a+9oBSLvyI5Jdz9fNg=,38,0.03
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIS7jap0hM5abNdcL6dk7Ifw=,38,0.03
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIfeSCTDWhw2hS0GDfQEUVwM=,35,0.03
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIa6KOvl8Xp6F2JH3Vt47kH0=,33,0.02
+industry,mLVIVxoGY7TUDJ1FyFoSIZi1SFcaBmO01AydRchaEiGYtUhXGgZjtNQMnUXIWhIhmLVIVxoGY7TUDJ1FyFoSIaRr3E4aex+4Q2JdTmjOZ70=,30,0.02
+role,KHMbckjadbckIFGCASEWdkcndwkcnCCM,20873,15.53
+role,KHMbckjadbckIFGNYSEWdkcndwkcnCCM,11891,8.85
+role,KHMbckjadbckIFGTXSEWdkcndwkcnCCM,10600,7.89
+role,KHMbckjadbckIFGFLSEWdkcndwkcnCCM,9580,7.13
+role,KHMbckjadbckIFGILSEWdkcndwkcnCCM,5375,4.0
+role,KHMbckjadbckIFGNJSEWdkcndwkcnCCM,5156,3.84
+role,KHMbckjadbckIFGPASEWdkcndwkcnCCM,4664,3.47
+role,KHMbckjadbckIFGOHSEWdkcndwkcnCCM,4365,3.25
+role,KHMbckjadbckIFGGASEWdkcndwkcnCCM,4256,3.17
+role,KHMbckjadbckIFGVASEWdkcndwkcnCCM,4051,3.01
+work_experience,0,113579,84.5
+work_experience,5-10,8132,6.05
+work_experience,10+,6486,4.83
+work_experience,1-2,1843,1.37
+work_experience,2-3,1538,1.14
+work_experience,<1,1443,1.07
+work_experience,3-5,1392,1.04
+work_experience,nan,4,0.0
+gender,Female,44898,33.4
+gender,Other,44850,33.37
+gender,Male,44669,33.23
+married,nan,45084,33.54
+married,Yes,44837,33.36
+married,No,44496,33.1
+home,mortgage,65490,48.72
+home,rent,56442,41.99
+home,own,12397,9.22
+home,other,46,0.03
+home,none,42,0.03
+pincode,XX112X,1584,1.18
+pincode,XX945X,1544,1.15
+pincode,XX750X,1501,1.12
+pincode,XX606X,1366,1.02
+pincode,XX100X,1312,0.98
+pincode,XX331X,1275,0.95
+pincode,XX900X,1234,0.92
+pincode,XX70X,1182,0.88
+pincode,XX300X,1145,0.85
+pincode,XX917X,1092,0.81
+social_profile,No,44912,33.41
+social_profile,nan,44846,33.36
+social_profile,Yes,44659,33.22
+is_verified,Not Verified,33722,25.09
+is_verified,Source Verified,33630,25.02
+is_verified,Verified,33558,24.97
+is_verified,nan,33507,24.93

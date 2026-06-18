@@ -1,0 +1,12 @@
+column,non_null_count,mean,median,std,min,p01,p05,q1,q3,p95,p99,max,iqr,iqr_lower_bound,iqr_upper_bound,below_iqr_count,above_iqr_count,iqr_outlier_count,iqr_outlier_pct,above_p99_count,above_p99_pct,recommended_action
+delinq_2yrs,134417,0.28,0.00,0.80,0.00,0.00,0.00,0.00,0.00,2.00,4.00,22.00,0.00,0.00,0.00,0,23887,23887,17.77,789,0.59,Review and document; do not cap/remove blindly
+principal_to_amount_ratio,106779,0.27,0.07,10.24,0.00,0.00,0.01,0.03,0.19,0.72,1.56,2819.17,0.16,-0.22,0.43,0,11409,11409,10.68,1068,1.00,Review and document; do not cap/remove blindly
+payment_to_amount_ratio,106779,0.37,0.10,20.08,0.00,0.01,0.01,0.04,0.26,0.89,1.88,6251.68,0.22,-0.29,0.58,0,10362,10362,9.70,1068,1.00,Review and document; do not cap/remove blindly
+interest_to_amount_ratio,106779,0.09,0.02,10.55,0.00,0.00,0.00,0.01,0.06,0.19,0.42,3432.51,0.05,-0.07,0.13,0,9756,9756,9.14,1068,1.00,Review and document; do not cap/remove blindly
+interest_received,134417,2335.87,1627.03,2419.91,0.00,97.13,288.71,839.52,2889.88,6994.77,12383.49,24205.62,2050.36,-2236.02,5965.42,0,9324,9324,6.94,1345,1.00,Review and document; do not cap/remove blindly
+total_payment,134417,10696.44,8061.14,8544.31,0.00,912.69,2012.94,4623.23,13940.16,28575.89,40353.17,57777.58,9316.93,-9352.17,27915.56,0,7218,7218,5.37,1345,1.00,Review and document; do not cap/remove blindly
+received_principal,134417,8282.68,5869.12,7184.02,0.00,504.32,1325.54,3047.39,11325.00,24000.00,35000.00,35000.01,8277.61,-9369.03,23741.42,0,7069,7069,5.26,10,0.01,Review and document; do not cap/remove blindly
+total_income_pa,134417,72597.98,62000.00,56100.05,4000.00,18312.32,27000.00,45000.00,87000.00,150000.00,250000.00,7141778.00,42000.00,-18000.00,150000.00,0,5832,5832,4.34,1089,0.81,Review and document; do not cap/remove blindly
+amount,106779,137653.66,76549.00,157599.98,5.00,3570.34,8816.00,28520.50,205482.50,422275.30,659305.38,8000078.00,176962.00,-236922.50,470925.50,0,3647,3647,3.42,1068,1.00,Review and document; do not cap/remove blindly
+interest_rate,134417,12.02,11.84,3.88,5.42,5.45,5.98,9.17,14.28,18.96,22.13,23.54,5.11,1.51,21.94,0,1367,1367,1.02,1031,0.77,Review and document; do not cap/remove blindly
+loan_to_income_ratio,106779,1.80,1.24,1.56,0.00,0.07,0.19,0.52,2.84,4.76,6.34,19.64,2.32,-2.95,6.32,0,1085,1085,1.02,1068,1.00,Review and document; do not cap/remove blindly

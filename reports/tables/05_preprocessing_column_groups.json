@@ -1,0 +1,72 @@
+{
+  "target": "defaulter",
+  "id_columns": [
+    "user_id",
+    "record_sequence"
+  ],
+  "split_column": "split",
+  "continuous_numeric_features": [
+    "amount",
+    "interest_rate",
+    "tenure_years",
+    "total_income_pa",
+    "dependents",
+    "loan_to_income_ratio",
+    "broad_data_quality_issue_count",
+    "income_to_loan_buffer",
+    "borrower_missingness_flag_count"
+  ],
+  "binary_features": [
+    "amount_missing_raw_flag",
+    "amount_non_positive_flag",
+    "industry_placeholder_zero_flag",
+    "work_experience_placeholder_zero_flag",
+    "amount_missing_flag",
+    "employment_type_missing_flag",
+    "tier_of_employment_missing_flag",
+    "industry_missing_flag",
+    "work_experience_missing_flag",
+    "married_missing_flag",
+    "social_profile_missing_flag",
+    "is_verified_missing_flag",
+    "core_data_quality_issue_count",
+    "has_core_data_quality_issue",
+    "has_broad_data_quality_issue",
+    "loan_to_income_missing_flag",
+    "high_interest_flag",
+    "long_tenure_flag",
+    "high_loan_to_income_flag",
+    "has_any_missingness_flag"
+  ],
+  "nominal_categorical_features": [
+    "loan_category",
+    "employment_type",
+    "home",
+    "is_verified"
+  ],
+  "ordinal_categorical_features": [
+    "tier_of_employment",
+    "work_experience",
+    "income_band",
+    "loan_amount_band",
+    "interest_rate_band",
+    "tenure_band",
+    "loan_to_income_band"
+  ],
+  "excluded_monitoring_only_fields": [
+    "total_payment",
+    "received_principal",
+    "interest_received",
+    "payment_to_amount_ratio",
+    "principal_to_amount_ratio",
+    "interest_to_amount_ratio",
+    "principal_exceeds_amount_flag"
+  ],
+  "excluded_sensitive_or_proxy_fields": [
+    "gender",
+    "pincode",
+    "social_profile",
+    "married"
+  ],
+  "fit_policy": "fit imputers, encoders, scalers, resamplers, and models on training split only"
+}

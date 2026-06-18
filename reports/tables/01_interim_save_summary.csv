@@ -1,0 +1,2 @@
+output,path,row_count,column_count
+interim_merged_dataset,data\interim\credit_risk_merged_interim.csv,134417,25

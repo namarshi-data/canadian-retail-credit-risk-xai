@@ -1,0 +1,11 @@
+metric,value
+cleaned_input_rows,134417
+cleaned_input_columns,46
+modeling_rows,134417
+modeling_columns,44
+modeling_feature_count,40
+numeric_feature_count,29
+categorical_feature_count,11
+default_rate_pct,9.0413
+excluded_repayment_leakage_fields_present_in_modeling,[]
+excluded_high_risk_proxy_fields_present_in_modeling,[]

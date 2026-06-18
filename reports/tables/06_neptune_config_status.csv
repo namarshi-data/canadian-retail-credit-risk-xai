@@ -1,0 +1,5 @@
+setting,status,required_for_neptune
+ENABLE_NEPTUNE,False,True
+NEPTUNE_PROJECT,missing,True
+NEPTUNE_API_TOKEN,missing,True
+NEPTUNE_MODE,async,False

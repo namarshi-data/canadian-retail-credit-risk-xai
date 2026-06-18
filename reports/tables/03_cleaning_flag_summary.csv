@@ -1,0 +1,16 @@
+flag,flagged_row_count,flagged_row_pct
+has_broad_data_quality_issue,116527,86.6907
+industry_missing_flag,113583,84.5005
+work_experience_missing_flag,113583,84.5005
+industry_placeholder_zero_flag,113579,84.4975
+work_experience_placeholder_zero_flag,113579,84.4975
+employment_type_missing_flag,79686,59.2827
+tier_of_employment_missing_flag,79686,59.2827
+married_missing_flag,45084,33.5404
+social_profile_missing_flag,44846,33.3633
+is_verified_missing_flag,33507,24.9277
+has_core_data_quality_issue,30435,22.6422
+amount_missing_flag,27638,20.5614
+amount_missing_raw_flag,27619,20.5473
+principal_exceeds_amount_flag,2797,2.0808
+amount_non_positive_flag,19,0.0141

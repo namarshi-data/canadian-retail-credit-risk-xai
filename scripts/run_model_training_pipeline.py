@@ -1,43 +1,44 @@
 from __future__ import annotations
 
+"""Run Notebook 06 model-training pipeline from terminal.
+
+This script expects Notebook 05 to have already created:
+    data/processed/credit_risk_modeling_dataset.csv
+
+It trains leakage-safe Logistic Regression benchmark, Random Forest baseline/tuned,
+and XGBoost baseline/tuned models. All preprocessing, skewness treatment,
+winsorization, encoding, scaling, optional resampling, and model fitting happen
+inside train-only pipelines.
+"""
+
 import sys
 from pathlib import Path
 
-import pandas as pd
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.append(str(PROJECT_ROOT / "src"))
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.append(str(SRC_DIR))
 
-from credit_risk.config import MODEL_ARTIFACT_DIR, PROCESSED_DIR, TABLE_DIR, ensure_project_directories
-from credit_risk.models.train import save_model_training_artifacts, train_and_evaluate_candidate_models
+from credit_risk.config import MODEL_ARTIFACT_DIR, PROCESSED_DIR, TABLE_DIR, ensure_project_directories  # noqa: E402
+from credit_risk.models.train import TrainingConfig, run_training_workflow_from_file  # noqa: E402
 
 
 def main() -> None:
     ensure_project_directories()
 
     input_path = PROCESSED_DIR / "credit_risk_modeling_dataset.csv"
-    if not input_path.exists():
-        raise FileNotFoundError(
-            f"Missing modelling dataset: {input_path}. Run scripts/run_feature_engineering_pipeline.py first."
-        )
+    config = TrainingConfig.from_environment()
 
-    modeling_df = pd.read_csv(input_path, low_memory=False)
-    required_cols = {"user_id", "record_sequence", "defaulter", "split"}
-    missing_cols = required_cols - set(modeling_df.columns)
-    if missing_cols:
-        raise ValueError(f"The modelling dataset is missing required columns: {sorted(missing_cols)}")
+    artifacts = run_training_workflow_from_file(
+        modeling_dataset_path=input_path,
+        table_dir=TABLE_DIR,
+        model_artifact_dir=MODEL_ARTIFACT_DIR,
+        config=config,
+    )
 
-    artifacts = train_and_evaluate_candidate_models(modeling_df, random_state=42)
-    save_model_training_artifacts(artifacts, TABLE_DIR, MODEL_ARTIFACT_DIR)
-
-    print("Model training completed")
-    print(f"Input shape: {modeling_df.shape}")
-    print(f"Numeric features: {len(artifacts.numeric_features)}")
-    print(f"Categorical features: {len(artifacts.categorical_features)}")
-    print(f"Champion model: {artifacts.champion_model_name}")
-    print("Validation results at default 0.50 threshold:")
     display_cols = [
         "model_name",
+        "dataset",
         "pr_auc",
         "roc_auc",
         "brier_score",
@@ -48,8 +49,34 @@ def main() -> None:
         "mcc",
         "review_rate",
         "business_cost",
+        "threshold",
+        "false_negative",
+        "false_positive",
+        "true_positive",
+        "true_negative",
     ]
-    print(artifacts.validation_results[display_cols].to_string(index=False))
+
+    print("Notebook 06 model training completed.")
+    print(f"Input dataset: {input_path}")
+    print(f"Numeric features: {len(artifacts.numeric_features)}")
+    print(f"Categorical features: {len(artifacts.categorical_features)}")
+    print(f"Ranking champion by validation PR-AUC: {artifacts.ranking_champion_model_name}")
+    print(f"Operational champion after validation thresholding: {artifacts.operational_champion_model_name}")
+    print(f"Saved champion model artifact: {artifacts.champion_model_name}")
+    print("\nValidation results at default 0.50 threshold:")
+    print(artifacts.validation_results[[c for c in display_cols if c in artifacts.validation_results.columns]].to_string(index=False))
+    print("\nAll-model operational threshold comparison on validation:")
+    cols = [
+        "operational_rank", "model_name", "threshold", "pr_auc", "roc_auc",
+        "recall", "precision", "review_rate", "business_cost",
+        "validation_pr_auc_at_default_threshold",
+    ]
+    print(artifacts.all_model_threshold_shortlist[[c for c in cols if c in artifacts.all_model_threshold_shortlist.columns]].to_string(index=False))
+
+    print("\nRecommended operational model/threshold from validation:")
+    print(artifacts.operational_model_threshold_recommendation.to_string(index=False))
+    print("\nTest confirmation for selected operational champion:")
+    print(artifacts.test_selected_threshold_results.to_string(index=False))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,8 @@
+stage,operation,status,leakage_control
+Notebook 03,missing flags,created where policy requires,safe before split because flags describe source missingness
+Notebook 03,clean invalid amount,"flag first, then convert invalid values to missing",rule-based cleaning only
+Notebook 03,one-hot encoding,not performed,fit after train/test split inside modelling pipeline
+Notebook 03,ordinal encoding,not performed,fit after train/test split inside modelling pipeline
+Notebook 03,scaling,not performed,fit on training data only
+Notebook 03,log transform / winsorization,not performed,fit/choose inside feature-engineering or modelling pipeline after split
+Notebook 03,SMOTE or resampling,not performed,training data only

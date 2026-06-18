@@ -1,0 +1,12 @@
+business_question,output_table
+What is the overall default rate and class imbalance?,04_portfolio_overview.csv / 04_target_distribution.csv
+Which borrower or loan segments show elevated default risk?,04_segment_risk_all.csv / 04_high_risk_segments.csv
+Where is exposure concentrated?,04_concentration_metrics.csv
+Are data-quality flags associated with default risk?,04_flag_risk_profile.csv
+Which numeric features differ by target class?,04_numeric_vs_target_tests.csv
+Which categorical features are associated with default?,04_categorical_vs_target_tests.csv
+Which features require multicollinearity review?,04_correlation_pairs.csv / 04_vif_review.csv
+Which sensitive/proxy fields require governance review?,04_sensitive_proxy_monitoring.csv
+Which repayment fields should remain monitoring-only?,04_repayment_monitoring_profile.csv
+Are EDA conclusions stable across train/validation/test-style splits?,04_split_stability_numeric.csv / 04_split_target_stability.csv
+What actions should carry forward to feature engineering?,04_eda_action_register.csv

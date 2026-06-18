@@ -1,0 +1,6 @@
+output,path,status
+cleaned_csv,data\processed\credit_risk_cleaned.csv,saved
+cleaned_parquet,data\processed\credit_risk_cleaned.parquet,saved
+cleaning_audit_summary,reports\tables\03_cleaning_audit_summary.csv,saved
+cleaning_flag_summary,reports\tables\03_cleaning_flag_summary.csv,saved
+model_feature_policy,reports\tables\03_model_feature_policy.csv,saved

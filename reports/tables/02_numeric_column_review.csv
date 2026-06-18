@@ -1,0 +1,14 @@
+column,dtype,non_null_count,missing_count,missing_pct,unique_values,unique_ratio,min,max,inferred_type,include_in_math_profile
+user_id,int64,134417,0,0.0,133752,0.9951,208036.0,78958941.0,likely_identifier,False
+amount,float64,106798,27619,20.55,86157,0.8067,0.0,8000078.0,mathematical_numeric,True
+interest_rate,float64,134417,0,0.0,137,0.001,5.42,23.54,mathematical_numeric,True
+tenure_years,int64,134417,0,0.0,2,0.0,4.0,6.0,low_cardinality_numeric_or_ordinal,False
+record_sequence,int64,134417,0,0.0,2,0.0,1.0,2.0,low_cardinality_numeric_or_ordinal,False
+total_income_pa,float64,134417,0,0.0,11380,0.0847,4000.0,7141778.0,mathematical_numeric,True
+dependents,int64,134417,0,0.0,5,0.0,0.0,4.0,low_cardinality_numeric_or_ordinal,False
+delinq_2yrs,int64,134417,0,0.0,22,0.0002,0.0,22.0,mathematical_numeric,True
+total_payment,float64,134417,0,0.0,104202,0.7752,0.0,57777.5798702,mathematical_numeric,True
+received_principal,float64,134417,0,0.0,42022,0.3126,0.0,35000.01,mathematical_numeric,True
+interest_received,float64,134417,0,0.0,93862,0.6983,0.0,24205.62,mathematical_numeric,True
+number_of_loans,int64,134417,0,0.0,5,0.0,0.0,5.0,low_cardinality_numeric_or_ordinal,False
+defaulter,int64,134417,0,0.0,2,0.0,0.0,1.0,binary_flag,False

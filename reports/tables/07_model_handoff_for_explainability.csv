@@ -1,0 +1,6 @@
+handoff_item,value,description
+operational_model_name,xgboost_weighted_baseline,Model to explain in Notebook 08.
+operating_threshold,0.56,Threshold to use when labeling review/non-review decisions.
+test_recall,0.6220515633571037,Out-of-sample risk capture rate at selected threshold.
+test_precision,0.19087695674128935,Out-of-sample review efficiency at selected threshold.
+test_review_rate,0.29464861379755,Out-of-sample share routed to review.

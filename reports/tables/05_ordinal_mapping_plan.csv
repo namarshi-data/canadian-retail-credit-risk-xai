@@ -1,0 +1,8 @@
+feature,recommended_encoder,ordered_values,observed_unmapped_values,fit_stage
+tier_of_employment,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Unknown | A | B | C | D | E | F,G,fit_on_training_split_only
+work_experience,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Unknown | <1 | 1-2 | 2-3 | 3-5 | 5-10 | 10+,,fit_on_training_split_only
+income_band,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Missing | <=50K | 50K-75K | 75K-100K | 100K-150K | >150K,,fit_on_training_split_only
+loan_amount_band,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Missing | <=10K | 10K-25K | 25K-50K | 50K-100K | >100K,,fit_on_training_split_only
+interest_rate_band,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Missing | <=8% | 8%-12% | 12%-16% | 16%-20% | >20%,,fit_on_training_split_only
+tenure_band,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Missing | <=1Y | 1Y-3Y | 3Y-5Y | >5Y,,fit_on_training_split_only
+loan_to_income_band,"OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",Missing | <=10% | 10%-25% | 25%-50% | 50%-100% | >100%,,fit_on_training_split_only

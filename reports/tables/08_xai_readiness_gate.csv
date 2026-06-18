@@ -1,0 +1,9 @@
+check,status,detail
+Champion model loaded,pass,D:\Banking and Finance\Projects\canadian-retail-credit-risk-xai\reports\model_artifacts\champion_model.joblib
+Recommended threshold loaded,pass,0.5600
+Classification metrics exported,pass,08_xai_classification_metrics_at_operating_threshold.csv
+Deepchecks/fallback diagnostics exported,pass,08_deepchecks_execution_status.csv
+SHAP global and local explanations exported,pass,"1,500 explained rows"
+Anchor-style explanations exported,pass,15 rows
+Counterfactual diagnostics exported,pass,109 scenario rows
+Regulatory/stakeholder interpretation exported,pass,08_xai_business_regulator_summary_model_insights.csv

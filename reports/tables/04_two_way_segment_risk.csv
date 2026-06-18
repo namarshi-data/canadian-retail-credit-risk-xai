@@ -1,0 +1,77 @@
+feature_1_value,feature_2_value,row_count,default_count,default_rate,feature_1,feature_2,default_rate_pct
+Self-Employed,F,223,76,0.340807,employment_type,tier_of_employment,34.080700
+Self-Employed,E,584,164,0.280822,employment_type,tier_of_employment,28.082200
+Salaried,G,205,57,0.278049,employment_type,tier_of_employment,27.804900
+Business,1,966,238,0.246377,loan_category,amount_missing_flag,24.637700
+Salaried,F,1029,229,0.222546,employment_type,tier_of_employment,22.254600
+Self-Employed,D,1342,295,0.219821,employment_type,tier_of_employment,21.982100
+Business,Own,193,41,0.212435,loan_category,home,21.243500
+Medical,Self-Employed,110,23,0.209091,loan_category,employment_type,20.909100
+Business,Self-Employed,279,57,0.204301,loan_category,employment_type,20.430100
+Business,Salaried,747,147,0.196787,loan_category,employment_type,19.678700
+Business,Rent,992,192,0.193548,loan_category,home,19.354800
+Business,Mortgage,1050,201,0.191429,loan_category,home,19.142900
+Business,Unknown,1210,230,0.190083,loan_category,employment_type,19.008300
+Consolidation,1,15168,2626,0.173128,loan_category,amount_missing_flag,17.312800
+Other,1,2420,417,0.172314,loan_category,amount_missing_flag,17.231400
+Medical,1,328,56,0.170732,loan_category,amount_missing_flag,17.073200
+Other,Self-Employed,760,126,0.165789,loan_category,employment_type,16.578900
+Salaried,E,3128,505,0.161445,employment_type,tier_of_employment,16.144500
+Own,1,2543,402,0.158081,home,has_core_data_quality_issue,15.808100
+Self-Employed,C,2228,347,0.155745,employment_type,tier_of_employment,15.574500
+Consolidation,Self-Employed,5731,888,0.154947,loan_category,employment_type,15.494700
+Business,0,1270,196,0.154331,loan_category,amount_missing_flag,15.433100
+Rent,1,15252,2279,0.149423,home,has_core_data_quality_issue,14.942300
+Mortgage,1,12636,1824,0.144349,home,has_core_data_quality_issue,14.434900
+Home,1,2185,299,0.136842,loan_category,amount_missing_flag,13.684200
+Salaried,D,6821,868,0.127254,employment_type,tier_of_employment,12.725400
+Medical,Own,142,18,0.126761,loan_category,home,12.676100
+Credit Card,1,5988,757,0.126420,loan_category,amount_missing_flag,12.642000
+Home,Rent,1546,195,0.126132,loan_category,home,12.613200
+Other,Rent,4213,528,0.125326,loan_category,home,12.532600
+Self-Employed,B,3491,435,0.124606,employment_type,tier_of_employment,12.460600
+Home,Self-Employed,699,86,0.123033,loan_category,employment_type,12.303300
+Other,Salaried,2672,315,0.117889,loan_category,employment_type,11.788900
+Credit Card,Self-Employed,2178,255,0.117080,loan_category,employment_type,11.708000
+Medical,Rent,645,73,0.113178,loan_category,home,11.317800
+Other,Own,844,93,0.110190,loan_category,home,11.019000
+Car,1,583,64,0.109777,loan_category,amount_missing_flag,10.977700
+Medical,Salaried,476,52,0.109244,loan_category,employment_type,10.924400
+Consolidation,Rent,34395,3731,0.108475,loan_category,home,10.847500
+Car,Own,187,20,0.106952,loan_category,home,10.695200
+Other,Unknown,4793,494,0.103067,loan_category,employment_type,10.306700
+Car,Self-Employed,157,16,0.101911,loan_category,employment_type,10.191100
+Medical,Mortgage,592,59,0.099662,loan_category,home,9.966200
+Other,Mortgage,3167,314,0.099147,loan_category,home,9.914700
+Medical,Unknown,793,75,0.094578,loan_category,employment_type,9.457800
+Consolidation,Salaried,26955,2542,0.094305,loan_category,employment_type,9.430500
+Salaried,C,11704,1096,0.093643,employment_type,tier_of_employment,9.364300
+Medical,0,1051,94,0.089439,loan_category,amount_missing_flag,8.943900
+Other,0,5805,518,0.089233,loan_category,amount_missing_flag,8.923300
+Home,Own,1115,98,0.087892,loan_category,home,8.789200
+Consolidation,Unknown,48182,4207,0.087315,loan_category,employment_type,8.731500
+Home,Unknown,5015,437,0.087139,loan_category,employment_type,8.713900
+Car,Rent,678,59,0.087021,loan_category,home,8.702100
+Rent,0,41190,3574,0.086769,home,has_core_data_quality_issue,8.676900
+Consolidation,Own,6902,590,0.085482,loan_category,home,8.548200
+Unknown,Unknown,79686,6683,0.083867,employment_type,tier_of_employment,8.386700
+Consolidation,Mortgage,39548,3309,0.083670,loan_category,home,8.367000
+Credit Card,Rent,13973,1075,0.076934,loan_category,home,7.693400
+Consolidation,0,65700,5011,0.076271,loan_category,amount_missing_flag,7.627100
+Home,Salaried,2789,212,0.076013,loan_category,employment_type,7.601300
+Car,Unknown,858,65,0.075758,loan_category,employment_type,7.575800
+Home,Mortgage,5834,441,0.075591,loan_category,home,7.559100
+Credit Card,Own,3014,220,0.072993,loan_category,home,7.299300
+Salaried,B,13399,951,0.070975,employment_type,tier_of_employment,7.097500
+Home,0,6318,436,0.069009,loan_category,amount_missing_flag,6.900900
+Own,0,9854,678,0.068805,home,has_core_data_quality_issue,6.880500
+Credit Card,Salaried,10655,717,0.067292,loan_category,employment_type,6.729200
+Car,Salaried,523,34,0.065010,loan_category,employment_type,6.501000
+Mortgage,0,52854,3380,0.063950,home,has_core_data_quality_issue,6.395000
+Credit Card,Unknown,18835,1175,0.062384,loan_category,employment_type,6.238400
+Self-Employed,A,1995,116,0.058145,employment_type,tier_of_employment,5.814500
+Credit Card,Mortgage,14626,844,0.057705,loan_category,home,5.770500
+Credit Card,0,25680,1390,0.054128,loan_category,amount_missing_flag,5.412800
+Car,Mortgage,673,36,0.053492,loan_category,home,5.349200
+Car,0,955,51,0.053403,loan_category,amount_missing_flag,5.340300
+Salaried,A,8531,313,0.036690,employment_type,tier_of_employment,3.669000

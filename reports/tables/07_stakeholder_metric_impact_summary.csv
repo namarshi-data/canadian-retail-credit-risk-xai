@@ -1,0 +1,7 @@
+metric,selected_value,business_meaning,stakeholder_impact
+Recall,0.6220515633571037,Share of actual defaulters captured for review.,"Higher recall helps credit risk teams reduce missed defaults, but usually increases review workload."
+Precision,0.19087695674128935,Share of reviewed borrowers who actually default.,Higher precision reduces unnecessary reviews and customer friction.
+False negatives,689.0,Defaulters not sent for review.,Creates credit-loss exposure and is usually more costly than a false positive.
+False positives,4807.0,Non-defaulters sent for review.,Creates operational workload and may create customer friction or fairness concerns.
+Review rate,0.29464861379755,Share of accounts routed to manual/risk review.,Must fit available credit operations capacity and service-level expectations.
+Business cost,5848500.0,Scenario-weighted cost of false negatives and false positives.,"Allows credit risk, operations, and business leaders to compare thresholds using a common decision framework."

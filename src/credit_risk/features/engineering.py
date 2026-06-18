@@ -1,381 +1,554 @@
 from __future__ import annotations
 
+"""Feature engineering utilities for the Canadian retail credit-risk project.
+
+Design principles
+-----------------
+- Create deterministic, business-explainable features only.
+- Do not fit encoders, imputers, scalers, target encoders, resamplers, or models here.
+- Build an unencoded modelling dataset with a leakage-reviewed feature policy.
+- Run supervised screening on the training split only.
+"""
+
 from dataclasses import dataclass
-from typing import Iterable
+from pathlib import Path
+from typing import Iterable, Mapping
+import json
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
 
-TARGET_COLUMN = "defaulter"
-IDENTIFIER_COLUMNS = ["user_id", "record_sequence"]
+try:
+    from sklearn.model_selection import train_test_split
+except Exception:  # pragma: no cover
+    train_test_split = None
 
-LEAKAGE_SENSITIVE_COLUMNS = [
-    "total_payment",
-    "received_principal",
-    "interest_received",
-    "payment_to_amount_ratio",
-    "principal_to_amount_ratio",
-    "interest_to_amount_ratio",
-    "principal_exceeds_amount_flag",
-]
+from credit_risk.features.encoding import DEFAULT_ORDINAL_CATEGORIES, make_encoding_plan_table
+from credit_risk.features.leakage import (
+    GOVERNANCE_MONITORING_FIELDS,
+    HIGH_CARDINALITY_OR_ENCRYPTED_FIELDS,
+    ID_COLS,
+    REPAYMENT_MONITORING_FIELDS,
+    SENSITIVE_OR_HIGH_RISK_PROXY_FIELDS,
+    SPLIT_COL,
+    TARGET_COL,
+    TIMING_REVIEW_FIELDS,
+    build_feature_usage_policy,
+    feature_family_for_column,
+    make_leakage_review_table,
+    present_columns,
+    select_baseline_features,
+    validate_modeling_dataset_against_policy,
+)
+from credit_risk.features.selection import (
+    make_feature_family_summary,
+    make_multicollinearity_review,
+    make_rare_category_review,
+    make_train_only_univariate_screening,
+)
 
-FAIRNESS_PROXY_COLUMNS = [
-    "gender",
-    "married",
-    "pincode",
-    "social_profile",
-]
-
-HIGH_CARDINALITY_OR_LOW_INTERPRETABILITY_COLUMNS = [
-    "industry",
-    "role",
-]
-
-BASE_SAFE_NUMERIC_COLUMNS = [
-    "amount",
-    "interest_rate",
-    "tenure_years",
-    "total_income_pa",
-    "dependents",
-    "delinq_2yrs",
-    "number_of_loans",
-    "loan_to_income_ratio",
-    "amount_missing_raw_flag",
-    "amount_missing_flag",
-    "employment_type_missing_flag",
-    "tier_of_employment_missing_flag",
-    "industry_missing_flag",
-    "work_experience_missing_flag",
-    "married_missing_flag",
-    "social_profile_missing_flag",
-    "is_verified_missing_flag",
-    "amount_non_positive_flag",
-    "industry_placeholder_zero_flag",
-    "work_experience_placeholder_zero_flag",
-    "core_data_quality_issue_count",
-    "has_core_data_quality_issue",
-    "broad_data_quality_issue_count",
-    "has_broad_data_quality_issue",
-]
-
-BASE_SAFE_CATEGORICAL_COLUMNS = [
-    "loan_category",
-    "employment_type",
-    "tier_of_employment",
-    "work_experience",
-    "home",
-    "is_verified",
-]
-
-ENGINEERED_NUMERIC_COLUMNS = [
-    "amount_log1p",
-    "total_income_pa_log1p",
-    "loan_to_income_ratio_log1p",
-    "interest_rate_x_lti",
-]
-
-ENGINEERED_BINARY_COLUMNS = [
-    "has_prior_delinquency_flag",
-    "has_existing_loans_flag",
-    "multiple_loans_flag",
-    "high_interest_flag",
-    "high_loan_to_income_flag",
-    "very_high_loan_to_income_flag",
-    "low_income_flag",
-    "high_amount_flag",
-]
-
-ENGINEERED_CATEGORICAL_COLUMNS = [
-    "interest_rate_band",
-    "loan_to_income_band",
+BUSINESS_BIN_FEATURES = [
     "income_band",
-    "amount_band",
-    "dependents_band",
+    "loan_amount_band",
+    "interest_rate_band",
     "tenure_band",
+    "loan_to_income_band",
 ]
 
 
-def _existing(columns: Iterable[str], df: pd.DataFrame) -> list[str]:
-    return [col for col in columns if col in df.columns]
+@dataclass
+class FeatureEngineeringArtifacts:
+    """Container for Notebook 05 generated artifacts."""
+
+    engineered_df: pd.DataFrame
+    modeling_df: pd.DataFrame
+    feature_policy: pd.DataFrame
+    leakage_review: pd.DataFrame
+    feature_catalog: pd.DataFrame
+    feature_lineage: pd.DataFrame
+    preprocessing_plan: pd.DataFrame
+    ordinal_mapping_plan: pd.DataFrame
+    split_distribution: pd.DataFrame
+    missingness_by_split: pd.DataFrame
+    rare_category_review: pd.DataFrame
+    train_only_univariate_screening: pd.DataFrame
+    multicollinearity_review: pd.DataFrame
+    feature_family_summary: pd.DataFrame
+    qa_checks: pd.DataFrame
+    output_manifest: pd.DataFrame
 
 
-def safe_log1p(series: pd.Series) -> pd.Series:
-    """Return log1p after clipping negative values to zero."""
-    return np.log1p(pd.to_numeric(series, errors="coerce").clip(lower=0))
+def save_table(df: pd.DataFrame, path: Path, *, float_format: str | None = None) -> None:
+    """Save a CSV table."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(path, index=False, float_format=float_format)
 
 
-def add_engineered_features(df: pd.DataFrame) -> pd.DataFrame:
-    """Create leakage-aware borrower and loan features for modelling.
+def save_json(obj: Mapping | list, path: Path) -> None:
+    """Save a JSON artifact."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=2, default=str)
 
-    This function only uses variables that are available at or near underwriting / portfolio
-    review time. Repayment-realization fields are intentionally not used.
+
+def _safe_ratio(numerator: pd.Series, denominator: pd.Series) -> pd.Series:
+    numerator = pd.to_numeric(numerator, errors="coerce")
+    denominator = pd.to_numeric(denominator, errors="coerce")
+    ratio = np.where((denominator > 0) & numerator.notna(), numerator / denominator, np.nan)
+    return pd.Series(ratio, index=numerator.index)
+
+
+def _fixed_band(series: pd.Series, bins: list[float], labels: list[str]) -> pd.Series:
+    values = pd.to_numeric(series, errors="coerce")
+    out = pd.cut(values, bins=bins, labels=labels, include_lowest=True, right=True)
+    return out.astype("object").where(values.notna(), "Missing")
+
+
+def add_credit_risk_features(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Create deterministic row-level credit-risk features.
+
+    No target-derived, split-derived, encoded, scaled, or fitted transformations
+    are created here.
     """
-    output = df.copy()
+    out = df.copy()
+    lineage_rows: list[dict] = []
 
-    if "amount" in output.columns:
-        output["amount_log1p"] = safe_log1p(output["amount"])
-        output["high_amount_flag"] = (output["amount"] >= output["amount"].quantile(0.75)).astype("int64")
-        output["amount_band"] = pd.cut(
-            output["amount"],
-            bins=[-np.inf, 25000, 50000, 100000, 250000, np.inf],
-            labels=["<=25K", "25K-50K", "50K-100K", "100K-250K", ">250K"],
-        ).astype("object").fillna("Missing")
-
-    if "total_income_pa" in output.columns:
-        output["total_income_pa_log1p"] = safe_log1p(output["total_income_pa"])
-        output["low_income_flag"] = (output["total_income_pa"] <= output["total_income_pa"].quantile(0.25)).astype("int64")
-        output["income_band"] = pd.cut(
-            output["total_income_pa"],
-            bins=[-np.inf, 40000, 60000, 90000, 120000, np.inf],
-            labels=["<=40K", "40K-60K", "60K-90K", "90K-120K", ">120K"],
-        ).astype("object").fillna("Missing")
-
-    if "loan_to_income_ratio" in output.columns:
-        output["loan_to_income_ratio_log1p"] = safe_log1p(output["loan_to_income_ratio"])
-        output["high_loan_to_income_flag"] = (output["loan_to_income_ratio"] >= 2.0).astype("int64")
-        output["very_high_loan_to_income_flag"] = (output["loan_to_income_ratio"] >= 4.0).astype("int64")
-        output["loan_to_income_band"] = pd.cut(
-            output["loan_to_income_ratio"],
-            bins=[-np.inf, 0.5, 1.0, 2.0, 4.0, np.inf],
-            labels=["<=0.5", "0.5-1.0", "1.0-2.0", "2.0-4.0", ">4.0"],
-        ).astype("object").fillna("Missing")
-
-    if {"interest_rate", "loan_to_income_ratio"}.issubset(output.columns):
-        output["interest_rate_x_lti"] = output["interest_rate"] * output["loan_to_income_ratio"]
-
-    if "interest_rate" in output.columns:
-        output["high_interest_flag"] = (output["interest_rate"] >= 16).astype("int64")
-        output["interest_rate_band"] = pd.cut(
-            output["interest_rate"],
-            bins=[-np.inf, 8, 12, 16, np.inf],
-            labels=["<=8%", "8%-12%", "12%-16%", ">16%"],
-        ).astype("object").fillna("Missing")
-
-    if "delinq_2yrs" in output.columns:
-        output["has_prior_delinquency_flag"] = (output["delinq_2yrs"] > 0).astype("int64")
-
-    if "number_of_loans" in output.columns:
-        output["has_existing_loans_flag"] = (output["number_of_loans"] > 0).astype("int64")
-        output["multiple_loans_flag"] = (output["number_of_loans"] > 1).astype("int64")
-
-    if "dependents" in output.columns:
-        output["dependents_band"] = pd.cut(
-            output["dependents"],
-            bins=[-np.inf, 0, 2, np.inf],
-            labels=["0", "1-2", "3+"],
-        ).astype("object").fillna("Missing")
-
-    if "tenure_years" in output.columns:
-        output["tenure_band"] = pd.cut(
-            output["tenure_years"],
-            bins=[-np.inf, 3, 5, np.inf],
-            labels=["<=3 years", "4-5 years", "6+ years"],
-        ).astype("object").fillna("Missing")
-
-    for col in ENGINEERED_CATEGORICAL_COLUMNS:
-        if col in output.columns:
-            output[col] = output[col].astype("object").fillna("Missing")
-
-    return output
-
-
-def build_feature_policy(df: pd.DataFrame) -> pd.DataFrame:
-    """Return a model-governance feature policy table."""
-    rows: list[dict[str, str]] = []
-
-    for col in df.columns:
-        if col == TARGET_COLUMN:
-            decision = "target"
-            rationale = "Outcome variable; never used as predictor."
-        elif col in IDENTIFIER_COLUMNS:
-            decision = "exclude_from_model"
-            rationale = "Identifier or record key; useful for audit but not predictive modelling."
-        elif col in LEAKAGE_SENSITIVE_COLUMNS:
-            decision = "exclude_from_baseline_model"
-            rationale = "Repayment/outcome-period information; useful for monitoring, not baseline prediction."
-        elif col in FAIRNESS_PROXY_COLUMNS:
-            decision = "exclude_from_baseline_model"
-            rationale = "Sensitive or proxy-sensitive field; retain for fairness audit and governance review."
-        elif col in HIGH_CARDINALITY_OR_LOW_INTERPRETABILITY_COLUMNS:
-            decision = "exclude_from_baseline_model"
-            rationale = "High-cardinality or encrypted field; low interpretability for baseline model."
-        else:
-            decision = "candidate_baseline_feature"
-            rationale = "Potentially available pre-outcome feature after leakage and proxy review."
-
-        rows.append(
+    def add_lineage(feature: str, source_columns: list[str], transformation: str, rationale: str) -> None:
+        lineage_rows.append(
             {
-                "feature": col,
-                "dtype": str(df[col].dtype),
-                "decision": decision,
-                "rationale": rationale,
+                "engineered_feature": feature,
+                "source_columns": ", ".join(source_columns),
+                "transformation_type": transformation,
+                "business_rationale": rationale,
             }
         )
 
-    policy = pd.DataFrame(rows)
-    decision_order = {
-        "target": 0,
-        "exclude_from_model": 1,
-        "exclude_from_baseline_model": 2,
-        "candidate_baseline_feature": 3,
-    }
-    return policy.assign(decision_order=policy["decision"].map(decision_order)).sort_values(
-        ["decision_order", "feature"]
-    ).drop(columns="decision_order")
+    if {"amount", "total_income_pa"}.issubset(out.columns):
+        if "loan_to_income_ratio" not in out.columns:
+            out["loan_to_income_ratio"] = _safe_ratio(out["amount"], out["total_income_pa"])
+            transformation_type = "safe_ratio"
+        else:
+            transformation_type = "existing_cleaning_feature"
+        add_lineage(
+            "loan_to_income_ratio",
+            ["amount", "total_income_pa"],
+            transformation_type,
+            "Measures borrower leverage relative to annual income.",
+        )
 
+        out["income_to_loan_buffer"] = pd.to_numeric(out["total_income_pa"], errors="coerce") - pd.to_numeric(out["amount"], errors="coerce")
+        add_lineage(
+            "income_to_loan_buffer",
+            ["total_income_pa", "amount"],
+            "difference",
+            "Captures income buffer after loan amount.",
+        )
 
-def get_baseline_feature_columns(df: pd.DataFrame) -> tuple[list[str], list[str]]:
-    """Return numeric and categorical feature lists for the baseline model."""
-    numeric = _existing(BASE_SAFE_NUMERIC_COLUMNS + ENGINEERED_NUMERIC_COLUMNS + ENGINEERED_BINARY_COLUMNS, df)
-    categorical = _existing(BASE_SAFE_CATEGORICAL_COLUMNS + ENGINEERED_CATEGORICAL_COLUMNS, df)
-    return numeric, categorical
+        out["loan_to_income_missing_flag"] = (
+            out["amount"].isna()
+            | out["total_income_pa"].isna()
+            | (pd.to_numeric(out["total_income_pa"], errors="coerce") <= 0)
+        ).astype(int)
+        add_lineage(
+            "loan_to_income_missing_flag",
+            ["amount", "total_income_pa"],
+            "binary_flag",
+            "Identifies unavailable affordability ratio caused by missing or invalid inputs.",
+        )
 
+    if "amount" in out.columns:
+        out["loan_amount_band"] = _fixed_band(
+            out["amount"],
+            bins=[-np.inf, 10_000, 25_000, 50_000, 100_000, np.inf],
+            labels=["<=10K", "10K-25K", "25K-50K", "50K-100K", ">100K"],
+        )
+        add_lineage(
+            "loan_amount_band",
+            ["amount"],
+            "fixed_business_band",
+            "Supports loan-size segmentation without target-learned cut points.",
+        )
 
-def build_modeling_dataset(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, list[str], list[str]]:
-    """Create model-ready raw feature table and governance policy.
+    if "total_income_pa" in out.columns:
+        out["income_band"] = _fixed_band(
+            out["total_income_pa"],
+            bins=[-np.inf, 50_000, 75_000, 100_000, 150_000, np.inf],
+            labels=["<=50K", "50K-75K", "75K-100K", "100K-150K", ">150K"],
+        )
+        add_lineage(
+            "income_band",
+            ["total_income_pa"],
+            "fixed_business_band",
+            "Enables income-risk segmentation using stable business thresholds.",
+        )
 
-    The returned dataset is intentionally not one-hot encoded. Encoding and imputation
-    should be performed inside a scikit-learn Pipeline in the modelling notebook to avoid
-    train/test contamination.
-    """
-    engineered = add_engineered_features(df)
-    policy = build_feature_policy(engineered)
-    numeric_features, categorical_features = get_baseline_feature_columns(engineered)
+    if "interest_rate" in out.columns:
+        out["interest_rate_band"] = _fixed_band(
+            out["interest_rate"],
+            bins=[-np.inf, 8, 12, 16, 20, np.inf],
+            labels=["<=8%", "8%-12%", "12%-16%", "16%-20%", ">20%"],
+        )
+        out["high_interest_flag"] = (pd.to_numeric(out["interest_rate"], errors="coerce") >= 16).astype(int)
+        add_lineage("interest_rate_band", ["interest_rate"], "fixed_business_band", "Groups pricing levels for risk review.")
+        add_lineage("high_interest_flag", ["interest_rate"], "binary_flag", "Flags relatively high loan pricing.")
 
-    keep_cols = IDENTIFIER_COLUMNS + [TARGET_COLUMN] + numeric_features + categorical_features
-    keep_cols = _existing(keep_cols, engineered)
-    modeling_df = engineered[keep_cols].copy()
+    if "tenure_years" in out.columns:
+        out["tenure_band"] = _fixed_band(
+            out["tenure_years"],
+            bins=[-np.inf, 1, 3, 5, np.inf],
+            labels=["<=1Y", "1Y-3Y", "3Y-5Y", ">5Y"],
+        )
+        out["long_tenure_flag"] = (pd.to_numeric(out["tenure_years"], errors="coerce") > 5).astype(int)
+        add_lineage("tenure_band", ["tenure_years"], "fixed_business_band", "Supports term-risk segmentation.")
+        add_lineage("long_tenure_flag", ["tenure_years"], "binary_flag", "Identifies longer-duration loans.")
 
-    return modeling_df, policy, numeric_features, categorical_features
+    if "loan_to_income_ratio" in out.columns:
+        out["loan_to_income_band"] = _fixed_band(
+            out["loan_to_income_ratio"],
+            bins=[-np.inf, 0.10, 0.25, 0.50, 1.00, np.inf],
+            labels=["<=10%", "10%-25%", "25%-50%", "50%-100%", ">100%"],
+        )
+        out["high_loan_to_income_flag"] = (pd.to_numeric(out["loan_to_income_ratio"], errors="coerce") > 0.50).astype(int)
+        add_lineage("loan_to_income_band", ["loan_to_income_ratio"], "fixed_business_band", "Groups affordability burden.")
+        add_lineage("high_loan_to_income_flag", ["loan_to_income_ratio"], "binary_flag", "Flags elevated loan burden.")
+
+    missing_flag_cols = [col for col in out.columns if col.endswith("_missing_flag") or col.endswith("_missing_raw_flag")]
+    if missing_flag_cols:
+        out["borrower_missingness_flag_count"] = (
+            out[missing_flag_cols].apply(pd.to_numeric, errors="coerce").fillna(0).sum(axis=1).astype(int)
+        )
+        out["has_any_missingness_flag"] = (out["borrower_missingness_flag_count"] > 0).astype(int)
+        add_lineage(
+            "borrower_missingness_flag_count",
+            missing_flag_cols,
+            "row_level_sum",
+            "Summarizes source-data incompleteness.",
+        )
+        add_lineage(
+            "has_any_missingness_flag",
+            ["borrower_missingness_flag_count"],
+            "binary_flag",
+            "Flags any missingness-related issue.",
+        )
+
+    return out, pd.DataFrame(lineage_rows)
 
 
 def create_stratified_splits(
     df: pd.DataFrame,
-    target_col: str = TARGET_COLUMN,
-    train_size: float = 0.70,
-    validation_size: float = 0.15,
-    test_size: float = 0.15,
+    target_col: str = TARGET_COL,
     random_state: int = 42,
 ) -> pd.Series:
-    """Create train/validation/test labels with stratified default rates."""
-    if not np.isclose(train_size + validation_size + test_size, 1.0):
-        raise ValueError("train_size + validation_size + test_size must equal 1.0")
+    """Create 70/15/15 train/validation/test split with target stratification."""
+    if train_test_split is None:
+        raise ImportError("scikit-learn is required for stratified splitting.")
+    if target_col not in df.columns:
+        raise KeyError(f"Target column {target_col!r} not found.")
 
-    y = df[target_col]
-    idx = df.index.to_numpy()
-
+    eligible = df[df[target_col].notna()].copy()
     train_idx, temp_idx = train_test_split(
-        idx,
-        train_size=train_size,
+        eligible.index,
+        test_size=0.30,
+        stratify=eligible[target_col],
         random_state=random_state,
-        stratify=y,
     )
-
-    temp_y = y.loc[temp_idx]
-    relative_validation_size = validation_size / (validation_size + test_size)
-    validation_idx, test_idx = train_test_split(
+    temp_targets = eligible.loc[temp_idx, target_col]
+    valid_idx, test_idx = train_test_split(
         temp_idx,
-        train_size=relative_validation_size,
+        test_size=0.50,
+        stratify=temp_targets,
         random_state=random_state,
-        stratify=temp_y,
     )
 
-    splits = pd.Series(index=df.index, data="", dtype="object", name="split")
-    splits.loc[train_idx] = "train"
-    splits.loc[validation_idx] = "validation"
-    splits.loc[test_idx] = "test"
-    return splits
+    split = pd.Series(index=df.index, data="unused", dtype="object")
+    split.loc[train_idx] = "train"
+    split.loc[valid_idx] = "validation"
+    split.loc[test_idx] = "test"
+    return split
 
 
-def split_distribution(df: pd.DataFrame, split_col: str = "split", target_col: str = TARGET_COLUMN) -> pd.DataFrame:
-    """Summarize split counts and target rates."""
-    summary = (
-        df.groupby(split_col, dropna=False)
-        .agg(
-            row_count=(target_col, "size"),
-            default_count=(target_col, "sum"),
-            default_rate=(target_col, "mean"),
-        )
-        .reset_index()
-    )
-    summary["row_pct"] = summary["row_count"] / len(df) * 100
-    summary["default_rate_pct"] = summary["default_rate"] * 100
-    return summary[[split_col, "row_count", "row_pct", "default_count", "default_rate_pct"]]
+def build_modeling_dataset(
+    engineered_df: pd.DataFrame,
+    random_state: int = 42,
+) -> tuple[pd.DataFrame, pd.DataFrame, list[str], list[str], list[str]]:
+    """Create leakage-reviewed, unencoded modelling dataset."""
+    feature_policy = build_feature_usage_policy(engineered_df)
+    baseline_features = select_baseline_features(feature_policy)
+    baseline_features = [
+        col
+        for col in baseline_features
+        if col in engineered_df.columns and col not in ID_COLS + [TARGET_COL, SPLIT_COL]
+    ]
+
+    modeling_cols = present_columns(engineered_df, ID_COLS) + [TARGET_COL] + baseline_features
+    modeling_cols = list(dict.fromkeys(modeling_cols))
+    modeling_df = engineered_df[modeling_cols].copy()
+    modeling_df[SPLIT_COL] = create_stratified_splits(modeling_df, random_state=random_state)
+
+    feature_cols = [c for c in modeling_df.columns if c not in ID_COLS + [TARGET_COL, SPLIT_COL]]
+    numeric_features = modeling_df[feature_cols].select_dtypes(include="number").columns.tolist()
+    categorical_features = [c for c in feature_cols if c not in numeric_features]
+    ordinal_features = present_columns(modeling_df, DEFAULT_ORDINAL_CATEGORIES.keys())
+
+    return modeling_df, feature_policy, numeric_features, categorical_features, ordinal_features
 
 
-def feature_catalog(
-    modeling_df: pd.DataFrame,
-    numeric_features: list[str],
-    categorical_features: list[str],
+def make_split_distribution(
+    df: pd.DataFrame,
+    target_col: str = TARGET_COL,
+    split_col: str = SPLIT_COL,
 ) -> pd.DataFrame:
-    """Create feature catalog for model governance documentation."""
     rows = []
-    for col in numeric_features + categorical_features:
-        if col not in modeling_df.columns:
-            continue
-        role = "numeric" if col in numeric_features else "categorical"
+    for split_name in ["train", "validation", "test"]:
+        part = df[df[split_col] == split_name]
+        rows.append(
+            {
+                "split": split_name,
+                "row_count": int(len(part)),
+                "row_share_pct": round(len(part) / len(df) * 100, 4) if len(df) else np.nan,
+                "default_count": int(part[target_col].sum()) if target_col in part else np.nan,
+                "default_rate_pct": round(part[target_col].mean() * 100, 4) if target_col in part and len(part) else np.nan,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def make_feature_catalog(modeling_df: pd.DataFrame, feature_policy: pd.DataFrame) -> pd.DataFrame:
+    feature_cols = [c for c in modeling_df.columns if c not in ID_COLS + [TARGET_COL, SPLIT_COL]]
+    rows = []
+    for col in feature_cols:
+        s = modeling_df[col]
         rows.append(
             {
                 "feature": col,
-                "feature_type": role,
-                "dtype": str(modeling_df[col].dtype),
-                "missing_count": int(modeling_df[col].isna().sum()),
-                "missing_pct": float(modeling_df[col].isna().mean() * 100),
-                "unique_values": int(modeling_df[col].nunique(dropna=True)),
-                "included_in_baseline_model": True,
+                "dtype": str(s.dtype),
+                "feature_family": feature_family_for_column(col),
+                "non_null_count": int(s.notna().sum()),
+                "missing_count": int(s.isna().sum()),
+                "missing_pct": round(s.isna().mean() * 100, 4),
+                "unique_values": int(s.nunique(dropna=True)),
+                "example_values": ", ".join(map(str, s.dropna().astype(str).unique()[:5])),
             }
         )
-    return pd.DataFrame(rows).sort_values(["feature_type", "feature"]).reset_index(drop=True)
+    catalog = pd.DataFrame(rows)
+    policy_cols = ["feature", "decision", "baseline_model_policy", "reason"]
+    return (
+        catalog.merge(feature_policy[policy_cols], on="feature", how="left")
+        .sort_values(["feature_family", "feature"])
+        .reset_index(drop=True)
+    )
 
 
-def feature_missingness_by_split(
-    modeling_df: pd.DataFrame,
-    feature_cols: list[str],
-    split_col: str = "split",
-) -> pd.DataFrame:
-    """Calculate missingness by train/validation/test split."""
+def make_missingness_by_split(modeling_df: pd.DataFrame) -> pd.DataFrame:
+    feature_cols = [c for c in modeling_df.columns if c not in ID_COLS + [TARGET_COL, SPLIT_COL]]
     rows = []
-    for split_name, split_df in modeling_df.groupby(split_col):
+    for split_name in ["train", "validation", "test"]:
+        part = modeling_df[modeling_df[SPLIT_COL] == split_name]
         for col in feature_cols:
             rows.append(
                 {
                     "split": split_name,
                     "feature": col,
-                    "missing_count": int(split_df[col].isna().sum()),
-                    "missing_pct": float(split_df[col].isna().mean() * 100),
+                    "row_count": int(len(part)),
+                    "missing_count": int(part[col].isna().sum()),
+                    "missing_pct": round(part[col].isna().mean() * 100, 4) if len(part) else np.nan,
                 }
             )
-    return pd.DataFrame(rows).sort_values(["feature", "split"]).reset_index(drop=True)
+    return pd.DataFrame(rows).sort_values(["missing_pct", "feature"], ascending=[False, True]).reset_index(drop=True)
+
+
+def make_ordinal_mapping_plan(modeling_df: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for feature, ordered_values in DEFAULT_ORDINAL_CATEGORIES.items():
+        if feature not in modeling_df.columns:
+            continue
+        present = set(modeling_df[feature].dropna().astype(str).unique())
+        rows.append(
+            {
+                "feature": feature,
+                "recommended_encoder": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+                "ordered_values": " | ".join(ordered_values),
+                "observed_unmapped_values": " | ".join(sorted(present - set(ordered_values))),
+                "fit_stage": "fit_on_training_split_only",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_preprocessing_groups(
+    modeling_df: pd.DataFrame,
+    numeric_features: list[str],
+    categorical_features: list[str],
+    ordinal_features: list[str],
+    cleaned_df: pd.DataFrame,
+) -> dict:
+    """Create the JSON column groups consumed by Notebook 06."""
+    nominal_features = [col for col in categorical_features if col not in ordinal_features]
+    binary_features = [
+        col for col in numeric_features
+        if set(pd.to_numeric(modeling_df[col], errors="coerce").dropna().unique()).issubset({0, 1})
+    ]
+    continuous_numeric_features = [col for col in numeric_features if col not in binary_features]
+
+    return {
+        "target": TARGET_COL,
+        "id_columns": present_columns(modeling_df, ID_COLS),
+        "split_column": SPLIT_COL,
+        "continuous_numeric_features": continuous_numeric_features,
+        "binary_features": binary_features,
+        "nominal_categorical_features": nominal_features,
+        "ordinal_categorical_features": ordinal_features,
+        "excluded_monitoring_only_fields": present_columns(cleaned_df, REPAYMENT_MONITORING_FIELDS),
+        "excluded_sensitive_or_proxy_fields": present_columns(cleaned_df, SENSITIVE_OR_HIGH_RISK_PROXY_FIELDS),
+        "excluded_high_cardinality_or_encrypted_fields": present_columns(cleaned_df, HIGH_CARDINALITY_OR_ENCRYPTED_FIELDS),
+        "timing_review_fields": present_columns(cleaned_df, TIMING_REVIEW_FIELDS),
+        "fit_policy": "fit imputers, encoders, scalers, resamplers, and models on training split only",
+    }
+
+
+def make_qa_checks(raw_df: pd.DataFrame, engineered_df: pd.DataFrame, modeling_df: pd.DataFrame, feature_policy: pd.DataFrame) -> pd.DataFrame:
+    checks = [
+        {
+            "check": "row_count_preserved_after_feature_engineering",
+            "status": "pass" if len(raw_df) == len(engineered_df) == len(modeling_df) else "fail",
+            "value": f"raw={len(raw_df)}, engineered={len(engineered_df)}, modeling={len(modeling_df)}",
+        }
+    ]
+    policy_checks = validate_modeling_dataset_against_policy(modeling_df, feature_policy).to_dict("records")
+    checks.extend(policy_checks)
+    return pd.DataFrame(checks)
+
+
+def make_output_manifest(paths: Mapping[str, Path]) -> pd.DataFrame:
+    return pd.DataFrame(
+        [{"artifact": name, "path": str(path), "exists": path.exists()} for name, path in paths.items()]
+    )
+
+
+def build_feature_engineering_artifacts(df: pd.DataFrame, random_state: int = 42) -> FeatureEngineeringArtifacts:
+    engineered_df, feature_lineage = add_credit_risk_features(df)
+    modeling_df, feature_policy, numeric_features, categorical_features, ordinal_features = build_modeling_dataset(engineered_df, random_state=random_state)
+
+    groups = build_preprocessing_groups(modeling_df, numeric_features, categorical_features, ordinal_features, df)
+
+    feature_catalog = make_feature_catalog(modeling_df, feature_policy)
+    preprocessing_plan = make_encoding_plan_table(groups)
+    ordinal_mapping_plan = make_ordinal_mapping_plan(modeling_df)
+    split_distribution = make_split_distribution(modeling_df)
+    missingness_by_split = make_missingness_by_split(modeling_df)
+    rare_category_review = make_rare_category_review(modeling_df, categorical_features)
+    train_only_univariate_screening = make_train_only_univariate_screening(modeling_df, numeric_features, categorical_features)
+    multicollinearity_review = make_multicollinearity_review(modeling_df, numeric_features)
+    feature_family_summary = make_feature_family_summary(feature_catalog)
+    leakage_review = make_leakage_review_table(engineered_df)
+    qa_checks = make_qa_checks(df, engineered_df, modeling_df, feature_policy)
+
+    return FeatureEngineeringArtifacts(
+        engineered_df=engineered_df,
+        modeling_df=modeling_df,
+        feature_policy=feature_policy,
+        leakage_review=leakage_review,
+        feature_catalog=feature_catalog,
+        feature_lineage=feature_lineage,
+        preprocessing_plan=preprocessing_plan,
+        ordinal_mapping_plan=ordinal_mapping_plan,
+        split_distribution=split_distribution,
+        missingness_by_split=missingness_by_split,
+        rare_category_review=rare_category_review,
+        train_only_univariate_screening=train_only_univariate_screening,
+        multicollinearity_review=multicollinearity_review,
+        feature_family_summary=feature_family_summary,
+        qa_checks=qa_checks,
+        output_manifest=pd.DataFrame(),
+    )
 
 
 def save_feature_engineering_outputs(
     cleaned_df: pd.DataFrame,
-    processed_dir,
-    table_dir,
+    processed_dir: Path,
+    table_dir: Path,
     random_state: int = 42,
 ) -> dict[str, pd.DataFrame]:
-    """Generate and save model-ready feature-engineering artifacts."""
+    """Build, save, and return all Notebook 05 artifacts."""
+    processed_dir = Path(processed_dir)
+    table_dir = Path(table_dir)
     processed_dir.mkdir(parents=True, exist_ok=True)
     table_dir.mkdir(parents=True, exist_ok=True)
 
-    modeling_df, policy, numeric_features, categorical_features = build_modeling_dataset(cleaned_df)
-    modeling_df["split"] = create_stratified_splits(modeling_df, random_state=random_state)
+    artifacts = build_feature_engineering_artifacts(cleaned_df, random_state=random_state)
 
-    catalog = feature_catalog(modeling_df, numeric_features, categorical_features)
-    split_summary = split_distribution(modeling_df)
-    missingness = feature_missingness_by_split(modeling_df, numeric_features + categorical_features)
+    feature_cols = [c for c in artifacts.modeling_df.columns if c not in ID_COLS + [TARGET_COL, SPLIT_COL]]
+    numeric_features = artifacts.modeling_df[feature_cols].select_dtypes(include="number").columns.tolist()
+    categorical_features = [c for c in feature_cols if c not in numeric_features]
+    ordinal_features = present_columns(artifacts.modeling_df, DEFAULT_ORDINAL_CATEGORIES.keys())
+    groups = build_preprocessing_groups(
+        artifacts.modeling_df,
+        numeric_features,
+        categorical_features,
+        ordinal_features,
+        cleaned_df,
+    )
 
-    modeling_df.to_csv(processed_dir / "credit_risk_modeling_dataset.csv", index=False)
-    policy.to_csv(table_dir / "feature_leakage_and_usage_policy.csv", index=False)
-    catalog.to_csv(table_dir / "modeling_feature_catalog.csv", index=False)
-    split_summary.to_csv(table_dir / "modeling_split_distribution.csv", index=False)
-    missingness.to_csv(table_dir / "modeling_feature_missingness_by_split.csv", index=False)
+    output_paths = {
+        "engineered_dataset": processed_dir / "credit_risk_engineered_full_audit_dataset.csv",
+        "modeling_dataset": processed_dir / "credit_risk_modeling_dataset.csv",
+        "feature_policy": table_dir / "05_feature_leakage_and_usage_policy.csv",
+        "leakage_review": table_dir / "05_feature_leakage_review.csv",
+        "feature_catalog": table_dir / "05_modeling_feature_catalog.csv",
+        "feature_lineage": table_dir / "05_feature_lineage.csv",
+        "preprocessing_plan": table_dir / "05_preprocessing_pipeline_design.csv",
+        "ordinal_mapping_plan": table_dir / "05_ordinal_mapping_plan.csv",
+        "split_distribution": table_dir / "05_modeling_split_distribution.csv",
+        "missingness_by_split": table_dir / "05_modeling_feature_missingness_by_split.csv",
+        "rare_category_review": table_dir / "05_rare_category_review.csv",
+        "train_only_univariate_screening": table_dir / "05_train_only_univariate_feature_screening.csv",
+        "multicollinearity_review": table_dir / "05_multicollinearity_review.csv",
+        "feature_family_summary": table_dir / "05_feature_family_summary.csv",
+        "qa_checks": table_dir / "05_feature_engineering_qa_checks.csv",
+        "numeric_feature_list": table_dir / "05_numeric_feature_list.csv",
+        "categorical_feature_list": table_dir / "05_categorical_feature_list.csv",
+        "preprocessing_column_groups_json": table_dir / "05_preprocessing_column_groups.json",
+    }
+
+    save_table(artifacts.engineered_df, output_paths["engineered_dataset"])
+    save_table(artifacts.modeling_df, output_paths["modeling_dataset"])
+    save_table(artifacts.feature_policy, output_paths["feature_policy"])
+    save_table(artifacts.leakage_review, output_paths["leakage_review"])
+    save_table(artifacts.feature_catalog, output_paths["feature_catalog"])
+    save_table(artifacts.feature_lineage, output_paths["feature_lineage"])
+    save_table(artifacts.preprocessing_plan, output_paths["preprocessing_plan"])
+    save_table(artifacts.ordinal_mapping_plan, output_paths["ordinal_mapping_plan"])
+    save_table(artifacts.split_distribution, output_paths["split_distribution"])
+    save_table(artifacts.missingness_by_split, output_paths["missingness_by_split"])
+    save_table(artifacts.rare_category_review, output_paths["rare_category_review"])
+    save_table(artifacts.train_only_univariate_screening, output_paths["train_only_univariate_screening"])
+    save_table(artifacts.multicollinearity_review, output_paths["multicollinearity_review"])
+    save_table(artifacts.feature_family_summary, output_paths["feature_family_summary"])
+    save_table(artifacts.qa_checks, output_paths["qa_checks"])
+    save_table(pd.DataFrame({"feature": numeric_features}), output_paths["numeric_feature_list"])
+    save_table(pd.DataFrame({"feature": categorical_features}), output_paths["categorical_feature_list"])
+    save_json(groups, output_paths["preprocessing_column_groups_json"])
+
+    manifest = make_output_manifest(output_paths)
+    manifest_path = table_dir / "05_feature_engineering_output_manifest.csv"
+    save_table(manifest, manifest_path)
+    artifacts.output_manifest = manifest
 
     return {
-        "modeling_dataset_preview": modeling_df.head(10),
-        "feature_policy": policy,
-        "feature_catalog": catalog,
-        "split_distribution": split_summary,
-        "feature_missingness_by_split": missingness,
+        "engineered_df": artifacts.engineered_df,
+        "modeling_df": artifacts.modeling_df,
+        "feature_policy": artifacts.feature_policy,
+        "leakage_review": artifacts.leakage_review,
+        "feature_catalog": artifacts.feature_catalog,
+        "feature_lineage": artifacts.feature_lineage,
+        "preprocessing_plan": artifacts.preprocessing_plan,
+        "ordinal_mapping_plan": artifacts.ordinal_mapping_plan,
+        "split_distribution": artifacts.split_distribution,
+        "missingness_by_split": artifacts.missingness_by_split,
+        "rare_category_review": artifacts.rare_category_review,
+        "train_only_univariate_screening": artifacts.train_only_univariate_screening,
+        "multicollinearity_review": artifacts.multicollinearity_review,
+        "feature_family_summary": artifacts.feature_family_summary,
+        "qa_checks": artifacts.qa_checks,
+        "output_manifest": manifest,
     }

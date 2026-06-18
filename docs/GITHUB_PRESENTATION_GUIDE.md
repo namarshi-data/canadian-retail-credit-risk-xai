@@ -1,18 +1,18 @@
 # GitHub Presentation Guide
 
-## Repository name
+## Repository Name
 
 ```text
 canadian-retail-credit-risk-xai
 ```
 
-## Repository description
+## Repository Description
 
 ```text
 End-to-end Canadian retail credit risk analytics project covering default prediction, portfolio monitoring, explainable AI, threshold optimization, and model governance.
 ```
 
-## Suggested GitHub topics
+## Suggested GitHub Topics
 
 ```text
 credit-risk
@@ -23,71 +23,145 @@ random-forest
 explainable-ai
 shap
 model-governance
+model-risk-management
 portfolio-monitoring
 python
 banking-analytics
+financial-analytics
 ```
 
-## What to pin in the README
+---
 
-Place these near the top:
+## README Layout to Prioritize
 
-1. Business problem
-2. Key results table
-3. Workflow diagram
-4. Three figures: portfolio target distribution, default rate by loan category, SHAP feature importance
-5. Notebook workflow table
-6. Governance outputs
-7. Limitations and intended use
+The README should allow a recruiter or hiring manager to understand the project in under 60 seconds.
 
-## What to commit
+Recommended top-of-page order:
+
+1. Project title and badges
+2. Executive summary
+3. Portfolio positioning for Canadian finance roles
+4. Key results table
+5. Business impact
+6. Workflow diagram
+7. Notebook workflow table
+8. Example visuals
+9. Governance outputs
+10. Limitations and intended use
+
+---
+
+## Key Results to Pin
+
+Use these final results consistently:
+
+| Item | Value |
+|---|---:|
+| Records | 134,417 |
+| Observed default rate | 9.04% |
+| Champion operating model | `xgboost_weighted_baseline` |
+| Operating threshold | 0.560 |
+| Test ROC-AUC | 0.7478 |
+| Test PR-AUC | 0.2147 |
+| Test recall | 62.21% |
+| Test precision | 19.09% |
+| Test review rate | 29.46% |
+| Test business cost | $5.85M |
+
+---
+
+## Recommended README Figures
+
+Based on the current `reports/figures/` screenshot, use these paths:
+
+```markdown
+![Portfolio target distribution](reports/figures/portfolio_target_distribution.png)
+![Default rate by loan category](reports/figures/default_rate_by_loan_category.png)
+![Default rate by interest-rate quantile](reports/figures/default_rate_by_interest_rate_quantile.png)
+![Global SHAP drivers](reports/figures/08_xai_global_grouped_shap_top_features.png)
+![SHAP summary beeswarm](reports/figures/08_xai_shap_summary_beeswarm.png)
+```
+
+Use three visuals in the main README to avoid clutter. Put extra visuals in notebooks or governance/report folders.
+
+---
+
+## Governance File Naming Recommendation
+
+Your screenshot shows both older unprefixed governance markdown files and newer `09_`-prefixed files. For final GitHub presentation, prefer the final `09_` versions:
+
+```text
+reports/governance/09_model_card.md
+reports/governance/09_model_validation_summary.md
+reports/governance/09_model_monitoring_plan.md
+reports/governance/09_stakeholder_brief.md
+```
+
+Archive or remove older duplicates if they contain stale threshold or model values.
+
+---
+
+## What to Commit
 
 Commit:
 
-- Source code under `src/credit_risk/`
-- Notebooks with outputs saved
 - `README.md`
+- `LICENSE`
+- `.gitignore`
+- `requirements.txt`
+- `pyproject.toml`
+- `config/`
+- `src/credit_risk/`
+- `scripts/`
+- `notebooks/`
 - `docs/`
-- Generated non-sensitive figures under `reports/figures/`
-- Governance markdown outputs under `reports/governance/`
-- Selected summary CSV tables under `reports/tables/` if they do not expose restricted raw data
+- Safe aggregate tables under `reports/tables/`
+- Safe figures under `reports/figures/`
+- Governance markdown files under `reports/governance/`
 
 Do not commit:
 
 - Raw Excel workbook
 - Interim or processed datasets
+- Row-level predictions
+- Row-level SHAP values
+- Counterfactual rows if borrower-level
 - Model binaries such as `.joblib` or `.pkl`
-- Environment folders
-- Secrets or API keys
+- `.env`, Neptune tokens, or local credentials
+- `.venv/`
 
-## Suggested first commit after final polish
+---
+
+## Suggested Final Commit
+
+Run `git status` first. Then stage safe files only.
 
 ```bash
-git add README.md docs/ reports/governance/ reports/figures/ notebooks/ src/ scripts/ config/ tests/ requirements.txt pyproject.toml .gitignore
-git commit -m "Complete credit risk modelling, XAI, and governance portfolio project"
+git add README.md LICENSE .gitignore requirements.txt pyproject.toml config/ src/ scripts/ notebooks/ docs/ reports/figures/ reports/governance/
+git status
+git commit -m "Complete Canadian retail credit risk XAI portfolio project"
 ```
 
-Before running the command, check `git status` and make sure no raw data or model artifacts are staged.
+If unsafe files are staged, unstage them:
 
-## GitHub README image order
-
-Recommended order:
-
-```markdown
-![Portfolio target distribution](reports/figures/portfolio_target_distribution.png)
-![Default rate by loan category](reports/figures/default_rate_by_loan_category.png)
-![Global SHAP feature importance](reports/figures/xai_global_shap_top_features.png)
+```bash
+git restore --staged data/raw data/interim data/processed reports/model_artifacts
+git restore --staged reports/tables/*predictions*.csv reports/tables/*shap_values*.csv
 ```
 
-## Final quality checklist
+---
 
-- [ ] `README.md` renders cleanly on GitHub
-- [ ] All notebooks run in order from `00` to `09`
-- [ ] No raw data is committed
-- [ ] No `.joblib`, `.pkl`, `.env`, or virtual environment files are committed
-- [ ] Notebook outputs show the final operating threshold and governance summary
-- [ ] Figures render in the README
-- [ ] Governance markdown files are readable
-- [ ] Repo About section and topics are filled out
+## Final Quality Checklist
+
+- [ ] README renders cleanly on GitHub
+- [ ] Repository About section is filled out
+- [ ] GitHub topics are added
+- [ ] Raw data is not committed
+- [ ] Model artifacts are not committed
+- [ ] No `.env` or credentials are committed
+- [ ] Final metrics are consistent across README and docs
+- [ ] Notebook 07 shows threshold `0.560`
+- [ ] Notebook 08 shows champion `xgboost_weighted_baseline`
+- [ ] Notebook 09 governance outputs use latest metrics
+- [ ] Figures render correctly
 - [ ] Project is pinned on GitHub profile
-- [ ] Resume includes one concise project bullet set

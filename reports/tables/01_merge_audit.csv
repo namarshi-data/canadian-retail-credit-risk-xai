@@ -1,0 +1,9 @@
+check,result
+expected_row_count_from_loan_information,134417
+merged_row_count,134417
+merged_column_count,25
+row_count_preserved,True
+record_sequence_present,True
+record_key_duplicate_count,0
+target_present,True
+default_rate,0.0904126710163149

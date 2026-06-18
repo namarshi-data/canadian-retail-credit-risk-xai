@@ -1,22 +1,61 @@
+# Recommended Python version: 3.10.x
+
+# Core data handling
+
 pandas==2.1.4
 numpy==1.26.4
+scipy==1.11.4
 openpyxl==3.1.5
+pyarrow==17.0.0
+
+# Machine learning
+
 scikit-learn==1.3.2
 xgboost==2.1.1
 imbalanced-learn==0.12.3
+joblib==1.4.2
+
+# Hyperparameter tuning and experiment tracking
+
 hyperopt==0.2.7
+neptune==1.10.4
+python-dotenv==1.0.1
+
+# Explainable AI and model diagnostics
+
 shap==0.46.0
-alibi==0.9.6
 deepchecks==0.18.1
+alibi==0.9.6
+
+# Statistical analysis and reporting
+
+statsmodels==0.14.2
+tabulate==0.9.0
+
+# Visualization
+
 matplotlib==3.9.2
 seaborn==0.13.2
 plotly==5.23.0
-pyyaml==6.0.2
+kaleido==0.2.1
+
+# Notebook environment
+
 jupyter==1.0.0
+jupyterlab==4.2.5
+notebook==7.2.2
 ipykernel==6.29.5
+ipywidgets==8.1.5
+nbformat==5.10.4
+nbconvert==7.16.4
+
+# Utilities
+
+pyyaml==6.0.2
+tqdm==4.66.5
+
+# Testing and code quality
+
 pytest==8.3.2
 black==24.8.0
 ruff==0.6.2
-joblib==1.4.2
-neptune==1.10.4
-tabulate==0.9.0

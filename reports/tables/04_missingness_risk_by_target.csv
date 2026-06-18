@@ -1,0 +1,6 @@
+column,default_rate_non_missing_pct,default_rate_missing_pct,non_missing_rows,missing_rows,absolute_default_rate_gap_pct
+amount,7.2074,16.1263,106779,27638,8.9189
+interest_to_amount_ratio,7.2074,16.1263,106779,27638,8.9189
+loan_to_income_ratio,7.2074,16.1263,106779,27638,8.9189
+payment_to_amount_ratio,7.2074,16.1263,106779,27638,8.9189
+principal_to_amount_ratio,7.2074,16.1263,106779,27638,8.9189

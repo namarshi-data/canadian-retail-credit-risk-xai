@@ -1,0 +1,14 @@
+component,fitted_on,applies_to,purpose
+SimpleImputer,train_only,numeric_and_categorical,Missing-value treatment
+TrainOnlyWinsorizer,train_only,numeric,Outlier clipping limits learned from train only
+TrainOnlySkewnessTransformer,train_only,numeric,Yeo-Johnson transform for highly skewed numeric fields
+StandardScaler,train_only,logistic_regression_numeric,Scaling for linear baseline
+RareCategoryGrouper,train_only,categorical,Group rare levels using train frequencies
+OneHotEncoder,train_only,logistic_regression_categorical,Nominal encoding
+OrdinalEncoder,train_only,tree_model_categorical,Tree-model categorical encoding
+RandomUnderSampler,train_only,optional_resampling_models,Train-only imbalance experiment when enabled
+LogisticRegression,train_only,baseline,Classical benchmark
+RandomForestClassifier,train_only,candidate_and_tuned_model,Tree ensemble benchmark and tuned model
+XGBClassifier,train_only,primary_candidate_and_tuned_model,Primary gradient boosting model
+Hyperopt,train_only_fit_validation_only_scoring,xgboost,Tune XGBoost without touching test data
+RandomizedSearchCV,train_only_cv,random_forest,Tune Random Forest using train-only cross-validation

@@ -1,0 +1,7 @@
+metric,baseline,warning_limit,breach_limit,frequency,action
+Score PSI,Training/test score distribution,> 0.10,> 0.25,Monthly,"Investigate population shift, recalibration, or retraining need."
+Top SHAP driver PSI,Top XAI feature distributions,> 0.10,> 0.25,Monthly,Review feature drift and data source changes.
+Review rate,29.46%,> 34.46%,> 39.46%,Weekly/monthly,Review threshold capacity and staffing impact.
+Recall on matured labels,62.21%,< 57.21%,< 52.21%,After labels mature,Assess missed-default concentration and refresh need.
+Precision on reviewed accounts,19.09%,< 16.09%,< 14.09%,After labels mature,Review false-positive burden and threshold.
+Critical feature missingness,Notebook 02/03 profile,+25% relative,+50% relative,Each refresh,Open data-quality incident and assess model use pause.

@@ -1,0 +1,12 @@
+feature
+loan_category
+employment_type
+tier_of_employment
+work_experience
+home
+is_verified
+loan_amount_band
+income_band
+interest_rate_band
+tenure_band
+loan_to_income_band

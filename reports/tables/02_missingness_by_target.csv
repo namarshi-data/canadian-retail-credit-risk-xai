@@ -1,0 +1,9 @@
+column,missing_count_non_default,missing_count_default,non_default_row_count,default_row_count,missing_rate_non_default,missing_rate_default,absolute_gap,total_missing_count
+amount,23165,4454,122264,12153,18.95,36.65,17.7,27619
+employment_type,73003,6683,122264,12153,59.71,54.99,4.72,79686
+tier_of_employment,73003,6683,122264,12153,59.71,54.99,4.72,79686
+social_profile,40849,3997,122264,12153,33.41,32.89,0.52,44846
+married,40962,4122,122264,12153,33.5,33.92,0.42,45084
+is_verified,30450,3057,122264,12153,24.91,25.15,0.24,33507
+industry,4,0,122264,12153,0.0,0.0,0.0,4
+work_experience,4,0,122264,12153,0.0,0.0,0.0,4

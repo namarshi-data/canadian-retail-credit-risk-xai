@@ -1,0 +1,14 @@
+feature,risk_level,risk_type,baseline_model_policy,reason,review_area
+defaulter,target,target,exclude_target,Target variable; never used as predictor.,Leakage / timing review
+total_payment,high,post_origination_repayment,exclude_from_baseline,Repayment amount may include post-origination performance and leak target outcome.,Leakage / timing review
+received_principal,high,post_origination_repayment,exclude_from_baseline,Principal received may be observed after loan performance begins.,Leakage / timing review
+interest_received,high,post_origination_repayment,exclude_from_baseline,Interest received may be post-outcome repayment behaviour.,Leakage / timing review
+delinq_2yrs,medium,timing_dependent_credit_history,review_timing_before_use,Valid only if available at prediction point.,Leakage / timing review
+number_of_loans,medium,timing_dependent_exposure,review_timing_before_use,"Could be valid exposure information, but timing must be confirmed.",Leakage / timing review
+gender,high,sensitive_attribute,exclude_from_baseline,Sensitive/protected characteristic; retain only for governance/fairness diagnostics if appropriate.,Sensitive / proxy review
+pincode,high,geographic_proxy,exclude_from_baseline,Geographic proxy that may encode socioeconomic patterns.,Sensitive / proxy review
+social_profile,high,unclear_social_proxy,exclude_from_baseline,Unclear meaning and potential social/behavioural proxy.,Sensitive / proxy review
+married,medium,household_status_proxy,governance_review_before_use,Household/social status proxy.,Sensitive / proxy review
+dependents,medium,family_status_proxy,governance_review_before_use,Family status proxy; use cautiously.,Sensitive / proxy review
+home,medium,socioeconomic_proxy,governance_review_before_use,Wealth/socioeconomic proxy; common in credit risk but requires monitoring.,Sensitive / proxy review
+is_verified,medium,operational_process_proxy,governance_review_before_use,Potential verification/operational bias.,Sensitive / proxy review

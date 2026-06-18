@@ -1,0 +1,11 @@
+component,fit_scope,implementation
+numeric_imputer,training_split_only,SimpleImputer inside Pipeline
+categorical_imputer,training_split_only,SimpleImputer inside Pipeline
+categorical_encoder,training_split_only,OneHotEncoder/OrdinalEncoder inside Pipeline
+winsorization_limits,training_split_only,TrainOnlyWinsorizer inside Pipeline
+skewness_transformer,training_split_only,Yeo-Johnson PowerTransformer inside Pipeline where enabled
+numeric_scaler,training_split_only,StandardScaler inside Logistic Regression Pipeline
+random_under_sampler,not_enabled,class weights / scale_pos_weight used by default
+random_forest_tuning,training_split_only_cv,RandomizedSearchCV scoring=average_precision
+xgboost_hyperopt,train_fit_validation_objective,Hyperopt fits train only and scores validation PR-AUC
+threshold_selection,validation_only,Validation threshold grid; test only confirms selected threshold

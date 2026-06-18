@@ -1,0 +1,4 @@
+artifact,path_or_status
+cleaned_csv,D:\Banking and Finance\Projects\canadian-retail-credit-risk-xai\data\processed\credit_risk_cleaned.csv
+cleaned_parquet,Parquet saved to D:\Banking and Finance\Projects\canadian-retail-credit-risk-xai\data\processed\credit_risk_cleaned.parquet
+audit_tables_directory,D:\Banking and Finance\Projects\canadian-retail-credit-risk-xai\reports\tables

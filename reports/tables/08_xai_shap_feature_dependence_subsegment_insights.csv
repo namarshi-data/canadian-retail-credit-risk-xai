@@ -1,0 +1,185 @@
+segment_column,segment_value,segment_row_count,raw_feature,feature_label,mean_abs_shap,mean_shap,positive_contribution_share
+employment_type,Salaried,489,interest_rate,Interest Rate,0.6630513072013855,-0.04292822256684303,0.5419222903885481
+employment_type,Salaried,489,amount_missing_flag,Amount Missing Flag,0.19057388603687286,0.05553318187594414,0.2883435582822086
+employment_type,Salaried,489,amount_missing_raw_flag,Amount Missing Raw Flag,0.17704832553863525,0.05394452437758446,0.2883435582822086
+employment_type,Salaried,489,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15342794358730316,-0.04108262434601784,0.1411042944785276
+employment_type,Salaried,489,total_income_pa,Total Income Pa,0.14081719517707825,-0.023221436887979507,0.5439672801635992
+employment_type,Salaried,489,core_data_quality_issue_count,Core Data Quality Issue Count,0.10085297375917435,-0.07008849084377289,0.7055214723926381
+employment_type,Salaried,489,income_to_loan_buffer,Income To Loan Buffer,0.06496000289916992,0.03824380040168762,0.7668711656441718
+employment_type,Salaried,489,amount,Amount,0.06103365123271942,-0.013906694017350674,0.5521472392638037
+employment_type,Self-Employed,128,interest_rate,Interest Rate,0.5999079942703247,0.23983892798423767,0.671875
+employment_type,Self-Employed,128,amount_missing_flag,Amount Missing Flag,0.2779558598995209,0.2246657907962799,0.59375
+employment_type,Self-Employed,128,amount_missing_raw_flag,Amount Missing Raw Flag,0.2711562216281891,0.20623038709163666,0.59375
+employment_type,Self-Employed,128,core_data_quality_issue_count,Core Data Quality Issue Count,0.1905873864889145,-0.1691478192806244,0.390625
+employment_type,Self-Employed,128,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.18050821125507355,0.0009158793836832047,0.234375
+employment_type,Self-Employed,128,total_income_pa,Total Income Pa,0.15852531790733337,-0.02418229728937149,0.4921875
+employment_type,Self-Employed,128,amount,Amount,0.05338466912508011,0.005013629328459501,0.71875
+employment_type,Self-Employed,128,income_to_loan_buffer,Income To Loan Buffer,0.053154561668634415,0.03904051333665848,0.875
+employment_type,Unknown,883,interest_rate,Interest Rate,0.6136431097984314,-0.008355206809937954,0.5583238958097395
+employment_type,Unknown,883,amount_missing_flag,Amount Missing Flag,0.18096229434013367,0.0402766615152359,0.26047565118912797
+employment_type,Unknown,883,amount_missing_raw_flag,Amount Missing Raw Flag,0.1715494692325592,0.03930202126502991,0.26047565118912797
+employment_type,Unknown,883,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15872642397880554,-0.03326927870512009,0.15288788221970556
+employment_type,Unknown,883,total_income_pa,Total Income Pa,0.14020796120166779,-0.017883924767374992,0.5118912797281994
+employment_type,Unknown,883,core_data_quality_issue_count,Core Data Quality Issue Count,0.09699669480323792,-0.06911592930555344,0.7236693091732729
+employment_type,Unknown,883,amount,Amount,0.06551900506019592,-0.029414018616080284,0.4824462061155153
+employment_type,Unknown,883,income_to_loan_buffer,Income To Loan Buffer,0.0626947358250618,0.04222332313656807,0.8063420158550396
+home,Mortgage,696,interest_rate,Interest Rate,0.6433727145195007,-0.04794975742697716,0.5316091954022989
+home,Mortgage,696,amount_missing_flag,Amount Missing Flag,0.18371617794036865,0.053509969264268875,0.2859195402298851
+home,Mortgage,696,amount_missing_raw_flag,Amount Missing Raw Flag,0.17740054428577423,0.056903861463069916,0.2859195402298851
+home,Mortgage,696,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.16247867047786713,-0.01995062083005905,0.1752873563218391
+home,Mortgage,696,total_income_pa,Total Income Pa,0.15109458565711975,-0.07422369718551636,0.38936781609195403
+home,Mortgage,696,core_data_quality_issue_count,Core Data Quality Issue Count,0.09126907587051392,-0.0670776292681694,0.7126436781609196
+home,Mortgage,696,amount,Amount,0.06569792330265045,-0.013408856466412544,0.6408045977011494
+home,Mortgage,696,income_to_loan_buffer,Income To Loan Buffer,0.05536222085356712,0.018822232261300087,0.6968390804597702
+home,Own,137,interest_rate,Interest Rate,0.6226909160614014,-0.0857585072517395,0.5474452554744526
+home,Own,137,amount_missing_flag,Amount Missing Flag,0.18130141496658325,0.026915326714515686,0.23357664233576642
+home,Own,137,amount_missing_raw_flag,Amount Missing Raw Flag,0.15572050213813782,0.015660446137189865,0.23357664233576642
+home,Own,137,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.14460663497447968,-0.05375274643301964,0.10948905109489052
+home,Own,137,total_income_pa,Total Income Pa,0.13350234925746918,0.018870193511247635,0.6058394160583942
+home,Own,137,core_data_quality_issue_count,Core Data Quality Issue Count,0.08262421190738678,-0.04951347038149834,0.7591240875912408
+home,Own,137,income_to_loan_buffer,Income To Loan Buffer,0.07054458558559418,0.05955212935805321,0.8759124087591241
+home,Own,137,amount,Amount,0.0656767413020134,-0.03573940694332123,0.40145985401459855
+home,Rent,666,interest_rate,Interest Rate,0.6143075823783875,0.07028449326753616,0.5975975975975976
+home,Rent,666,amount_missing_flag,Amount Missing Flag,0.20374996960163116,0.076131172478199,0.32432432432432434
+home,Rent,666,amount_missing_raw_flag,Amount Missing Raw Flag,0.19183669984340668,0.06895577162504196,0.32432432432432434
+home,Rent,666,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15762069821357727,-0.04156770184636116,0.14564564564564564
+home,Rent,666,total_income_pa,Total Income Pa,0.13431590795516968,0.02820408158004284,0.6396396396396397
+home,Rent,666,core_data_quality_issue_count,Core Data Quality Issue Count,0.12529781460762024,-0.09371615946292877,0.6516516516516516
+home,Rent,666,income_to_loan_buffer,Income To Loan Buffer,0.06863366812467575,0.05967662110924721,0.8918918918918919
+home,Rent,666,amount,Amount,0.05930737778544426,-0.02641524001955986,0.43093093093093093
+income_band,100K-150K,149,interest_rate,Interest Rate,0.7694083452224731,-0.1331126093864441,0.5234899328859061
+income_band,100K-150K,149,total_income_pa,Total Income Pa,0.28005924820899963,-0.28005924820899963,0.0
+income_band,100K-150K,149,amount_missing_raw_flag,Amount Missing Raw Flag,0.1492452621459961,0.03862040117383003,0.2348993288590604
+income_band,100K-150K,149,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.14499597251415253,-0.03465241566300392,0.14093959731543623
+income_band,100K-150K,149,amount_missing_flag,Amount Missing Flag,0.13766080141067505,0.025197919458150864,0.2348993288590604
+income_band,100K-150K,149,amount,Amount,0.08782156556844711,-0.0422951802611351,0.4899328859060403
+income_band,100K-150K,149,core_data_quality_issue_count,Core Data Quality Issue Count,0.07756273448467255,-0.05132760852575302,0.7651006711409396
+income_band,100K-150K,149,income_to_loan_buffer,Income To Loan Buffer,0.05554736405611038,0.002061061328276992,0.6375838926174496
+income_band,50K-75K,498,interest_rate,Interest Rate,0.6430417895317078,0.029287921264767647,0.5582329317269076
+income_band,50K-75K,498,amount_missing_flag,Amount Missing Flag,0.20886456966400146,0.07593017816543579,0.3273092369477912
+income_band,50K-75K,498,amount_missing_raw_flag,Amount Missing Raw Flag,0.19628450274467468,0.07332757115364075,0.3273092369477912
+income_band,50K-75K,498,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.16327382624149323,-0.03194573521614075,0.16265060240963855
+income_band,50K-75K,498,core_data_quality_issue_count,Core Data Quality Issue Count,0.12010208517313004,-0.0939863920211792,0.6526104417670683
+income_band,50K-75K,498,income_to_loan_buffer,Income To Loan Buffer,0.060545772314071655,0.042408790439367294,0.8273092369477911
+income_band,50K-75K,498,total_income_pa,Total Income Pa,0.05877041444182396,0.002566703362390399,0.5220883534136547
+income_band,50K-75K,498,amount,Amount,0.053243476897478104,-0.01137850247323513,0.5522088353413654
+income_band,75K-100K,273,interest_rate,Interest Rate,0.6993857622146606,0.04255251586437225,0.575091575091575
+income_band,75K-100K,273,amount_missing_raw_flag,Amount Missing Raw Flag,0.18572784960269928,0.060741353780031204,0.2783882783882784
+income_band,75K-100K,273,total_income_pa,Total Income Pa,0.17103680968284607,-0.17103680968284607,0.0
+income_band,75K-100K,273,amount_missing_flag,Amount Missing Flag,0.1681743860244751,0.04424670338630676,0.2783882783882784
+income_band,75K-100K,273,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15991109609603882,-0.019275886937975883,0.18315018315018314
+income_band,75K-100K,273,core_data_quality_issue_count,Core Data Quality Issue Count,0.09696163982152939,-0.06872793287038803,0.717948717948718
+income_band,75K-100K,273,income_to_loan_buffer,Income To Loan Buffer,0.055899880826473236,0.02858784794807434,0.7619047619047619
+income_band,75K-100K,273,amount,Amount,0.052731484174728394,-0.006827877834439278,0.6007326007326007
+income_band,<=50K,525,interest_rate,Interest Rate,0.5267758369445801,0.021960260346531868,0.5847619047619048
+income_band,<=50K,525,amount_missing_flag,Amount Missing Flag,0.2121819704771042,0.07418700307607651,0.3142857142857143
+income_band,<=50K,525,amount_missing_raw_flag,Amount Missing Raw Flag,0.18223166465759277,0.05516078695654869,0.3142857142857143
+income_band,<=50K,525,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15905006229877472,-0.04085405915975571,0.13904761904761906
+income_band,<=50K,525,total_income_pa,Total Income Pa,0.14541441202163696,0.144423246383667,0.9904761904761905
+income_band,<=50K,525,core_data_quality_issue_count,Core Data Quality Issue Count,0.11150091886520386,-0.08084841817617416,0.6704761904761904
+income_band,<=50K,525,income_to_loan_buffer,Income To Loan Buffer,0.07055783271789551,0.0594906285405159,0.8609523809523809
+income_band,<=50K,525,amount,Amount,0.06176963448524475,-0.023134760558605194,0.4838095238095238
+interest_rate_band,12%-16%,405,interest_rate,Interest Rate,0.2693842053413391,0.23570623993873596,0.8814814814814815
+interest_rate_band,12%-16%,405,amount_missing_raw_flag,Amount Missing Raw Flag,0.15201255679130554,-0.02276318334043026,0.1728395061728395
+interest_rate_band,12%-16%,405,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1499684453010559,-0.04689062014222145,0.1308641975308642
+interest_rate_band,12%-16%,405,total_income_pa,Total Income Pa,0.14043530821800232,-0.02435022033751011,0.5580246913580247
+interest_rate_band,12%-16%,405,amount_missing_flag,Amount Missing Flag,0.13377340137958527,-0.0030157335568219423,0.1728395061728395
+interest_rate_band,12%-16%,405,core_data_quality_issue_count,Core Data Quality Issue Count,0.07604873925447464,-0.040114495903253555,0.8123456790123457
+interest_rate_band,12%-16%,405,income_to_loan_buffer,Income To Loan Buffer,0.07430242002010345,0.05886794626712799,0.8148148148148148
+interest_rate_band,12%-16%,405,amount,Amount,0.0649707242846489,-0.036737337708473206,0.4
+interest_rate_band,16%-20%,349,interest_rate,Interest Rate,0.7034859657287598,0.7034859657287598,1.0
+interest_rate_band,16%-20%,349,amount_missing_raw_flag,Amount Missing Raw Flag,0.27774420380592346,0.13886171579360962,0.37249283667621774
+interest_rate_band,16%-20%,349,amount_missing_flag,Amount Missing Flag,0.18940763175487518,0.10286486148834229,0.37249283667621774
+interest_rate_band,16%-20%,349,core_data_quality_issue_count,Core Data Quality Issue Count,0.14322589337825775,-0.11527081578969955,0.6131805157593123
+interest_rate_band,16%-20%,349,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.14138886332511902,-0.03394022956490517,0.15759312320916904
+interest_rate_band,16%-20%,349,total_income_pa,Total Income Pa,0.10931218415498734,0.007612778805196285,0.5730659025787965
+interest_rate_band,16%-20%,349,income_to_loan_buffer,Income To Loan Buffer,0.05798313021659851,0.04447603225708008,0.8452722063037249
+interest_rate_band,16%-20%,349,amount,Amount,0.05083070322871208,-0.0075567238964140415,0.5530085959885387
+interest_rate_band,8%-12%,423,interest_rate,Interest Rate,0.5244461894035339,-0.5239858627319336,0.016548463356973995
+interest_rate_band,8%-12%,423,amount_missing_flag,Amount Missing Flag,0.21825116872787476,0.05775359645485878,0.28368794326241137
+interest_rate_band,8%-12%,423,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.19008749723434448,-0.004765727091580629,0.20567375886524822
+interest_rate_band,8%-12%,423,total_income_pa,Total Income Pa,0.1496635377407074,-0.01959524303674698,0.5153664302600472
+interest_rate_band,8%-12%,423,amount_missing_raw_flag,Amount Missing Raw Flag,0.10849883407354355,0.018493488430976868,0.28368794326241137
+interest_rate_band,8%-12%,423,core_data_quality_issue_count,Core Data Quality Issue Count,0.08844127506017685,-0.0625889003276825,0.7021276595744681
+interest_rate_band,8%-12%,423,amount,Amount,0.06610938906669617,-0.025429926812648773,0.5366430260047281
+interest_rate_band,8%-12%,423,income_to_loan_buffer,Income To Loan Buffer,0.06004264950752258,0.0313604399561882,0.75177304964539
+interest_rate_band,<=8%,192,interest_rate,Interest Rate,1.258882999420166,-1.258882999420166,0.0
+interest_rate_band,<=8%,192,total_income_pa,Total Income Pa,0.21843957901000977,-0.05115567520260811,0.4427083333333333
+interest_rate_band,<=8%,192,amount_missing_flag,Amount Missing Flag,0.21614205837249756,0.0236420389264822,0.23958333333333334
+interest_rate_band,<=8%,192,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.14956088364124298,-0.06627238541841507,0.08333333333333333
+interest_rate_band,<=8%,192,amount_missing_raw_flag,Amount Missing Raw Flag,0.09376346319913864,0.004188500344753265,0.23958333333333334
+interest_rate_band,<=8%,192,amount,Amount,0.07774775475263596,-0.023868918418884277,0.59375
+interest_rate_band,<=8%,192,core_data_quality_issue_count,Core Data Quality Issue Count,0.06638798862695694,-0.0408572219312191,0.7604166666666666
+interest_rate_band,<=8%,192,income_to_loan_buffer,Income To Loan Buffer,0.05860346555709839,0.017090393230319023,0.7239583333333334
+interest_rate_band,>20%,131,interest_rate,Interest Rate,0.9519371390342712,0.9519371390342712,1.0
+interest_rate_band,>20%,131,amount_missing_raw_flag,Amount Missing Raw Flag,0.3844839930534363,0.30236226320266724,0.6183206106870229
+interest_rate_band,>20%,131,amount_missing_flag,Amount Missing Flag,0.26303571462631226,0.21244065463542938,0.6183206106870229
+interest_rate_band,>20%,131,core_data_quality_issue_count,Core Data Quality Issue Count,0.21692854166030884,-0.19967928528785706,0.366412213740458
+interest_rate_band,>20%,131,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.14566493034362793,-0.028800765052437782,0.17557251908396945
+interest_rate_band,>20%,131,total_income_pa,Total Income Pa,0.09679507464170456,-0.037606626749038696,0.3969465648854962
+interest_rate_band,>20%,131,amount,Amount,0.057916563004255295,0.005529789719730616,0.7022900763358778
+interest_rate_band,>20%,131,income_to_loan_buffer,Income To Loan Buffer,0.053054794669151306,0.038710858672857285,0.8931297709923665
+loan_category,Consolidation,962,interest_rate,Interest Rate,0.63125079870224,0.08187409490346909,0.6133056133056133
+loan_category,Consolidation,962,amount_missing_raw_flag,Amount Missing Raw Flag,0.19694437086582184,0.07158759236335754,0.3180873180873181
+loan_category,Consolidation,962,amount_missing_flag,Amount Missing Flag,0.19691625237464905,0.07052507251501083,0.3180873180873181
+loan_category,Consolidation,962,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.15284015238285065,-0.04228374734520912,0.1392931392931393
+loan_category,Consolidation,962,total_income_pa,Total Income Pa,0.13828545808792114,-0.019690802320837975,0.5239085239085239
+loan_category,Consolidation,962,core_data_quality_issue_count,Core Data Quality Issue Count,0.11303000152111053,-0.0856950581073761,0.6694386694386695
+loan_category,Consolidation,962,amount,Amount,0.06253217905759811,-0.020379137247800827,0.5301455301455301
+loan_category,Consolidation,962,income_to_loan_buffer,Income To Loan Buffer,0.06202664598822594,0.04103262349963188,0.8118503118503119
+loan_category,Credit Card,291,interest_rate,Interest Rate,0.6765152812004089,-0.321443110704422,0.36082474226804123
+loan_category,Credit Card,291,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.17726010084152222,-0.014468833804130554,0.18900343642611683
+loan_category,Credit Card,291,amount_missing_flag,Amount Missing Flag,0.17128895223140717,0.00822629313915968,0.19931271477663232
+loan_category,Credit Card,291,total_income_pa,Total Income Pa,0.1550315022468567,-0.012042964808642864,0.5326460481099656
+loan_category,Credit Card,291,amount_missing_raw_flag,Amount Missing Raw Flag,0.12532727420330048,0.0007265802123583853,0.19931271477663232
+loan_category,Credit Card,291,core_data_quality_issue_count,Core Data Quality Issue Count,0.08076437562704086,-0.050207700580358505,0.7835051546391752
+loan_category,Credit Card,291,amount,Amount,0.06993405520915985,-0.030152514576911926,0.5017182130584192
+loan_category,Credit Card,291,income_to_loan_buffer,Income To Loan Buffer,0.05700065568089485,0.028260713443160057,0.7147766323024055
+loan_to_income_band,25%-50%,167,interest_rate,Interest Rate,0.5929849147796631,-0.08115160465240479,0.5329341317365269
+loan_to_income_band,25%-50%,167,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.17909416556358337,-0.013185578398406506,0.20359281437125748
+loan_to_income_band,25%-50%,167,total_income_pa,Total Income Pa,0.13550584018230438,0.011351513676345348,0.6467065868263473
+loan_to_income_band,25%-50%,167,amount_missing_flag,Amount Missing Flag,0.09721852093935013,-0.09721852093935013,0.0
+loan_to_income_band,25%-50%,167,amount,Amount,0.09560708701610565,-0.09079313278198242,0.07784431137724551
+loan_to_income_band,25%-50%,167,income_to_loan_buffer,Income To Loan Buffer,0.0887075737118721,0.07988449186086655,0.8862275449101796
+loan_to_income_band,25%-50%,167,amount_missing_raw_flag,Amount Missing Raw Flag,0.08744840323925018,-0.08744840323925018,0.0
+loan_to_income_band,25%-50%,167,core_data_quality_issue_count,Core Data Quality Issue Count,0.06679999828338623,-0.010148034431040287,0.9580838323353293
+loan_to_income_band,50%-100%,241,interest_rate,Interest Rate,0.614090621471405,0.0565015934407711,0.6514522821576764
+loan_to_income_band,50%-100%,241,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1617799550294876,-0.014568455517292023,0.1950207468879668
+loan_to_income_band,50%-100%,241,total_income_pa,Total Income Pa,0.12916944921016693,0.023052044212818146,0.6141078838174274
+loan_to_income_band,50%-100%,241,amount_missing_raw_flag,Amount Missing Raw Flag,0.09388995915651321,-0.09388995915651321,0.0
+loan_to_income_band,50%-100%,241,amount_missing_flag,Amount Missing Flag,0.0934622660279274,-0.0934622660279274,0.0
+loan_to_income_band,50%-100%,241,income_to_loan_buffer,Income To Loan Buffer,0.09303224831819534,0.09034670144319534,0.966804979253112
+loan_to_income_band,50%-100%,241,amount,Amount,0.06901396811008453,-0.06646636128425598,0.04149377593360996
+loan_to_income_band,50%-100%,241,core_data_quality_issue_count,Core Data Quality Issue Count,0.023078547790646553,0.023078547790646553,1.0
+loan_to_income_band,>100%,560,interest_rate,Interest Rate,0.6608771085739136,-0.1898118406534195,0.4660714285714286
+loan_to_income_band,>100%,560,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1768196076154709,0.009863082319498062,0.23035714285714284
+loan_to_income_band,>100%,560,total_income_pa,Total Income Pa,0.1469181627035141,-0.06402606517076492,0.40535714285714286
+loan_to_income_band,>100%,560,amount_missing_flag,Amount Missing Flag,0.09328272938728333,-0.09328272938728333,0.0
+loan_to_income_band,>100%,560,amount_missing_raw_flag,Amount Missing Raw Flag,0.08469916880130768,-0.08469916880130768,0.0
+loan_to_income_band,>100%,560,amount,Amount,0.06644780188798904,-0.023282429203391075,0.5267857142857143
+loan_to_income_band,>100%,560,income_to_loan_buffer,Income To Loan Buffer,0.054716575890779495,-9.06680288608186e-05,0.5214285714285715
+loan_to_income_band,>100%,560,core_data_quality_issue_count,Core Data Quality Issue Count,0.01546191330999136,0.01546191330999136,1.0
+loan_to_income_band,Missing,447,interest_rate,Interest Rate,0.6198233962059021,0.22614824771881104,0.6241610738255033
+loan_to_income_band,Missing,447,amount_missing_flag,Amount Missing Flag,0.42509615421295166,0.42509615421295166,1.0
+loan_to_income_band,Missing,447,amount_missing_raw_flag,Amount Missing Raw Flag,0.4029562175273895,0.4029562175273895,1.0
+loan_to_income_band,Missing,447,core_data_quality_issue_count,Core Data Quality Issue Count,0.27377212047576904,-0.27377212047576904,0.0
+loan_to_income_band,Missing,447,total_income_pa,Total Income Pa,0.15152084827423096,0.0004148744628764689,0.5659955257270693
+loan_to_income_band,Missing,447,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.11409512162208557,-0.11409512162208557,0.0
+loan_to_income_band,Missing,447,amount,Amount,0.03914087638258934,0.03914087638258934,1.0
+loan_to_income_band,Missing,447,income_to_loan_buffer,Income To Loan Buffer,0.03582403063774109,0.03582403063774109,1.0
+tenure_band,3Y-5Y,991,interest_rate,Interest Rate,0.5849360823631287,-0.25442585349082947,0.41977800201816345
+tenure_band,3Y-5Y,991,amount_missing_flag,Amount Missing Flag,0.18553300201892853,0.04302787035703659,0.25832492431886983
+tenure_band,3Y-5Y,991,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.16891269385814667,-0.021274756640195847,0.17457114026236126
+tenure_band,3Y-5Y,991,total_income_pa,Total Income Pa,0.15704971551895142,-0.01126051414757967,0.562058526740666
+tenure_band,3Y-5Y,991,amount_missing_raw_flag,Amount Missing Raw Flag,0.13392293453216553,0.019468070939183235,0.25832492431886983
+tenure_band,3Y-5Y,991,core_data_quality_issue_count,Core Data Quality Issue Count,0.09244611859321594,-0.06247595697641373,0.7265388496468214
+tenure_band,3Y-5Y,991,income_to_loan_buffer,Income To Loan Buffer,0.0673246830701828,0.04335218295454979,0.7870837537840565
+tenure_band,3Y-5Y,991,amount,Amount,0.06586535274982452,-0.027354620397090912,0.5035317860746721
+tenure_band,>5Y,509,interest_rate,Interest Rate,0.7135472893714905,0.4999328851699829,0.8408644400785854
+tenure_band,>5Y,509,amount_missing_raw_flag,Amount Missing Raw Flag,0.27513790130615234,0.13396301865577698,0.37524557956778
+tenure_band,>5Y,509,amount_missing_flag,Amount Missing Flag,0.20568859577178955,0.09594620019197464,0.37524557956778
+tenure_band,>5Y,509,broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1392814666032791,-0.05553174018859863,0.11984282907662082
+tenure_band,>5Y,509,core_data_quality_issue_count,Core Data Quality Issue Count,0.13309678435325623,-0.10813336074352264,0.6168958742632613
+tenure_band,>5Y,509,total_income_pa,Total Income Pa,0.11260949075222015,-0.03749106451869011,0.4400785854616896
+tenure_band,>5Y,509,amount,Amount,0.05748410150408745,-0.00986793078482151,0.5677799607072691
+tenure_band,>5Y,509,income_to_loan_buffer,Income To Loan Buffer,0.05345761775970459,0.03540193662047386,0.8231827111984283

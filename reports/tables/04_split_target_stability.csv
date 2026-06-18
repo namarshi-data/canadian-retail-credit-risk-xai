@@ -1,0 +1,4 @@
+eda_split,row_count,default_count,default_rate,default_rate_pct
+train_like,80586,7254,0.090016,9.001600
+validation_like,27066,2521,0.093143,9.314300
+test_like,26765,2378,0.088847,8.884700

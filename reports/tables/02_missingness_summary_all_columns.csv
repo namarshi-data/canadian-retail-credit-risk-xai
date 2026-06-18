@@ -1,0 +1,26 @@
+column,dtype,row_count,non_null_count,missing_count,missing_pct,unique_values,complete_pct,missingness_severity
+user_id,int64,134417,134417,0,0.0,133752,100.0,No missingness
+loan_category,object,134417,134417,0,0.0,7,100.0,No missingness
+amount,float64,134417,106798,27619,20.55,86157,79.45,High missingness
+interest_rate,float64,134417,134417,0,0.0,137,100.0,No missingness
+tenure_years,int64,134417,134417,0,0.0,2,100.0,No missingness
+record_sequence,int64,134417,134417,0,0.0,2,100.0,No missingness
+employment_type,object,134417,54731,79686,59.28,2,40.72,Severe missingness
+tier_of_employment,object,134417,54731,79686,59.28,7,40.72,Severe missingness
+industry,object,134417,134413,4,0.0,12974,100.0,No missingness
+role,object,134417,134417,0,0.0,46,100.0,No missingness
+work_experience,object,134417,134413,4,0.0,7,100.0,No missingness
+total_income_pa,float64,134417,134417,0,0.0,11380,100.0,No missingness
+gender,object,134417,134417,0,0.0,3,100.0,No missingness
+married,object,134417,89333,45084,33.54,2,66.46,High missingness
+dependents,int64,134417,134417,0,0.0,5,100.0,No missingness
+home,object,134417,134417,0,0.0,5,100.0,No missingness
+pincode,object,134417,134417,0,0.0,844,100.0,No missingness
+social_profile,object,134417,89571,44846,33.36,2,66.64,High missingness
+is_verified,object,134417,100910,33507,24.93,3,75.07,High missingness
+delinq_2yrs,int64,134417,134417,0,0.0,22,100.0,No missingness
+total_payment,float64,134417,134417,0,0.0,104202,100.0,No missingness
+received_principal,float64,134417,134417,0,0.0,42022,100.0,No missingness
+interest_received,float64,134417,134417,0,0.0,93862,100.0,No missingness
+number_of_loans,int64,134417,134417,0,0.0,5,100.0,No missingness
+defaulter,int64,134417,134417,0,0.0,2,100.0,No missingness

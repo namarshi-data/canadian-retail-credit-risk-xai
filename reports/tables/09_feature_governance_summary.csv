@@ -1,0 +1,9 @@
+reason,feature_count
+"Deterministic, row-level, explainable feature not marked as leakage or high-risk proxy.",37
+Repayment-derived/post-origination information may leak outcome timing.,7
+Sensitive or high-risk proxy field retained for fairness/governance monitoring.,4
+Potential socioeconomic/operational proxy; can be used only with documented monitoring.,3
+High-cardinality/encrypted field is not explainable enough for first baseline model.,2
+Identifier/audit grain; useful for traceability but not predictive modelling.,2
+May be valid only if known at prediction time; do not include in conservative baseline.,2
+Target variable; never used as a predictor.,1

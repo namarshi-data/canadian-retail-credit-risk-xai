@@ -1,0 +1,12 @@
+column,skew,abs_skew,transformation_candidate,recommended_action
+interest_to_amount_ratio,323.05,323.05,True,Review log / robust transform inside modelling pipeline
+payment_to_amount_ratio,286.6,286.6,True,Review log / robust transform inside modelling pipeline
+principal_to_amount_ratio,219.05,219.05,True,Review log / robust transform inside modelling pipeline
+total_income_pa,28.74,28.74,True,Review log / robust transform inside modelling pipeline
+delinq_2yrs,5.42,5.42,True,Review log / robust transform inside modelling pipeline
+amount,4.35,4.35,True,Review log / robust transform inside modelling pipeline
+interest_received,2.85,2.85,False,No immediate transformation required
+total_payment,1.6,1.6,False,No immediate transformation required
+received_principal,1.56,1.56,False,No immediate transformation required
+loan_to_income_ratio,1.15,1.15,False,No immediate transformation required
+interest_rate,0.36,0.36,False,No immediate transformation required

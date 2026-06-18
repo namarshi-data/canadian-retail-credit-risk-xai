@@ -1,0 +1,14 @@
+check,columns_checked,issue_type,failed_row_count,failed_row_pct,status,recommended_action
+amount_missing,amount,missing_value,27619,20.55,Fail,Create amount_missing_flag; assess missingness as potential risk signal
+received_principal_greater_than_amount_when_amount_present,"received_principal, amount",business_rule_violation,2815,2.09,Fail,Review cases where principal repaid exceeds original loan amount
+amount_non_positive,amount,invalid_value,19,0.01,Fail,Review and correct/remove invalid loan amounts
+interest_rate_outside_0_to_100,interest_rate,invalid_range,0,0.0,Pass,Review interest-rate values outside expected percentage range
+tenure_years_non_positive,tenure_years,invalid_value,0,0.0,Pass,Review invalid loan tenure values
+income_non_positive,total_income_pa,invalid_value,0,0.0,Pass,Review borrower income values; zero/negative income may require correction or flagging
+dependents_negative,dependents,invalid_value,0,0.0,Pass,Dependents cannot be negative; review and correct
+payment_negative,total_payment,invalid_value,0,0.0,Pass,Payments cannot be negative; review source data
+received_principal_negative,received_principal,invalid_value,0,0.0,Pass,Received principal cannot be negative
+interest_received_negative,interest_received,invalid_value,0,0.0,Pass,Interest received cannot be negative
+number_of_loans_negative,number_of_loans,invalid_value,0,0.0,Pass,Number of loans cannot be negative
+total_payment_less_than_received_principal,"total_payment, received_principal",business_rule_violation,0,0.0,Pass,Review payment records where total payment is below received principal
+interest_received_greater_than_total_payment,"interest_received, total_payment",business_rule_violation,0,0.0,Pass,Review cases where interest received exceeds total payment

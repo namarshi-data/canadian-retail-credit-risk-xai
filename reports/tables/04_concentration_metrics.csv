@@ -1,0 +1,6 @@
+segment_column,unique_segments,hhi_row_concentration,hhi_exposure_concentration,top_exposure_segment,top_exposure_share_pct
+employment_type,3,0.468051,0.499054,Unknown,62.0702
+loan_category,7,0.425711,0.441213,Consolidation,61.2932
+home,4,0.422203,0.642632,Mortgage,78.5538
+tier_of_employment,8,0.388649,0.417113,Unknown,62.0702
+is_verified,4,0.250001,0.250023,Unknown,25.4101

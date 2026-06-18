@@ -1,0 +1,13 @@
+item,value
+business_use,Early-warning retail credit default-risk ranking and manual-review prioritization
+model_scope,Portfolio monitoring and decision-support; not an automated credit-decline engine
+target,Defaulter indicator
+operational_model,xgboost_weighted_baseline
+operating_threshold,0.56
+threshold_objective,minimum_cost_review_rate_le_30pct
+modeling_rows,134417
+portfolio_default_rate,0.0904126710163149
+feature_count,40
+sensitive_proxy_use,Excluded from baseline model; available only for permitted governance review
+leakage_control,Repayment-derived variables excluded from modelling features
+explainability_assets,"SHAP, anchor-style rules, counterfactual diagnostics, Deepchecks/fallback diagnostics"

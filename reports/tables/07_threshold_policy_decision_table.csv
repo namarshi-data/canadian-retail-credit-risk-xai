@@ -1,0 +1,10 @@
+decision_item,decision,evidence
+Operating model,xgboost_weighted_baseline,Selected on validation data using the business-cost policy.
+Operating threshold,0.56,Validation-selected threshold; test set used only for confirmation.
+Validation recall,0.6258913878222709,Risk-capture level at the selected threshold.
+Validation precision,0.19048414023372287,Review efficiency at the selected threshold.
+Validation review rate,0.2970788077171056,Operational workload estimate under the selected policy.
+Test recall,0.6220515633571037,Out-of-sample confirmation of risk capture.
+Test precision,0.19087695674128935,Out-of-sample confirmation of review efficiency.
+Test business cost,5848500.0,Out-of-sample confirmation of cost trade-off.
+Proceed to explainability,Yes,"Selected model and threshold are documented for SHAP, Anchors, and counterfactual analysis."

@@ -1,0 +1,13 @@
+check,columns_checked,issue_type,failed_row_count,failed_row_pct,status,recommended_action
+amount_missing,amount,missing_value,27619,20.5473,Fail,Create flag and retain rows.
+received_principal_greater_than_amount_when_amount_present,"received_principal, amount",business_rule_exception,2815,2.0942,Fail,Document and avoid repayment-derived fields in baseline modelling.
+amount_non_positive,amount,invalid_value,19,0.0141,Fail,Flag and convert to missing in cleaning.
+interest_rate_outside_0_to_100,interest_rate,invalid_range,0,0.0,Pass,Review invalid interest-rate values.
+tenure_years_non_positive,tenure_years,invalid_value,0,0.0,Pass,Review invalid tenure values.
+income_non_positive,total_income_pa,invalid_value,0,0.0,Pass,Review income values.
+dependents_negative,dependents,invalid_value,0,0.0,Pass,Negative values require review.
+total_payment_negative,total_payment,invalid_value,0,0.0,Pass,Negative values require review.
+received_principal_negative,received_principal,invalid_value,0,0.0,Pass,Negative values require review.
+interest_received_negative,interest_received,invalid_value,0,0.0,Pass,Negative values require review.
+number_of_loans_negative,number_of_loans,invalid_value,0,0.0,Pass,Negative values require review.
+total_payment_less_than_received_principal,"total_payment, received_principal",business_rule_exception,0,0.0,Pass,Review repayment construction and timing.

@@ -1,0 +1,10 @@
+kpi,value,interpretation
+Operational model,xgboost_weighted_baseline,Model-threshold pair selected by validation business policy.
+Portfolio default rate,9.04%,Base rate for interpreting precision and review workload.
+Threshold objective,minimum_cost_review_rate_le_30pct,Business rule used for threshold selection.
+Operating threshold,0.560,Probability cutoff for manual-review flag.
+Test recall,62.21%,Share of defaults captured at selected threshold.
+Test precision,19.09%,Share of reviewed accounts that defaulted.
+Test review rate,29.46%,Operational workload from the selected threshold.
+Test business cost,"$5,848,500",Scenario cost from false positives and false negatives.
+Top SHAP drivers,"interest_rate, amount_missing_flag, amount_missing_raw_flag, broad_data_quality_issue_count, total_income_pa",Main explanation drivers to monitor for drift.

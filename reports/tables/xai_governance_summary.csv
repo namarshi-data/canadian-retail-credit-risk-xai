@@ -1,13 +1,13 @@
 raw_feature,feature_label,mean_abs_shap,mean_shap,transformed_feature_count,governance_note
-interest_rate,Interest Rate,0.6188817807818026,-0.0548024477223128,1,Pricing/risk signal: explain carefully because pricing can reflect prior underwriting risk.
-amount_missing_flag,Amount Missing Flag,0.3583829397782683,0.0803675895507137,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
-broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1705647260174155,-0.0501884246890743,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
-total_income_pa,Total Income Pa,0.138080672078533,-0.0192555192117579,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
-core_data_quality_issue_count,Core Data Quality Issue Count,0.0856401540107811,-0.0659113198031652,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
-loan_to_income_band,Loan To Income Band,0.0731300322072832,0.0236193679963956,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
-high_interest_flag,High Interest Flag,0.0720734994534092,0.014623957467731,1,Pricing/risk signal: explain carefully because pricing can reflect prior underwriting risk.
-tenure_years,Tenure Years,0.0599833092020902,-0.0113899422642231,1,Segment/product signal: monitor segment stability and business reasonableness.
-loan_category,Loan Category,0.0533628796699486,0.0001289622058829,1,Segment/product signal: monitor segment stability and business reasonableness.
-amount,Amount,0.0435312987057889,-0.01645181963439,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
-loan_to_income_ratio,Loan To Income Ratio,0.0413554990795673,0.0185444463679644,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
-home,Home,0.0386601656283285,-0.0003258597677073,1,Segment/product signal: monitor segment stability and business reasonableness.
+interest_rate,Interest Rate,0.6871345478147268,-0.0620691896236191,1,Pricing/risk signal: explain carefully because pricing can reflect prior underwriting risk.
+amount_missing_flag,Amount Missing Flag,0.2079458343709508,0.0381315010264515,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
+amount_missing_raw_flag,Amount Missing Raw Flag,0.1905746830292046,0.0637645072353382,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
+broad_data_quality_issue_count,Broad Data Quality Issue Count,0.1393412184466918,-0.0382927262534697,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
+total_income_pa,Total Income Pa,0.1314960152755035,-0.017952454500235,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
+core_data_quality_issue_count,Core Data Quality Issue Count,0.0936220806436613,-0.0710466504100089,1,Data-quality signal: monitor for drift and do not interpret as borrower behaviour alone.
+tenure_years,Tenure Years,0.0666380570969922,-0.0130465803089173,1,Segment/product signal: monitor segment stability and business reasonableness.
+loan_category,Loan Category,0.0549636250991946,0.0003773343812548,1,Segment/product signal: monitor segment stability and business reasonableness.
+amount,Amount,0.0447247931860232,-0.0053488203092322,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.
+interest_rate_band,Interest Rate Band,0.0389256909141792,0.0126825081356946,1,Review for business reasonableness and stability.
+home,Home,0.0387107392070562,0.0031184071308913,1,Segment/product signal: monitor segment stability and business reasonableness.
+loan_to_income_band,Loan To Income Band,0.0375388948497323,0.0085429587133112,1,Affordability/exposure signal: suitable for portfolio-risk interpretation.

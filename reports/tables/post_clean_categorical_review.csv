@@ -1,13 +1,13 @@
-column,missing_count,missing_pct,unique_values,top_value,top_value_share_pct
-industry,0,0.0,12974,Unknown,84.5005
-pincode,0,0.0,844,XX112X,1.1784
-role,0,0.0,46,KHMbckjadbckIFGCASEWdkcndwkcnCCM,15.5285
-tier_of_employment,0,0.0,8,Unknown,59.2827
-work_experience,0,0.0,7,Unknown,84.5005
-loan_category,0,0.0,7,Consolidation,60.162
-home,0,0.0,4,Mortgage,48.7215
-is_verified,0,0.0,4,Not Verified,25.0876
-employment_type,0,0.0,3,Unknown,59.2827
-married,0,0.0,3,Unknown,33.5404
-social_profile,0,0.0,3,No,33.4124
-gender,0,0.0,3,Female,33.402
+column,dtype,row_count,non_null_count,missing_count,missing_pct,unique_values,top_value,top_value_share_pct,cardinality_level
+industry,string,134417,134417,0,0.0,12974,Unknown,84.5,very_high_cardinality
+pincode,string,134417,134417,0,0.0,844,XX112X,1.18,very_high_cardinality
+role,string,134417,134417,0,0.0,46,KHMbckjadbckIFGCASEWdkcndwkcnCCM,15.53,medium_cardinality
+tier_of_employment,string,134417,134417,0,0.0,8,Unknown,59.28,low_cardinality
+work_experience,string,134417,134417,0,0.0,7,Unknown,84.5,low_cardinality
+loan_category,string,134417,134417,0,0.0,7,Consolidation,60.16,low_cardinality
+home,string,134417,134417,0,0.0,4,Mortgage,48.72,low_cardinality
+is_verified,string,134417,134417,0,0.0,4,Not Verified,25.09,low_cardinality
+employment_type,string,134417,134417,0,0.0,3,Unknown,59.28,low_cardinality
+married,string,134417,134417,0,0.0,3,Unknown,33.54,low_cardinality
+social_profile,string,134417,134417,0,0.0,3,No,33.41,low_cardinality
+gender,string,134417,134417,0,0.0,3,Female,33.4,low_cardinality

@@ -1,0 +1,8 @@
+feature,count,mean,median,std,min,max,monitoring_decision
+total_payment,134417.000000,10696.436129,8061.140000,8544.311643,0.000000,57777.579870,Monitoring-only; exclude from predictive model if timing can leak target information.
+received_principal,134417.000000,8282.676235,5869.120000,7184.016451,0.000000,35000.010000,Monitoring-only; exclude from predictive model if timing can leak target information.
+interest_received,134417.000000,2335.874520,1627.030000,2419.909636,0.000000,24205.620000,Monitoring-only; exclude from predictive model if timing can leak target information.
+payment_to_amount_ratio,106779.000000,0.369167,0.097088,20.082633,0.000000,6251.680000,Monitoring-only; exclude from predictive model if timing can leak target information.
+principal_to_amount_ratio,106779.000000,0.274960,0.069265,10.236618,0.000000,2819.172000,Monitoring-only; exclude from predictive model if timing can leak target information.
+interest_to_amount_ratio,106779.000000,0.092741,0.020665,10.545682,0.000000,3432.508000,Monitoring-only; exclude from predictive model if timing can leak target information.
+principal_exceeds_amount_flag,134417.000000,0.020808,0.000000,0.142743,0.000000,1.000000,Monitoring-only; exclude from predictive model if timing can leak target information.

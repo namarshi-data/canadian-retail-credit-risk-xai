@@ -1,0 +1,7 @@
+feature_1,feature_2,abs_spearman_corr
+payment_to_amount_ratio,principal_to_amount_ratio,0.9796
+total_payment,received_principal,0.9576
+amount,loan_to_income_ratio,0.9024
+payment_to_amount_ratio,interest_to_amount_ratio,0.8572
+loan_to_income_ratio,payment_to_amount_ratio,0.8072
+amount,payment_to_amount_ratio,0.8064

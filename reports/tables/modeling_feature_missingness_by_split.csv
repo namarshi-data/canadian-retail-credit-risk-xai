@@ -11,6 +11,9 @@ validation,amount_log1p,4117,20.418588503694888
 test,amount_missing_flag,0,0.0
 train,amount_missing_flag,0,0.0
 validation,amount_missing_flag,0,0.0
+test,amount_missing_raw_flag,0,0.0
+train,amount_missing_raw_flag,0,0.0
+validation,amount_missing_raw_flag,0,0.0
 test,amount_non_positive_flag,0,0.0
 train,amount_non_positive_flag,0,0.0
 validation,amount_non_positive_flag,0,0.0

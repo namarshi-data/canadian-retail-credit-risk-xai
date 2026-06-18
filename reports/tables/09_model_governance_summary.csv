@@ -1,0 +1,2 @@
+operational_model,modeling_rows,portfolio_default_rate,operating_threshold,threshold_objective,test_recall,test_precision,test_review_rate,test_business_cost,primary_governance_decision
+xgboost_weighted_baseline,134417,0.0904126710163149,0.56,minimum_cost_review_rate_le_30pct,0.6220515633571037,0.1908769567412893,0.29464861379755,5848500.0,"Use as decision-support/manual-review prioritization model, not as automated credit-decline engine."

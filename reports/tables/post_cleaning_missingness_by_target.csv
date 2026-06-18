@@ -1,0 +1,6 @@
+column,missing_count_non_default,missing_rate_non_default,missing_count_default,missing_rate_default,absolute_gap,total_missing_count
+amount,23181,18.96,4457,36.67,17.71,27638
+loan_to_income_ratio,23181,18.96,4457,36.67,17.71,27638
+payment_to_amount_ratio,23181,18.96,4457,36.67,17.71,27638
+principal_to_amount_ratio,23181,18.96,4457,36.67,17.71,27638
+interest_to_amount_ratio,23181,18.96,4457,36.67,17.71,27638

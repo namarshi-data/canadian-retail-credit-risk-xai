@@ -1,0 +1,5 @@
+cell,count,business_meaning,stakeholder_impact
+True Negative,13533,Account predicted lower risk and did not default.,No manual review needed; operational workload is avoided.
+False Positive,4807,Account predicted high risk but did not default.,Creates review workload and possible customer friction.
+False Negative,689,Account predicted lower risk but later defaulted.,Potential credit loss because the account was missed by the early-warning rule.
+True Positive,1134,Account predicted high risk and later defaulted.,Useful early-warning identification for credit-risk review.

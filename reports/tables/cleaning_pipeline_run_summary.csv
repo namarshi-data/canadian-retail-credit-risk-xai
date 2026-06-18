@@ -1,0 +1,9 @@
+metric,value
+raw_row_count,134417
+cleaned_row_count,134417
+raw_column_count,25
+cleaned_column_count,46
+raw_missing_values,310436
+cleaned_missing_values,138190
+target_present,True
+record_sequence_present,True

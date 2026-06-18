@@ -1,0 +1,8 @@
+feature,non_null_count,missing_pct,mean,median,min,max,default_group_mean,non_default_group_mean,model_policy
+total_payment,134417,0.0000,10696.4361,8061.1400,0.0000,57777.5799,7106.2657,11053.2978,monitoring_only_leakage_risk
+received_principal,134417,0.0000,8282.6762,5869.1200,0.0000,35000.0100,3891.7464,8719.1332,monitoring_only_leakage_risk
+interest_received,134417,0.0000,2335.8745,1627.0300,0.0000,24205.6200,2356.2334,2333.8509,monitoring_only_leakage_risk
+payment_to_amount_ratio,106779,20.5614,0.3692,0.0971,0.0000,6251.6800,0.1848,0.3835,monitoring_only_leakage_risk
+principal_to_amount_ratio,106779,20.5614,0.2750,0.0693,0.0000,2819.1720,0.1056,0.2881,monitoring_only_leakage_risk
+interest_to_amount_ratio,106779,20.5614,0.0927,0.0207,0.0000,3432.5080,0.0590,0.0954,monitoring_only_leakage_risk
+principal_exceeds_amount_flag,134417,0.0000,0.0208,0.0000,0.0000,1.0000,0.0040,0.0225,monitoring_only_leakage_risk

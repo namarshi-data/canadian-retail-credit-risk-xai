@@ -1,0 +1,12 @@
+column,skew,min,max,log_transform_candidate,recommended_action
+interest_to_amount_ratio,323.0458,0.0,3432.5080000000003,True,Consider log1p in feature engineering
+payment_to_amount_ratio,286.5973,0.0,6251.68,True,Consider log1p in feature engineering
+principal_to_amount_ratio,219.0457,0.0,2819.172,True,Consider log1p in feature engineering
+total_income_pa,28.7385,4000.0,7141778.0,True,Consider log1p in feature engineering
+delinq_2yrs,5.4235,0.0,22.0,True,Consider log1p in feature engineering
+amount,4.348,5.0,8000078.0,True,Consider log1p in feature engineering
+interest_received,2.85,0.0,24205.62,False,No cleaning-stage transformation
+total_payment,1.6001,0.0,57777.5798702,False,No cleaning-stage transformation
+received_principal,1.5556,0.0,35000.01,False,No cleaning-stage transformation
+loan_to_income_ratio,1.1453,5.555555555555556e-05,19.6375,False,No cleaning-stage transformation
+interest_rate,0.3644,5.42,23.54,False,No cleaning-stage transformation

@@ -1,69 +1,123 @@
 # Project Summary
 
-## Canadian Retail Credit Risk Analytics: Explainable Default Prediction, Portfolio Monitoring & Model Governance
+## Canadian Retail Credit Risk Analytics: Explainable Default Prediction, Portfolio Monitoring, Threshold Strategy, and Model Governance
 
-This project is an end-to-end credit risk analytics and machine-learning workflow for a Canadian retail lending portfolio. The objective is to identify borrowers with elevated default risk, understand portfolio risk patterns, explain model decisions, and document governance controls suitable for a financial-services environment.
+This project is an end-to-end credit risk analytics and machine-learning workflow for a Canadian retail lending portfolio. It is designed as a finance-industry portfolio project that demonstrates credit-risk business understanding, Python analytics, machine learning, explainable AI, threshold strategy, and model governance.
 
-## Business context
+The model is framed as an **early-warning default-risk ranking and manual-review prioritization tool**. It is **not** presented as an automated credit-decline, pricing, or adverse-action engine.
 
-Retail lenders need reliable early-warning indicators of default risk. A useful credit-risk solution must support more than prediction accuracy. It must be explainable, auditable, operationally feasible, and aligned with risk-management workflows.
+---
 
-This project treats the model as a decision-support tool for borrower risk ranking and manual-review prioritization. It is not presented as an automated decline, pricing, or adverse-action engine.
+## Business Context
 
-## Dataset and target
+Retail lenders need reliable early-warning indicators of borrower default risk. A practical credit-risk solution should support more than model accuracy. It should help answer:
 
-The dataset contains borrower, loan, employment, income, and credit-behaviour attributes. The target variable is a default indicator. The final modelling dataset contains 134,417 records with an observed default rate of 9.04%.
+- Which borrower and loan segments show elevated observed default risk?
+- Which data-quality issues affect portfolio monitoring and model reliability?
+- Which features can be used safely without target leakage?
+- Which model ranks borrowers effectively under class imbalance?
+- What operating threshold balances default capture and manual-review capacity?
+- Which features explain model behaviour globally and locally?
+- What governance controls are needed before a model could be used responsibly?
+
+---
+
+## Dataset and Target
+
+| Item | Value |
+|---|---:|
+| Final modelling records | 134,417 |
+| Observed default rate | 9.04% |
+| Target variable | `defaulter` |
+| Modelling purpose | Default-risk ranking and review prioritization |
+| Primary use restriction | Decision support only; not automated decline |
+
+---
 
 ## Methodology
 
-The workflow includes:
-
-1. Data ingestion from multi-sheet Excel files
-2. Record-grain validation to avoid many-to-many merge inflation
-3. Data quality assessment and missingness profiling
-4. Cleaning, category standardization, and missingness flags
-5. Portfolio monitoring and borrower segment analysis
+1. Multi-sheet Excel ingestion
+2. Record-grain validation to prevent many-to-many merge inflation
+3. Data-quality review and missingness profiling
+4. Cleaning, standardization, and audit-table creation
+5. Portfolio monitoring and segment-risk analysis
 6. Leakage-reviewed feature engineering
-7. Model training using logistic regression, random forest, and XGBoost
-8. Validation/test evaluation using imbalanced-classification metrics
-9. Operating-threshold selection using review-rate and business-cost constraints
-10. Explainable AI using SHAP, local explanations, anchor-like rules, and counterfactual diagnostics
-11. Model governance documentation and monitoring plan
+7. Train/validation/test split and preprocessing design
+8. Model training using Logistic Regression, Random Forest, and XGBoost
+9. Validation-based threshold selection under review-cap and cost constraints
+10. Test-set confirmation of the selected operating policy
+11. SHAP explainability, local explanations, anchor-style rules, and counterfactual diagnostics
+12. Model card, validation summary, risk controls, monitoring limits, and stakeholder brief
 
-## Key results
+---
 
-| Area | Result |
-|---|---:|
-| Portfolio records | 134,417 |
-| Observed default rate | 9.04% |
-| Champion model | XGBoost weighted classifier |
-| Test ROC-AUC | 0.7468 |
-| Test PR-AUC | 0.2168 |
-| Operating threshold | 0.565 |
-| Test recall at threshold | 61.49% |
-| Test precision at threshold | 19.10% |
-| Test review rate at threshold | 29.11% |
+## Final Model and Threshold Results
 
-## Business interpretation
+| Metric | Validation | Test |
+|---|---:|---:|
+| Champion operating model | `xgboost_weighted_baseline` | `xgboost_weighted_baseline` |
+| Operating threshold | 0.560 | 0.560 |
+| ROC-AUC | 0.7512 | 0.7478 |
+| PR-AUC | 0.2263 | 0.2147 |
+| Recall at threshold | 62.59% | 62.21% |
+| Precision at threshold | 19.05% | 19.09% |
+| F1 at threshold | 0.2921 | 0.2921 |
+| Review rate | 29.71% | 29.46% |
+| Illustrative business cost | $5.83M | $5.85M |
 
-At the selected operating threshold, the model captures a meaningful share of default cases while keeping the manual-review population below the project’s operational cap. This is more realistic than relying on the default 0.50 model threshold, which created a larger review population.
+The selected threshold captures approximately **62.21% of default cases** on the held-out test set while keeping the review population under the project’s **30% review-rate cap**.
 
-Portfolio analysis showed that risk was not evenly distributed across borrower segments. Missing loan amount information, business loans, self-employment, higher interest rates, and loan-to-income patterns were important risk signals.
+---
 
-## Explainability and governance
+## Key Explainability Drivers
 
-SHAP identified key risk drivers such as interest rate, missing loan amount flags, data-quality issue counts, income, loan-to-income band, high-interest flags, tenure, loan category, amount, and home ownership. The project also creates local explanations and diagnostic counterfactual scenarios for individual high-risk borrowers.
+Top grouped SHAP drivers include:
 
-Governance controls include leakage exclusion, sensitive/proxy-sensitive feature exclusion from the baseline model, validation-based threshold selection, held-out test evaluation, model control register, model risk limits, and monitoring KPIs.
+- `interest_rate`
+- `amount_missing_flag`
+- `amount_missing_raw_flag`
+- `broad_data_quality_issue_count`
+- `total_income_pa`
+- `core_data_quality_issue_count`
+- `amount`
+- `income_to_loan_buffer`
+- `high_interest_flag`
+- `tenure_years`
 
-## Portfolio value
+These drivers are interpreted with governance caution. For example, data-quality and missingness features can be useful risk signals, but they should not be interpreted as borrower behaviour alone.
 
-This project demonstrates practical skills relevant to Canadian finance roles:
+---
 
-- Credit risk analytics and portfolio monitoring
-- Python-based data analysis and modelling
+## Governance and Responsible-Use Position
+
+The final governance layer documents:
+
+- Intended use and out-of-scope use
+- Model card
+- Validation/test evidence
+- Control register
+- Risk-limit register
+- Monitoring KPI snapshot
+- Stakeholder brief
+- Monitoring plan
+- Leakage and sensitive/proxy-feature controls
+- Explainability and counterfactual limitations
+
+The recommended governance decision is to use the model for **portfolio analytics, risk ranking, and manual-review prioritization**, not standalone credit decisioning.
+
+---
+
+## Portfolio Value
+
+This project demonstrates skills relevant to Canadian finance and banking roles:
+
+- Credit risk analytics
+- Portfolio monitoring
+- Data-quality assessment
+- Python modelling
 - Imbalanced classification evaluation
-- Business threshold optimization
-- Explainable AI and stakeholder communication
-- Model governance and risk-control documentation
-- Clean GitHub project organization with modular code and notebooks
+- XGBoost and Random Forest development
+- Threshold strategy and operational capacity analysis
+- SHAP explainability
+- Model validation thinking
+- Model risk governance and monitoring design

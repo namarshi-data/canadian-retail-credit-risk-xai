@@ -1,0 +1,15 @@
+feature,q1,q3,iqr,lower_bound,upper_bound,iqr_outlier_count,iqr_outlier_pct,eda_decision
+broad_data_quality_issue_count,2.000000,2.000000,0.000000,2.000000,2.000000,48325,35.951600,Review only in Notebook 04; do not cap/remove here.
+delinq_2yrs,0.000000,0.000000,0.000000,0.000000,0.000000,23887,17.770800,Review only in Notebook 04; do not cap/remove here.
+principal_to_amount_ratio,0.025821,0.188262,0.162442,-0.217842,0.431925,11409,10.684700,Review only in Notebook 04; do not cap/remove here.
+payment_to_amount_ratio,0.038123,0.256826,0.218703,-0.289932,0.584881,10362,9.704200,Review only in Notebook 04; do not cap/remove here.
+interest_to_amount_ratio,0.007779,0.057307,0.049528,-0.066514,0.131600,9756,9.136600,Review only in Notebook 04; do not cap/remove here.
+interest_received,839.520000,2889.880000,2050.360000,-2236.020000,5965.420000,9324,6.936600,Review only in Notebook 04; do not cap/remove here.
+total_payment,4623.230000,13940.160000,9316.930000,-9352.165000,27915.555000,7218,5.369900,Review only in Notebook 04; do not cap/remove here.
+received_principal,3047.390000,11325.000000,8277.610000,-9369.025000,23741.415000,7069,5.259000,Review only in Notebook 04; do not cap/remove here.
+total_income_pa,45000.000000,87000.000000,42000.000000,-18000.000000,150000.000000,5832,4.338700,Review only in Notebook 04; do not cap/remove here.
+amount,28520.500000,205482.500000,176962.000000,-236922.500000,470925.500000,3647,3.415500,Review only in Notebook 04; do not cap/remove here.
+interest_rate,9.170000,14.280000,5.110000,1.505000,21.945000,1367,1.017000,Review only in Notebook 04; do not cap/remove here.
+loan_to_income_ratio,0.523277,2.841254,2.317976,-2.953687,6.318218,1085,1.016100,Review only in Notebook 04; do not cap/remove here.
+number_of_loans,0.000000,0.000000,0.000000,0.000000,0.000000,563,0.418800,Review only in Notebook 04; do not cap/remove here.
+dependents,1.000000,3.000000,2.000000,-2.000000,6.000000,0,0.000000,Review only in Notebook 04; do not cap/remove here.

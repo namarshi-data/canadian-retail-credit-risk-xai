@@ -1,0 +1,9 @@
+check,passed,note
+modeling_dataset_available,True,Processed modelling dataset loaded.
+threshold_recommendation_available,True,Notebook 07 operational threshold loaded.
+test_confirmation_available,True,Selected threshold confirmed on test set.
+xai_outputs_available,True,Notebook 08 SHAP outputs loaded.
+control_register_created,True,Notebook 09 control register created.
+monitoring_limits_created,True,Notebook 09 model risk limits created.
+model_card_created,True,Model card will be saved as markdown.
+stakeholder_brief_created,True,Stakeholder brief will be saved as markdown.

@@ -1,0 +1,4 @@
+check_group,passed,failed_count,note
+required_sheet_check,True,0,derived_from_present_column
+expected_column_check,True,0,derived_from_present_column
+merge_integrity,True,0,derived_from_passed_column

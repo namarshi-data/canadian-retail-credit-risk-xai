@@ -1,0 +1,8 @@
+feature,risk_level,risk_type,baseline_model_policy,reason
+gender,high,sensitive_attribute,exclude_from_baseline,Sensitive/protected characteristic; retain only for governance/fairness diagnostics if appropriate.
+pincode,high,geographic_proxy,exclude_from_baseline,Geographic proxy that may encode socioeconomic patterns.
+social_profile,high,unclear_social_proxy,exclude_from_baseline,Unclear meaning and potential social/behavioural proxy.
+married,medium,household_status_proxy,governance_review_before_use,Household/social status proxy.
+dependents,medium,family_status_proxy,governance_review_before_use,Family status proxy; use cautiously.
+home,medium,socioeconomic_proxy,governance_review_before_use,Wealth/socioeconomic proxy; common in credit risk but requires monitoring.
+is_verified,medium,operational_process_proxy,governance_review_before_use,Potential verification/operational bias.

@@ -1,2 +1,2 @@
 champion_model,modeling_rows,portfolio_default_rate,operating_threshold,threshold_objective,test_recall,test_precision,test_review_rate,test_business_cost,primary_governance_decision
-xgboost_weighted,134417,0.0904126710163149,0.565,minimum_cost_review_rate_le_30pct,0.6149204607789358,0.1909710391822827,0.2911273124039081,5884500.0,"Use as decision-support/manual-review prioritization model, not as an automated credit-decline engine."
+xgboost_weighted,134417,0.0904126710163149,0.565,minimum_cost_review_rate_le_30pct,0.6165660998354361,0.1907024092297251,0.2923176114665476,5880000.0,"Use as decision-support/manual-review prioritization model, not as an automated credit-decline engine."

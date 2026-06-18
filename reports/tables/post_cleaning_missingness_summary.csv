@@ -1,0 +1,6 @@
+column,dtype,row_count,non_null_count,missing_count,missing_pct,unique_values,complete_pct,missingness_severity
+amount,float64,134417,106779,27638,20.56,86156,79.44,High missingness
+loan_to_income_ratio,float64,134417,106779,27638,20.56,104531,79.44,High missingness
+payment_to_amount_ratio,float64,134417,106779,27638,20.56,106764,79.44,High missingness
+principal_to_amount_ratio,float64,134417,106779,27638,20.56,106248,79.44,High missingness
+interest_to_amount_ratio,float64,134417,106779,27638,20.56,106695,79.44,High missingness

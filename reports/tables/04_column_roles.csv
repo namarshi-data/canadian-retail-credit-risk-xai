@@ -1,0 +1,47 @@
+column,dtype,missing_count,missing_pct,unique_values,monitoring_role,governance_note
+user_id,int64,0,0.0,133752,identifier,Audit key only.
+loan_category,object,0,0.0,7,categorical_monitoring_feature,Safe for aggregate EDA review.
+amount,float64,27638,20.5614,86156,numeric_monitoring_feature,Safe for aggregate EDA review.
+interest_rate,float64,0,0.0,137,numeric_monitoring_feature,Safe for aggregate EDA review.
+tenure_years,int64,0,0.0,2,numeric_monitoring_feature,Safe for aggregate EDA review.
+record_sequence,int64,0,0.0,2,identifier,Audit key only.
+employment_type,object,0,0.0,3,categorical_monitoring_feature,Safe for aggregate EDA review.
+tier_of_employment,object,0,0.0,8,categorical_monitoring_feature,Safe for aggregate EDA review.
+industry,object,0,0.0,12974,categorical_monitoring_feature,Safe for aggregate EDA review.
+role,object,0,0.0,46,categorical_monitoring_feature,Safe for aggregate EDA review.
+work_experience,object,0,0.0,7,categorical_monitoring_feature,Safe for aggregate EDA review.
+total_income_pa,float64,0,0.0,11380,numeric_monitoring_feature,Safe for aggregate EDA review.
+gender,object,0,0.0,3,sensitive_or_proxy_monitoring_only,Use only for permitted governance/fairness review.
+married,object,0,0.0,3,sensitive_or_proxy_monitoring_only,Use only for permitted governance/fairness review.
+dependents,int64,0,0.0,5,numeric_monitoring_feature,Safe for aggregate EDA review.
+home,object,0,0.0,4,categorical_monitoring_feature,Safe for aggregate EDA review.
+pincode,object,0,0.0,844,sensitive_or_proxy_monitoring_only,Use only for permitted governance/fairness review.
+social_profile,object,0,0.0,3,sensitive_or_proxy_monitoring_only,Use only for permitted governance/fairness review.
+is_verified,object,0,0.0,4,categorical_monitoring_feature,Safe for aggregate EDA review.
+delinq_2yrs,int64,0,0.0,22,numeric_monitoring_feature,Safe for aggregate EDA review.
+total_payment,float64,0,0.0,104202,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+received_principal,float64,0,0.0,42022,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+interest_received,float64,0,0.0,93862,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+number_of_loans,int64,0,0.0,5,numeric_monitoring_feature,Safe for aggregate EDA review.
+defaulter,int64,0,0.0,2,target,Outcome field; never use as a predictor.
+amount_missing_raw_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+amount_non_positive_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+industry_placeholder_zero_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+work_experience_placeholder_zero_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+amount_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+employment_type_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+tier_of_employment_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+industry_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+work_experience_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+married_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+social_profile_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+is_verified_missing_flag,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+loan_to_income_ratio,float64,27638,20.5614,104531,numeric_monitoring_feature,Safe for aggregate EDA review.
+payment_to_amount_ratio,float64,27638,20.5614,106764,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+principal_to_amount_ratio,float64,27638,20.5614,106248,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+interest_to_amount_ratio,float64,27638,20.5614,106695,numeric_monitoring_feature,Safe for aggregate EDA review.
+principal_exceeds_amount_flag,int64,0,0.0,2,repayment_monitoring_only,Potential timing leakage for predictive modelling.
+core_data_quality_issue_count,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+has_core_data_quality_issue,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+broad_data_quality_issue_count,int64,0,0.0,4,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.
+has_broad_data_quality_issue,int64,0,0.0,2,data_quality_or_risk_flag,Useful monitoring signal; interpret carefully.

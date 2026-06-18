@@ -1,0 +1,9 @@
+check,passed,value,expected
+row_count_preserved,True,134417,134417
+target_present,True,True,True
+binary_target_valid,True,"[0, 1]",0/1 only
+user_id_present,True,True,
+user_id_missing_count,True,0,
+record_sequence_present,True,True,
+record_sequence_missing_count,True,0,
+record_key_duplicate_count,True,0,

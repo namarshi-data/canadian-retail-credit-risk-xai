@@ -1,42 +1,140 @@
-# Python
-__pycache__/
+# Canadian Retail Credit Risk XAI Project .gitignore
+# Keep code, notebooks, configs, docs, summary tables, and safe figures.
+# Exclude raw data, private outputs, model binaries, secrets, caches, and large row-level artifacts.
+
+
+# Python caches and build files
+
+**pycache**/
 *.py[cod]
 *$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+
 .venv/
 venv/
 env/
+ENV/
 
-# Jupyter
+# Jupyter / notebook checkpoints
+
 .ipynb_checkpoints/
+*/.ipynb_checkpoints/
+.nbconvert.ipynb
+
+# IDE/editor files
+
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # Local environment and secrets
+
 .env
 *.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.key
+*.pem
 
-# Data files - keep folders, not sensitive/raw data
+# Raw and generated data
+
+# Keep folder structure with .gitkeep files only.
+
 data/raw/*
 data/interim/*
 data/processed/*
+data/external/*
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
+!data/external/.gitkeep
 
-# Excel / source data
+# Sample data can be committed.
+
+!data/sample/
+!data/sample/.gitkeep
+
+# Spreadsheet/source data files
+
 *.xlsx
 *.xls
+*.xlsm
+*.csv.bak
 
-# Model artifacts
+
+# Model artifacts and serialized objects
+
 *.pkl
+*.pickle
 *.joblib
 *.h5
 *.onnx
+*.pt
+*.pth
 reports/model_artifacts/*
 !reports/model_artifacts/.gitkeep
 
+# Large or row-level generated report artifacts
+
+# These may expose borrower-level scores, SHAP rows, or diagnostics.
+
+# Commit only aggregate/sanitized tables.
+
+reports/tables/*predictions*.csv
+reports/tables/*prediction*.csv
+reports/tables/*shap_values*.csv
+reports/tables/*individual_prediction*.csv
+reports/tables/*counterfactual*.csv
+reports/tables/*anchor*.csv
+reports/tables/*deepchecks*.csv
+reports/tables/*manifest*.csv
+
+# Deepchecks / generated HTML can be large and machine-specific.
+
+reports/html/*
+!reports/html/.gitkeep
+
 # Experiment tracking
+
 .neptune/
 mlruns/
+wandb/
+runs/
 
-# System files
+# Temporary files and local logs
+
+*.log
+logs/
+tmp/
+temp/
+.cache/
+.joblib_tmp/
+joblib_memmapping_folder_*/
+*.tmp
+
+# Test and coverage artifacts
+
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Code quality caches
+
+.ruff_cache/
+.mypy_cache/
+
+# OS files
+
 .DS_Store
 Thumbs.db
+desktop.ini

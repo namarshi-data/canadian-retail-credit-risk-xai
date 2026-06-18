@@ -1,0 +1,9 @@
+check,result
+row_count,134417
+target_missing_count,0
+target_missing_pct,0.0
+default_count,12153
+non_default_count,122264
+default_rate_pct,9.0413
+non_missing_unique_values,"[0, 1]"
+binary_target_check,True

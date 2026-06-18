@@ -14,6 +14,7 @@ work_experience,categorical,object,0,0.0,7,True
 amount,numeric,float64,27638,20.561387324519963,86156,True
 amount_log1p,numeric,float64,27638,20.561387324519963,86156,True
 amount_missing_flag,numeric,int64,0,0.0,2,True
+amount_missing_raw_flag,numeric,int64,0,0.0,2,True
 amount_non_positive_flag,numeric,int64,0,0.0,2,True
 broad_data_quality_issue_count,numeric,int64,0,0.0,4,True
 core_data_quality_issue_count,numeric,int64,0,0.0,2,True

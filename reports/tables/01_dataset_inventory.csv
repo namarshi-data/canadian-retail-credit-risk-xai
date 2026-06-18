@@ -1,0 +1,5 @@
+dataset,row_count,column_count,missing_value_count,full_duplicate_rows
+loan_information,134417,5,27619,5
+employment,134417,7,159380,0
+personal_information,134417,8,123437,0
+other_information,134417,7,0,0

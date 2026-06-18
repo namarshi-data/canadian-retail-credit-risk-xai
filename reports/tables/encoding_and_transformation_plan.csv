@@ -1,0 +1,15 @@
+feature,unique_values,cardinality_level,recommended_encoding,reason
+industry,12974,very_high_cardinality,exclude_or_controlled_encoding_after_split,High-cardinality feature; direct one-hot encoding may create unstable sparse features.
+pincode,844,very_high_cardinality,exclude_or_controlled_encoding_after_split,High-cardinality feature; direct one-hot encoding may create unstable sparse features.
+role,46,medium_cardinality,group_rare_categories_then_encode,Medium-cardinality feature; rare categories should be controlled.
+tier_of_employment,8,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+work_experience,7,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+loan_category,7,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+home,4,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+is_verified,4,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+employment_type,3,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+married,3,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+social_profile,3,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+gender,3,low_cardinality,one_hot_encode_after_split,Low-cardinality categorical feature.
+tier_of_employment,8,ordinal_candidate,ordinal_encode_after_split_if_order_is_business_approved,"Feature may have an ordered interpretation, but ordering must be documented before modelling."
+work_experience,7,ordinal_candidate,ordinal_encode_after_split_if_order_is_business_approved,"Feature may have an ordered interpretation, but ordering must be documented before modelling."

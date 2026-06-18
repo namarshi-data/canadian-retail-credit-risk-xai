@@ -1,0 +1,10 @@
+control_area,risk,control,evidence,owner,frequency
+Data ingestion,Many-to-many joins or duplicate keys alter target rate.,Use stable borrower-record key and duplicate checks.,Notebook 01/05 record-key and split outputs,Risk analytics,Each refresh
+Data quality,Missing or inconsistent inputs distort model scores.,"Track missingness, range, and logical consistency; open data-quality issues for breaches.",Notebook 02/03/08 diagnostics,Data owner,Each refresh/monthly
+Leakage prevention,Repayment-derived variables leak future outcome information.,Exclude repayment-derived variables from modelling features and document exceptions.,Feature policy,Model developer,Before release
+Sensitive/proxy governance,Sensitive or proxy variables may cause unfair outcomes.,Exclude direct sensitive fields from baseline model; use only for approved audit review.,Feature policy and fairness/proxy review,Model governance/compliance,Before release and annually
+Model performance,Ranking performance deteriorates after portfolio changes.,"Monitor PR-AUC, ROC-AUC, recall, precision, F1, Brier score when labels mature.",Notebook 06/07 outputs,Model owner,Monthly/quarterly
+Threshold governance,Threshold creates too many reviews or too many missed defaults.,Use validation-selected threshold with review-rate cap and test confirmation.,Notebook 07 outputs,Credit strategy,Quarterly/material change
+Explainability,Model decisions cannot be understood by stakeholders.,"Maintain SHAP, local reasons, anchor-style rules, and counterfactual diagnostics.",Notebook 08 outputs,Risk analytics,Each release
+Monitoring,"Score, feature, or data-quality drift changes model behaviour.","Track score distribution, top-feature drift, review rate, realized default outcomes.",Notebook 09 monitoring plan,Model monitoring team,Monthly
+Change management,Uncontrolled model/file changes break reproducibility.,"Version model artifact, training code, features, threshold, and governance outputs together.",Git + artifact manifest,Model owner,Each release

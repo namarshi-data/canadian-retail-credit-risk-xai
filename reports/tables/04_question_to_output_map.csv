@@ -1,0 +1,16 @@
+business_question,output_table,stakeholder
+What is the size and risk profile of the portfolio?,04_portfolio_summary.csv,Portfolio Manager / Risk Analyst
+Is the target imbalanced?,04_target_distribution.csv,Model Developer / Risk Analyst
+Which segments have the highest default rates?,04_segment_risk_summary.csv,Credit Risk / Strategy
+Where is exposure concentrated?,04_portfolio_concentration_summary.csv,Portfolio Manager
+Which segment combinations are highest risk?,04_two_way_segment_risk.csv,Credit Strategy
+Are missing values associated with higher default risk?,04_missingness_risk_by_target.csv,Data Quality / Model Risk
+Do data-quality flags identify risky accounts?,04_data_quality_flag_risk.csv,Data Quality / Risk Analytics
+Which variables are skewed or outlier-heavy?,"04_numeric_profile.csv, 04_outlier_review.csv",Data Scientist / Model Developer
+Which features are statistically associated with default?,"04_numeric_vs_target_statistical_tests.csv, 04_categorical_vs_target_statistical_tests.csv",Risk Analytics / Model Validation
+Which variables may be redundant or highly correlated?,"04_numeric_high_correlation_review.csv, 04_vif_multicollinearity_review.csv",Model Developer / Model Validation
+Which categorical fields overlap?,04_categorical_association_review.csv,Feature Engineering / Data Governance
+Which sensitive/proxy variables need governance review?,04_sensitive_proxy_monitoring.csv,Model Risk / Governance
+Which monitoring-only variables should be excluded from baseline modelling?,04_repayment_monitoring_summary.csv,Model Risk / Governance
+Are train/validation/test profiles stable?,04_profile_stability_psi_ks.csv,Model Validation
+What actions carry forward?,04_eda_action_register.csv,Project Reviewer / Hiring Manager
