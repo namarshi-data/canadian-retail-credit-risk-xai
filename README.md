@@ -11,52 +11,57 @@
 
 ## Executive Summary
 
-This project is an end-to-end **credit risk analytics and machine learning portfolio project** built around a Canadian retail lending use case. It combines data ingestion, data quality assessment, portfolio monitoring, feature engineering, machine learning, threshold selection, explainable AI, and model governance.
+This project develops an end-to-end credit risk analytics and explainable machine learning workflow for a Canadian retail lending portfolio. The objective is to identify borrowers with elevated default risk, monitor portfolio quality, select an operational review threshold, and document model governance controls.
 
-The project is positioned as an **early-warning default-risk ranking and manual-review prioritization solution**, not as an automated credit-decline engine. This framing is important for financial institutions because predictive models in credit risk must be explainable, auditable, operationally feasible, and aligned with model risk governance expectations.
+The project is framed as an early-warning default-risk ranking and manual-review prioritization solution, not as an automated credit-decline engine. This distinction is important in financial services because credit risk models must be explainable, auditable, monitored, and aligned with responsible model-risk practices.
 
-The workflow reflects the type of work performed by teams in:
+The workflow covers the full analytics lifecycle:
 
-- Credit Risk Analytics
-- Retail Risk Strategy
-- Portfolio Monitoring
-- Model Development
-- Model Validation
-- Risk Reporting
-- Banking Data Science
-- Model Governance
+- Business problem framing
+- Excel data ingestion and schema review
+- Data quality assessment
+- Leakage and proxy-risk review
+- Portfolio monitoring and exploratory analysis
+- Feature engineering
+- Imbalanced classification modelling
+- Threshold selection under review-cap constraints
+- SHAP explainability and local explanations
+- Model card, monitoring plan, and governance documentation
+
+This project is designed to demonstrate practical readiness for Canadian banking, credit risk, portfolio analytics, model risk, and financial data analyst roles.
 
 ---
 
-## Why This Project Matters
+## Business Problem
 
-Retail lenders need to identify borrowers with elevated default risk before losses materialize. A useful credit risk model should do more than produce a probability score. It should answer business questions such as:
+Retail lenders need to identify borrowers who may become seriously delinquent or default before losses materialize. A useful credit risk solution should not only generate a model score; it should also help answer practical business questions:
 
-- Which borrower segments show higher observed default risk?
-- Which data quality issues affect portfolio monitoring and model reliability?
-- Which features are safe for modelling, and which may create leakage or fairness concerns?
-- Which model ranks borrower risk most effectively under class imbalance?
+- Which borrower and loan segments show elevated default risk?
+- Which data quality issues affect reporting and model reliability?
+- Which variables are safe for modelling, and which create leakage or governance concerns?
+- Which model ranks default risk most effectively under class imbalance?
 - What threshold balances default capture with manual-review capacity?
-- Why does the model flag a borrower as high risk?
-- What governance controls are required before a model like this could be used in a financial institution?
+- Why does the model classify a borrower as higher risk?
+- What controls are required before a model like this could be used in a financial institution?
 
-This project demonstrates how to connect **business risk**, **data analysis**, **machine learning**, **explainability**, and **governance documentation** in one portfolio-ready workflow.
+This project connects **credit risk business context**, **data analytics**, **machine learning**, **explainability**, and **model governance** in one reproducible workflow.
 
 ---
 
-## Portfolio Positioning for Canadian Finance Roles
+## Target Roles This Project Supports
 
 This project is designed to support applications for roles such as:
 
-| Target role | How this project demonstrates fit |
-|---|---|
-| Credit Risk Analyst | Portfolio segmentation, default-rate analysis, exposure review, borrower-risk drivers |
-| Risk Analytics Analyst | Python modelling, threshold analysis, performance monitoring, risk reporting |
-| Data Analyst - Banking / Finance | Data quality checks, EDA, feature catalogues, reporting outputs, governance tables |
-| Portfolio Analytics Analyst | Review-rate analysis, default-risk ranking, segment monitoring, KPI snapshots |
-| Model Risk Analyst | Leakage review, validation/test comparison, model card, control register, monitoring plan |
-| Banking Data Scientist | XGBoost, Random Forest, SHAP, counterfactuals, experiment tracking, model governance |
-| BI / Reporting Analyst | Structured tables, stakeholder summaries, monitoring KPIs, reproducible reporting pipeline |
+| Target Role                      | Project Evidence                                                                                                                        |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Credit Risk Analyst              | Default-rate analysis, borrower segmentation, portfolio exposure review, delinquency behaviour analysis, and risk-driver interpretation |
+| Risk Analytics Analyst           | Python-based modelling, validation metrics, threshold strategy, model performance comparison, and monitoring KPI design                 |
+| Data Analyst - Banking / Finance | Data quality checks, exploratory data analysis, reporting tables, reproducible pipelines, and business-focused insights                 |
+| Portfolio Analytics Analyst      | Review-rate analysis, risk ranking, segment-level monitoring, exposure analysis, and portfolio performance tracking                     |
+| Model Risk Analyst               | Leakage review, model validation summary, model card, control register, and explainability documentation                                |
+| Banking Data Scientist           | Random Forest, XGBoost, imbalanced classification, SHAP explainability, threshold tuning, and model monitoring                          |
+| BI / Reporting Analyst           | Governance tables, KPI snapshots, stakeholder summaries, structured reporting outputs, and executive-ready documentation                |
+
 
 ---
 
@@ -77,51 +82,60 @@ This project is designed to support applications for roles such as:
 | Test recall at operating threshold | 62.21% |
 | Test precision at operating threshold | 19.09% |
 | Test review rate at operating threshold | 29.46% |
-| Primary governance decision | Use for decision support and manual-review prioritization only |
+| Primary governance decision | Manual-review prioritization and risk monitoring |
 
-The model is evaluated using metrics appropriate for imbalanced credit risk classification. Accuracy is not used as the primary selection metric because the default class is much smaller than the non-default class.
+Accuracy is not used as the primary metric because default prediction is an imbalanced classification problem. The project focuses on ROC-AUC, PR-AUC, recall, precision, review rate, threshold strategy, and business-cost trade-offs.
 
 ---
 
 ## Business Impact
 
-The selected operating threshold captures approximately **62% of default cases** on the held-out test set while keeping the manual-review population under the project’s **30% review-rate cap**. This converts model output into an operationally usable risk-ranking process.
+The selected operating threshold captures approximately **62% of observed default cases** on the held-out test set while keeping the manual-review population below the project’s **30% review-rate cap**.
 
-The project separates three decisions that are often incorrectly mixed together:
+This converts model output into an operationally usable process:
 
-1. **Model selection**: Which model ranks default risk best?
-2. **Threshold selection**: What probability cutoff fits business capacity and risk appetite?
-3. **Governance approval**: Is the model explainable, controlled, and ready for monitoring?
+1. Rank borrowers by predicted default risk.
+2. Prioritize the highest-risk accounts for manual review.
+3. Monitor segment-level risk and model performance over time.
+4. Use explanations and governance controls before any business action.
 
-This separation makes the project more credible for finance-industry roles than a simple “train a model and report accuracy” workflow.
+The project separates three decisions that are often incorrectly combined:
+
+| Decision            | Question Answered                                                     |
+| ------------------- | --------------------------------------------------------------------- |
+| Model selection     | Which model ranks default risk most effectively?                      |
+| Threshold selection | Which cutoff fits review capacity and risk appetite?                  |
+| Governance approval | Is the model explainable, controlled, and suitable for monitored use? |
+
+This makes the project more realistic than a simple model-training notebook that reports accuracy only.
 
 ---
 
 ## Key Insights
 
-### 1. Default risk is segment-dependent
+### 1. Default risk is not evenly distributed
 
-Portfolio monitoring identified elevated default rates across specific borrower and loan segments. This supports the use of portfolio segmentation, risk ranking, and targeted manual review.
+Portfolio analysis shows that default risk varies across borrower, loan, and exposure segments. This supports the need for segmentation, monitoring, and targeted review rather than treating all borrowers as having equal risk.
 
-### 2. Missingness is both a data-quality issue and a model signal
+### 2. Missingness can be informative
 
-Missing loan amount and other data-quality flags showed predictive value. The project keeps missingness indicators rather than dropping incomplete rows, while documenting governance limitations around interpreting missingness as borrower behaviour.
+Several important variables contain material missingness. Instead of dropping incomplete records, the project creates missingness flags and documents where missing data may carry operational or risk information.
 
-### 3. Leakage control is critical
+### 3. Leakage prevention is essential
 
-Repayment-derived variables were excluded from the modelling feature set because they can leak information about the target. This is documented through a feature leakage and usage policy.
+Repayment-derived and target-adjacent variables are excluded from the baseline predictive feature set. This prevents the model from learning information that would not be available at the intended prediction point.
 
 ### 4. Threshold selection is a business decision
 
-The final threshold was selected on validation data using review-cap and cost assumptions, then confirmed once on the test set. This reflects how risk models are operationalized in practice.
+The final threshold is selected using validation data under a review-cap constraint, then confirmed once on the test set. This reflects how risk models are often operationalized in real business settings.
 
-### 5. Explainability supports responsible model use
+### 5. Explainability improves stakeholder trust
 
-SHAP analysis, local explanations, anchor-style rules, and counterfactual scenarios were produced to support business interpretation. Counterfactuals are treated as diagnostic model-sensitivity scenarios, not as customer advice or adverse-action explanations.
+The project uses SHAP and borrower-level explanations to identify important model drivers. Explanations are treated as decision-support tools, not as automatic adverse-action reasons.
 
-### 6. Governance is part of the model deliverable
+### 6. Governance is part of the deliverable
 
-The project includes a model card, validation summary, stakeholder brief, control register, risk-limit register, and monitoring plan. This makes the project suitable for risk analytics, model validation, and governance-focused roles.
+The project includes a model card, validation summary, monitoring plan, control register, and stakeholder brief. These outputs demonstrate awareness of model-risk management expectations in financial institutions.
 
 ---
 
@@ -129,7 +143,7 @@ The project includes a model card, validation summary, stakeholder brief, contro
 
 ```mermaid
 flowchart LR
-    A[Raw Excel Workbook] --> B[Data Ingestion and Record-Grain Validation]
+    A[Raw Excel Workbook] --> B[Data Ingestion and Schema Review]
     B --> C[Data Quality Assessment]
     C --> D[Cleaning and Preprocessing]
     D --> E[Portfolio Monitoring and EDA]
@@ -200,24 +214,40 @@ canadian-retail-credit-risk-xai/
 
 ## Notebook Workflow
 
-| Notebook | Purpose |
-|---|---|
-| 00 | Business context, project scope, stakeholder framing, and responsible-use boundaries |
-| 01 | Excel ingestion, sheet review, record-grain validation, and merge logic |
-| 02 | Data quality assessment, missingness, duplicate review, logical checks, and leakage flags |
-| 03 | Cleaning, standardization, missingness flags, outlier review, and audit tables |
-| 04 | Portfolio monitoring, exposure analysis, segment risk, statistical EDA, and reporting tables |
-| 05 | Feature engineering, leakage-safe feature policy, train/validation/test split, and preprocessing design |
-| 06 | Model training and validation across Logistic Regression, Random Forest, and XGBoost |
-| 07 | Threshold selection, review-rate constraints, cost assumptions, and test confirmation |
-| 08 | SHAP explainability, local explanations, anchor-style rules, counterfactuals, and Deepchecks diagnostics |
-| 09 | Model card, validation summary, stakeholder brief, control register, risk limits, and monitoring plan |
+| Notebook | Purpose                                                                                              |
+| -------- | ---------------------------------------------------------------------------------------------------- |
+| 00       | Defines business context, scope, stakeholder use case, and responsible-use boundaries                |
+| 01       | Reviews Excel sheets, validates record grain, and documents merge logic                              |
+| 02       | Assesses missingness, duplicates, invalid values, logical issues, and leakage risks                  |
+| 03       | Cleans data, creates missingness flags, standardizes fields, and generates audit outputs             |
+| 04       | Performs portfolio monitoring, exposure analysis, segment risk review, and EDA                       |
+| 05       | Engineers features, defines leakage-safe modelling policy, and prepares train/validation/test splits |
+| 06       | Trains and compares Logistic Regression, Random Forest, and XGBoost models                           |
+| 07       | Selects operating threshold using validation data, review-cap limits, and cost assumptions           |
+| 08       | Produces SHAP explanations, local explanations, anchor-style rules, and counterfactual diagnostics   |
+| 09       | Creates model card, validation summary, monitoring plan, control register, and stakeholder brief     |
 
 ---
 
+## Data Quality and Governance Decisions
+
+The project documents important data-quality and modelling decisions before model training:
+
+| Area                    | Decision                                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
+| Record grain            | Preserve row-level sequencing to avoid many-to-many merge inflation                             |
+| Missing values          | Create missingness flags before imputation                                                      |
+| Invalid values          | Review non-positive loan amounts and convert invalid values to missing where appropriate        |
+| High-cardinality fields | Avoid direct one-hot encoding of very high-cardinality variables                                |
+| Geographic proxy risk   | Exclude geographic proxy fields from the baseline model unless governance justification exists  |
+| Sensitive attributes    | Exclude sensitive attributes from predictive features                                           |
+| Leakage prevention      | Exclude repayment-derived and target-adjacent fields from baseline modelling                    |
+| Model evaluation        | Use validation data for model and threshold selection; reserve test data for final confirmation |
+| Responsible use         | Use model output for manual-review prioritization, not automated credit decline                 |
+
 ## Models Evaluated
 
-The project evaluates multiple modelling approaches:
+The project evaluates several candidate models:
 
 - Logistic Regression baseline
 - Random Forest weighted baseline
@@ -226,7 +256,7 @@ The project evaluates multiple modelling approaches:
 - XGBoost tuned challenger
 - Optional train-only resampling challengers
 
-Model comparison uses metrics that matter for imbalanced credit risk problems:
+Model comparison uses metrics suitable for imbalanced credit risk classification:
 
 - ROC-AUC
 - PR-AUC
@@ -257,9 +287,25 @@ Model comparison uses metrics that matter for imbalanced credit risk problems:
 | Validation | 62.59% | 19.05% | 29.71% | $5.83M | Selected using validation data under review-cap constraint |
 | Test | 62.21% | 19.09% | 29.46% | $5.85M | Held-out confirmation of selected operating policy |
 
-Business-cost values are illustrative scenario assumptions for threshold comparison. They are not accounting estimates or production loss forecasts.
+Business-cost values are illustrative scenario assumptions for threshold comparison. They are not accounting estimates, IFRS 9 estimates, or production loss forecasts.
 
 ---
+
+## Why the Model Result Is Credible
+
+The final result is intentionally not presented as a near-perfect model. In real credit risk modelling, unusually high accuracy or perfect recall can indicate leakage, target contamination, or evaluation on resampled test data.
+
+This project therefore emphasizes:
+
+- Leakage-safe feature selection
+- Train/validation/test separation
+- Evaluation on an untouched test set
+- PR-AUC and recall/precision trade-offs
+- Review-rate constraints
+- Governance documentation
+- Responsible-use limitations
+
+A moderate but leakage-controlled model is more credible than an unrealistic model with near-perfect classification metrics.
 
 ## Explainable AI Outputs
 
@@ -275,7 +321,7 @@ Notebook 08 generates business-readable explainability artifacts:
 - Deepchecks model evaluation report
 - Stakeholder metric interpretation table
 
-Important governance note: counterfactuals are diagnostic model-sensitivity scenarios and should not be used as direct customer instructions.
+Important governance note:Important governance note: counterfactuals are diagnostic model-sensitivity scenarios and should not be used as direct customer instructions.
 
 ---
 
@@ -283,16 +329,16 @@ Important governance note: counterfactuals are diagnostic model-sensitivity scen
 
 Notebook 09 produces governance-ready documentation:
 
-| Output | Purpose |
-|---|---|
-| `reports/governance/model_card.md` | Model overview, intended use, performance, explainability, and limitations |
-| `reports/governance/model_validation_summary.md` | Validation/test evidence and governance decision |
-| `reports/governance/stakeholder_brief.md` | Non-technical explanation for business stakeholders |
-| `reports/governance/model_monitoring_plan.md` | Monitoring cadence, KPIs, risk limits, and escalation actions |
-| `reports/tables/model_control_register.csv` | Model-risk controls and ownership |
-| `reports/tables/model_risk_limit_register.csv` | Monitoring thresholds and breach actions |
-| `reports/tables/model_monitoring_kpi_snapshot.csv` | Initial monitoring baseline |
-| `reports/tables/model_governance_summary.csv` | Executive governance summary |
+| Output                                             | Purpose                                                                                        |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `reports/governance/model_card.md`                 | Summarizes model purpose, intended use, performance, explainability, limitations, and controls |
+| `reports/governance/model_validation_summary.md`   | Documents validation/test evidence and governance decision                                     |
+| `reports/governance/stakeholder_brief.md`          | Explains model performance and business use in non-technical language                          |
+| `reports/governance/model_monitoring_plan.md`      | Defines monitoring cadence, KPIs, risk limits, and escalation actions                          |
+| `reports/tables/model_control_register.csv`        | Lists model-risk controls and ownership                                                        |
+| `reports/tables/model_risk_limit_register.csv`     | Defines monitoring thresholds and breach actions                                               |
+| `reports/tables/model_monitoring_kpi_snapshot.csv` | Provides initial monitoring baseline                                                           |
+| `reports/tables/model_governance_summary.csv`      | Provides executive governance summary                                                          |
 
 ---
 
@@ -300,18 +346,18 @@ Notebook 09 produces governance-ready documentation:
 
 The project documents controls that are important in financial-services analytics:
 
-| Control area | Decision |
-|---|---|
-| Record grain | Preserve borrower record sequencing to prevent many-to-many merge inflation |
-| Data quality | Retain missingness flags and data-quality indicators with governance notes |
-| Leakage prevention | Exclude repayment-derived fields from model features |
-| Sensitive/proxy fields | Exclude sensitive and proxy-sensitive fields from the baseline model |
-| Model selection | Select models using validation data, not the test set |
-| Threshold selection | Select operating threshold using validation data and capacity constraints |
-| Test usage | Use test data only once for final confirmation |
-| Explainability | Provide global and local explanations for stakeholder review |
-| Monitoring | Define drift, performance, review-rate, and data-quality monitoring limits |
-| Use restriction | Use for decision support and review prioritization only |
+| Control Area            | Decision                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------ |
+| Record-grain control    | Preserve borrower record sequencing and audit keys                             |
+| Data-quality control    | Retain missingness indicators and document data limitations                    |
+| Leakage control         | Exclude repayment-derived and target-adjacent variables from baseline features |
+| Sensitive/proxy control | Exclude sensitive and high-risk proxy variables from baseline modelling        |
+| Model-selection control | Select models using validation data only                                       |
+| Threshold-control       | Select threshold using review-cap and cost assumptions                         |
+| Test-data control       | Use test data once for final confirmation                                      |
+| Explainability control  | Provide global and local explanations for review                               |
+| Monitoring control      | Define drift, performance, review-rate, and data-quality monitoring limits     |
+| Use restriction         | Limit use to decision support and manual-review prioritization                 |
 
 ---
 
@@ -385,11 +431,10 @@ python scripts/run_governance_pipeline.py
 
 ### 5. Run notebooks in order
 
-Open and run notebooks from `00` to `09`. The notebooks explain both the technical implementation and the business reasoning.
+Open and run notebooks from `00` to `09`. The notebooks explain both the technical implementation and the business reasoning behind each decision.
 
 ---
 
-<<<<<<< HEAD
 ## Technical Stack
 
 | Category | Tools |
@@ -404,6 +449,7 @@ Open and run notebooks from `00` to `09`. The notebooks explain both the technic
 | Visualization | matplotlib, seaborn, plotly |
 | Governance reporting | Markdown, CSV reports, model card, validation summary |
 | Code quality | pytest, black, ruff |
+| Version control | Git, GitHub |
 
 ---
 
@@ -435,26 +481,26 @@ Generated summary tables, figures, and governance markdown files may be committe
 ## Limitations
 
 - The dataset is used for portfolio demonstration and does not represent a production Canadian bank system.
-- The model is intended for default-risk ranking and review prioritization, not automated credit decisions.
+- The model is intended for default-risk ranking and manual-review prioritization, not automated credit approval or decline.
 - Business-cost assumptions are illustrative and used only for threshold comparison.
-- Counterfactual scenarios are diagnostic only.
+- Counterfactual scenarios are diagnostic only and are not customer-facing recommendations.
 - Additional production work would require independent validation, fairness testing, calibration review, privacy/legal review, monitoring automation, deployment controls, and stakeholder approval.
 
 ---
 
 ## Summary
 
-This project demonstrates the ability to deliver a finance-focused analytics project beyond basic modelling. It shows:
+This project demonstrates the ability to deliver a finance-focused analytics project beyond basic modelling. It shows practical experience with:
 
 - Credit-risk business understanding
-- Data quality and leakage control
+- Data quality assessment and leakage control
 - Portfolio monitoring and borrower segmentation
 - Imbalanced classification modelling
 - XGBoost and Random Forest model development
 - Validation-based threshold selection
-- SHAP explainability and local reason-code style outputs
-- Model risk governance documentation
+- SHAP explainability and local explanations
+- Model-risk governance documentation
 - Monitoring KPI and control design
 - Reproducible Python pipeline design
 
-The project is built to demonstrate readiness for Canadian banking, credit risk, model risk, portfolio analytics, and financial data analyst roles.
+The project is built to demonstrate readiness for Canadian banking, credit risk, risk analytics, model risk, portfolio analytics, and financial data analyst roles.
