@@ -48,23 +48,6 @@ This project connects **credit risk business context**, **data analytics**, **ma
 
 ---
 
-## Target Roles This Project Supports
-
-This project is designed to support applications for roles such as:
-
-| Target Role                      | Project Evidence                                                                                                                        |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Credit Risk Analyst              | Default-rate analysis, borrower segmentation, portfolio exposure review, delinquency behaviour analysis, and risk-driver interpretation |
-| Risk Analytics Analyst           | Python-based modelling, validation metrics, threshold strategy, model performance comparison, and monitoring KPI design                 |
-| Data Analyst - Banking / Finance | Data quality checks, exploratory data analysis, reporting tables, reproducible pipelines, and business-focused insights                 |
-| Portfolio Analytics Analyst      | Review-rate analysis, risk ranking, segment-level monitoring, exposure analysis, and portfolio performance tracking                     |
-| Model Risk Analyst               | Leakage review, model validation summary, model card, control register, and explainability documentation                                |
-| Banking Data Scientist           | Random Forest, XGBoost, imbalanced classification, SHAP explainability, threshold tuning, and model monitoring                          |
-| BI / Reporting Analyst           | Governance tables, KPI snapshots, stakeholder summaries, structured reporting outputs, and executive-ready documentation                |
-
-
----
-
 ## Project Highlights
 
 | Area | Result |
@@ -482,6 +465,22 @@ __pycache__/
 ```
 
 Generated summary tables, figures, and governance markdown files may be committed if they do not expose confidential or restricted raw data.
+
+---
+
+## Target Roles This Project Supports
+
+This project is designed to support applications for roles such as:
+
+| Target Role                      | Project Evidence                                                                                                                        |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Credit Risk Analyst              | Default-rate analysis, borrower segmentation, portfolio exposure review, delinquency behaviour analysis, and risk-driver interpretation |
+| Risk Analytics Analyst           | Python-based modelling, validation metrics, threshold strategy, model performance comparison, and monitoring KPI design                 |
+| Data Analyst - Banking / Finance | Data quality checks, exploratory data analysis, reporting tables, reproducible pipelines, and business-focused insights                 |
+| Portfolio Analytics Analyst      | Review-rate analysis, risk ranking, segment-level monitoring, exposure analysis, and portfolio performance tracking                     |
+| Model Risk Analyst               | Leakage review, model validation summary, model card, control register, and explainability documentation                                |
+| Banking Data Scientist           | Random Forest, XGBoost, imbalanced classification, SHAP explainability, threshold tuning, and model monitoring                          |
+| BI / Reporting Analyst           | Governance tables, KPI snapshots, stakeholder summaries, structured reporting outputs, and executive-ready documentation                |
 
 ---
 
