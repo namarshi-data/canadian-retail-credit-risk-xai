@@ -1,6 +1,6 @@
 # Canadian Retail Credit Risk Analytics: Loan Default Prediction with Explainable AI
 
-## Explainable Default Prediction, Portfolio Monitoring, Threshold Strategy, and Model Governance
+**Explainable default prediction, portfolio monitoring, threshold strategy, and model governance**
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Machine Learning](https://img.shields.io/badge/ML-XGBoost%20%7C%20Random%20Forest%20%7C%20Logistic%20Regression-green)
