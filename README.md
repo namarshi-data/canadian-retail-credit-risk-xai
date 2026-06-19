@@ -1,4 +1,4 @@
-# Canadian Retail Credit Risk Analytics
+# Canadian Retail Credit Risk Analytics: Loan Default Prediction with Explainable AI
 
 ## Explainable Default Prediction, Portfolio Monitoring, Threshold Strategy, and Model Governance
 
